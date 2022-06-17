@@ -1,6 +1,18 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container } from 'reactstrap';
+import MainPage from './Components/MainPage/MainPage';
+import NavBar from './Components/Menu/NavBar';
+
 function App() {
   return (
-    <div className="App" />
+    <>
+      <NavBar />
+      <Container>
+        <MainPage />
+      </Container>
+
+    </>
+
   );
 }
 
