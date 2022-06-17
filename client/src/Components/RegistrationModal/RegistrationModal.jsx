@@ -6,24 +6,36 @@ import {
   Form,
   FormGroup, Input, Label, Modal, ModalBody, ModalHeader,
 } from 'reactstrap';
-import regModalAction from '../../Redux/Actions/regModalAction';
+import regModalAction, { regUser, setUser } from '../../Redux/Actions/regModalAction';
 
 export default function RegistrationModal() {
   // const [loginModal, setLoginModal] = useState(false);
-  const { regModal } = useSelector((state) => state);
+  // const { regModal } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const closeHandler = () => {
-    dispatch(regModalAction(false));
+    dispatch(setUser(false));
   };
   const changeRegModal = () => {
-    dispatch(regModalAction(true));
+    dispatch(setUser(true));
+  };
+
+  // const submitHandler = (e) => {
+  //   e.preventDefault();
+  //   // dispatch(changePostAction(post));
+  //   dispatch(regModalAction(false));
+  // };
+
+  const [inputs, setInputs] = useState({});
+  // const dispatch = useDispatch();
+  const inputHandler = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
-    // dispatch(changePostAction(post));
-    dispatch(regModalAction(false));
+    dispatch(regUser(inputs));
+    setInputs({});
   };
 
   return (
@@ -31,7 +43,7 @@ export default function RegistrationModal() {
       <Button onClick={changeRegModal}>
         Зарегистрироваться
       </Button>
-      <Modal isOpen={regModal} toggle={closeHandler}>
+      <Modal isOpen={regUser} toggle={closeHandler}>
         <ModalHeader toggle={closeHandler}>Регистрация</ModalHeader>
         <ModalBody>
           <Form>
@@ -43,7 +55,8 @@ export default function RegistrationModal() {
                 id="name"
                 name="name"
                 placeholder="..."
-                // value={post.title || ''}
+                onChange={inputHandler}
+                value={inputs.login || ''}
                 type="name"
               />
             </FormGroup>
@@ -55,7 +68,8 @@ export default function RegistrationModal() {
                 id="phone"
                 name="phone"
                 placeholder="..."
-                // value={post.title || ''}
+                onChange={inputHandler}
+                value={inputs.tel || ''}
                 type="phone"
               />
             </FormGroup>
@@ -67,7 +81,8 @@ export default function RegistrationModal() {
                 id="email"
                 name="email"
                 placeholder="..."
-                // value={post.title || ''}
+                onChange={inputHandler}
+                value={inputs.email || ''}
                 type="email"
               />
             </FormGroup>

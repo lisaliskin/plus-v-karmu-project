@@ -1,7 +1,13 @@
+import axios from 'axios';
 import { SET_REG_MODAL } from '../types/modalstype';
 
-const regModalAction = (value) => ({
+export const setUser = (value) => ({
   type: SET_REG_MODAL,
   payload: value,
 });
-export default regModalAction;
+
+export const regUser = (value) => (dispatch) => {
+  axios.post('/user/signup', value)
+    .then((response) => dispatch(setUser(response.data)))
+    .catch((err) => console.log(err));
+};

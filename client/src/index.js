@@ -4,9 +4,13 @@ import { Provider } from 'react-redux';
 import {
   BrowserRouter,
 } from 'react-router-dom';
+import axios from 'axios';
 import App from './App';
 import './Style/style.css';
 import storeR from './Redux/store';
+
+axios.defaults.baseURL = process.env.REACT_APP_URL;
+axios.defaults.withCredentials = true;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

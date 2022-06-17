@@ -39,7 +39,7 @@ app.use(
 
 // APP'S ROUTES
 app.use('/auth', authRouter);
-app.use('/users', usersRouter);
+app.use('/user', usersRouter);
 
 app.listen(PORT, () => {
   console.log('Сервер запущен на порте', PORT);

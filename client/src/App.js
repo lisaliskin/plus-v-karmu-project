@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Container } from 'reactstrap';
+import { Button, Container, Navbar } from 'reactstrap';
 import {
   Routes,
   Route,
@@ -14,6 +14,8 @@ import loginModalAction from './Redux/Actions/loginModalAction';
 
 function App() {
   return (
+    <>
+    <Navbar />
     <Container>
       <Routes>
         <Route path="/" element={<MainPage />} />
@@ -23,6 +25,7 @@ function App() {
       {/* <LoginModal />
       <RegistrationModal /> */}
     </Container>
+    </>
   );
 }
 
