@@ -1,12 +1,11 @@
 import React from 'react';
 import {
-  Button,
-  Collapse, Nav, Navbar, NavbarBrand, NavItem,
+  Button, Collapse, Nav, Navbar,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 export default function NavBar() {
-  const logo = 'logoPlusKkarme.png';
+  const logo = 'logoPlusKkarme.svg';
   return (
     <div>
       <Navbar
@@ -21,14 +20,14 @@ export default function NavBar() {
             navbar
           >
             <Button outline className="registerBtn">
-              <Link to="/register">
-                Зарегистрироваться
-              </Link>
+              {/* <Link to="/register"> */}
+              Зарегистрироваться
+              {/* </Link> */}
             </Button>
             <Button outline className="loginBtn">
-              <Link to="/login">
-                Логин
-              </Link>
+              {/* <Link to="/login"> */}
+              Логин
+              {/* </Link> */}
             </Button>
           </Nav>
         </Collapse>
