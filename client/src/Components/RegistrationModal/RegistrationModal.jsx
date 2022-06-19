@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   Button,
+  Col,
   Container,
   Form,
-  FormGroup, Input, Label, Modal, ModalBody, ModalHeader,
+  FormGroup, Input, Label, Modal, ModalBody, ModalHeader, Row,
 } from 'reactstrap';
 import regModalAction from '../../Redux/Actions/regModalAction';
 
@@ -28,37 +29,40 @@ export default function RegistrationModal() {
 
   return (
     <div>
-      <Button onClick={changeRegModal}>
-        Зарегистрироваться
-      </Button>
-      <Modal isOpen={regModal} toggle={closeHandler}>
+      <Modal className="modal-dialog modalFullscreenXlDown" isOpen={regModal} toggle={closeHandler}>
         <ModalHeader toggle={closeHandler}>Регистрация</ModalHeader>
         <ModalBody>
+          <Row>
+            <Col md={6}>
+              <FormGroup>
+                <Label for="exampleEmail">
+                  Имя
+                </Label>
+                <Input
+                  id="name"
+                  name="name"
+                  placeholder="..."
+                  // value={post.title || ''}
+                  type="name"
+                />
+              </FormGroup>
+            </Col>
+            <Col md={6}>
+              <FormGroup>
+                <Label for="exampleEmail">
+                  Номер телефона
+                </Label>
+                <Input
+                  id="phone"
+                  name="phone"
+                  placeholder="..."
+                  // value={post.title || ''}
+                  type="phone"
+                />
+              </FormGroup>
+            </Col>
+          </Row>
           <Form>
-            <FormGroup>
-              <Label for="exampleEmail">
-                Имя
-              </Label>
-              <Input
-                id="name"
-                name="name"
-                placeholder="..."
-                // value={post.title || ''}
-                type="name"
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="exampleEmail">
-                Введите ваш номер телефона
-              </Label>
-              <Input
-                id="phone"
-                name="phone"
-                placeholder="..."
-                // value={post.title || ''}
-                type="phone"
-              />
-            </FormGroup>
             <FormGroup>
               <Label for="exampleEmail">
                 Введите ваш Email
@@ -95,13 +99,16 @@ export default function RegistrationModal() {
                 type="password"
               />
             </FormGroup>
-            <Button
-              color="success"
-              outline
-              onClick={submitHandler}
-            >
-              Войти
-            </Button>
+            <Row xs={2} className="row justify-content-md-center">
+              <Button
+                color="success"
+                outline
+                onClick={submitHandler}
+                className="fst-italic col-5"
+              >
+                Зарегистрироваться
+              </Button>
+            </Row>
           </Form>
         </ModalBody>
       </Modal>

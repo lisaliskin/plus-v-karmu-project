@@ -11,13 +11,19 @@ import LoginModal from './Components/LoginModal/LoginModal';
 import RegistrationModal from './Components/RegistrationModal/RegistrationModal';
 import MainPage from './Components/MainPage/MainPage';
 import loginModalAction from './Redux/Actions/loginModalAction';
+import NavBar from './Components/Menu/NavBar';
+import TaskModal from './Components/TaskModal/TaskModal';
+import Lk1 from './Components/Lk1/Lk1';
 
 function App() {
   return (
     <Container>
+      <NavBar />
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/logIn" element={<LoginModal />} />
+        <Route path="/lk" element={<Lk1 />} />
+        <Route path="/newTask" element={<TaskModal />} />
         <Route path="/registration" element={<RegistrationModal />} />
       </Routes>
       {/* <LoginModal />

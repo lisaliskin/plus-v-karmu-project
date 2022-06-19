@@ -4,9 +4,26 @@ import {
   Collapse, Nav, Navbar, NavbarBrand, NavItem,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import loginModalAction from '../../Redux/Actions/loginModalAction';
+import regModalAction from '../../Redux/Actions/regModalAction';
+import taskModalAction from '../../Redux/Actions/taskModalAction';
 
 export default function NavBar() {
   const logo = 'logoPlusKkarme.png';
+  const { loginModal, regModal, taskModal } = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  const changeLoginModal = () => {
+    dispatch(loginModalAction(true));
+  };
+  const changeRegModal = () => {
+    dispatch(regModalAction(true));
+  };
+  const changeTaskModal = () => {
+    dispatch(taskModalAction(true));
+  };
+
   return (
     <div>
       <Navbar
@@ -20,16 +37,26 @@ export default function NavBar() {
             className="me-auto"
             navbar
           >
-            <Button outline className="registerBtn">
-              <Link to="/register">
+            <Link to="/lk">
+              <Button>
+                lk
+              </Button>
+            </Link>
+            <Link to="/newTask">
+              <Button outline onClick={changeTaskModal} className="registerBtn">
+                Создать задачу
+              </Button>
+            </Link>
+            <Link to="/registration">
+              <Button outline onClick={changeRegModal} className="registerBtn">
                 Зарегистрироваться
-              </Link>
-            </Button>
-            <Button outline className="loginBtn">
-              <Link to="/login">
+              </Button>
+            </Link>
+            <Link to="/login">
+              <Button outline onClick={changeLoginModal} className="loginBtn">
                 Логин
-              </Link>
-            </Button>
+              </Button>
+            </Link>
           </Nav>
         </Collapse>
       </Navbar>
