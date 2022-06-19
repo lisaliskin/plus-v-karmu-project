@@ -1,7 +1,6 @@
 import React from 'react';
 import {
-  Button,
-  Collapse, Nav, Navbar, NavbarBrand, NavItem,
+  Button, Collapse, Nav, Navbar,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';

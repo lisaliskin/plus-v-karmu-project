@@ -11,9 +11,9 @@ import LoginModal from './Components/LoginModal/LoginModal';
 import RegistrationModal from './Components/RegistrationModal/RegistrationModal';
 import MainPage from './Components/MainPage/MainPage';
 import loginModalAction from './Redux/Actions/loginModalAction';
-import NavBar from './Components/Menu/NavBar';
 import TaskModal from './Components/TaskModal/TaskModal';
 import Lk1 from './Components/Lk1/Lk1';
+import NavBar from './Components/Navbar/NavBar';
 
 function App() {
   return (
