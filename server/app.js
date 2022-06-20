@@ -4,8 +4,18 @@ const session = require('express-session');
 const cors = require('cors');
 const FileStore = require('session-file-store')(session);
 
+
+const http = require('http');
+const { v4: uuidv4 } = require('uuid');
+
+const { WebSocketServer } = require('ws');
+
+const map = new Map(); //(Хранение данных. Возвращает ключ(id) => значение(браузерное соединение пользователя))
+
 const authRouter = require('./routes/auth.router');
 const usersRouter = require('./routes/users.router');
+const messageRouter = require('./routes/message.router')
+
 
 const app = express();
 
@@ -22,9 +32,9 @@ app.use(
   }),
 );
 app.use(express.json());
-app.use(
-  session({
-    name: app.get('cookieName'),
+
+const sessionParser = session({
+  name: app.get('cookieName'),
     secret: COOKIE_SECRET,
     resave: false,
     saveUninitialized: false,
@@ -34,13 +44,58 @@ app.use(
       httpOnly: true,
       maxAge: 1e3 * 86400, // COOKIE'S LIFETIME — 1 DAY
     },
-  }),
-);
+  });
+  
+  // APP'S ROUTES
+  app.use('/auth', authRouter);
+  app.use('/users', usersRouter);
+  app.use('/message', messageRouter);
+  
+//  //part1 'upgrade' обновление протокола
+// server.on('upgrade', function (request, socket, head) {
+//   console.log('Parsing session from request...');
 
-// APP'S ROUTES
-app.use('/auth', authRouter);
-app.use('/users', usersRouter);
+//    sessionParser(request, {}, () => {
+//    // if (!request.session.userId) {
+//     //  socket.write('HTTP/1.1 401 Unauthorized\r\n\r\n');
+//      // socket.destroy();
+//      // return;
+//    // }
 
-app.listen(PORT, () => {
-  console.log('Сервер запущен на порте', PORT);
+//    // console.log('Session is parsed!');
+
+//     wss.handleUpgrade(request, socket, head, function (ws) {  //(ws)-экземпляр подключения самого пользователя
+//       wss.emit('connection', ws, request);
+//     });
+//   });
+// });
+
+// // part2 работа с подключением
+// wss.on('connection', function (ws, request) {
+//   const userid = request.session.userid || uuidv4() ;
+
+//   map.set(userid, ws); //ws - идентификатор подключения
+
+//   ws.on('message', function (message) {
+//     //
+//     // Here we can now use session parameters.
+//     //
+//     console.log(`Received message ${message} from user ${userid}`);
+//   });
+
+//   ws.on('close', function () {
+//     map.delete(userid);
+//   });
+// });
+
+
+
+
+
+const server = http.createServer(app);
+
+
+server.listen(PORT, () => {
+  console.log('server start on', PORT);
+
 });
