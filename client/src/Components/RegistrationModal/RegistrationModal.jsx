@@ -7,7 +7,8 @@ import {
   Form,
   FormGroup, Input, Label, Modal, ModalBody, ModalHeader, Row,
 } from 'reactstrap';
-import { regModalAction, regUser } from '../../Redux/Actions/regModalAction';
+import regModalAction from '../../Redux/Actions/regModalAction';
+import { regUser } from '../../Redux/Actions/regUserAction';
 
 export default function RegistrationModal({ onHide }) {
   const [inputs, setInputs] = useState({});
@@ -25,9 +26,15 @@ export default function RegistrationModal({ onHide }) {
   const submitHandler = (e) => {
     e.preventDefault();
     // dispatch(changePostAction(post));
-    dispatch(regUser(inputs))
-      .then((data) => onHide());
+    dispatch(regUser(inputs));
+    dispatch(regModalAction(false));
+
+    // dispatch(regModalAction(false));
   };
+  // const onClick123 = (e) => {
+  //   submitHandler(e);
+  //   setTimeout(closeHandler(), 1200);
+  // };
 
   const inputHandler = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -124,6 +131,7 @@ export default function RegistrationModal({ onHide }) {
                 color="success"
                 outline
                 onClick={submitHandler}
+                // data-dismiss="modal-dialog"
                 className="fst-italic col-5"
               >
                 Зарегистрироваться

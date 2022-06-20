@@ -24,7 +24,7 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="/main" element={<MainPageUser />} />
           <Route path="/login" element={<LoginModal />} />
-          <Route path="/register" element={<RegistrationModal />} />
+          <Route path="/registration" element={<RegistrationModal />} />
           <Route path="/account" element={<AccountPage />} />
           <Route path="/lk" element={<Lk1 />} />
           <Route path="/newTask" element={<TaskModal />} />
