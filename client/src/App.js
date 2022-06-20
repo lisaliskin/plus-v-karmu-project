@@ -13,6 +13,7 @@ import MainPage from './Components/MainPage/MainPage';
 import loginModalAction from './Redux/Actions/loginModalAction';
 import NavBar from './Components/Navbar/NavBar';
 import AccountPage from './Components/AccountPage/AccountPage';
+import MainPageUser from './Components/MainPageUser/MainPageUser';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Container>
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="/main" element={<MainPageUser />} />
           <Route path="/login" element={<LoginModal />} />
           <Route path="/register" element={<RegistrationModal />} />
           <Route path="/account" element={<AccountPage />} />
