@@ -2,77 +2,74 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   Button,
+  Col,
   Container,
   Form,
-  FormGroup, Input, Label, Modal, ModalBody, ModalHeader,
+  FormGroup, Input, Label, Modal, ModalBody, ModalHeader, Row,
 } from 'reactstrap';
-import regModalAction, { regUser, setUser } from '../../Redux/Actions/regModalAction';
+import { regModalAction, regUser } from '../../Redux/Actions/regModalAction';
 
 export default function RegistrationModal() {
+  const [inputs, setInputs] = useState({});
   // const [loginModal, setLoginModal] = useState(false);
-  // const { regModal } = useSelector((state) => state);
+  const { regModal } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const closeHandler = () => {
-    dispatch(setUser(false));
+    dispatch(regModalAction(false));
   };
   const changeRegModal = () => {
-    dispatch(setUser(true));
-  };
-
-  // const submitHandler = (e) => {
-  //   e.preventDefault();
-  //   // dispatch(changePostAction(post));
-  //   dispatch(regModalAction(false));
-  // };
-
-  const [inputs, setInputs] = useState({});
-  // const dispatch = useDispatch();
-  const inputHandler = (e) => {
-    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    dispatch(regUser(true));
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
+    // dispatch(changePostAction(post));
     dispatch(regUser(inputs));
-    setInputs({});
+  };
+
+  const inputHandler = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   return (
     <div>
-      <Button onClick={changeRegModal}>
-        Зарегистрироваться
-      </Button>
-      <Modal isOpen={regUser} toggle={closeHandler}>
+      <Modal className="modal-dialog modalFullscreenXlDown" isOpen={regModal} toggle={closeHandler}>
         <ModalHeader toggle={closeHandler}>Регистрация</ModalHeader>
         <ModalBody>
+          <Row>
+            <Col md={6}>
+              <FormGroup>
+                <Label for="exampleEmail">
+                  Имя
+                </Label>
+                <Input
+                  id="name"
+                  name="name"
+                  placeholder="..."
+                  onChange={inputHandler}
+                  value={inputs.name || ''}
+                  type="name"
+                />
+              </FormGroup>
+            </Col>
+            <Col md={6}>
+              <FormGroup>
+                <Label for="exampleEmail">
+                  Номер телефона
+                </Label>
+                <Input
+                  id="phone"
+                  name="phone"
+                  placeholder="..."
+                  onChange={inputHandler}
+                  value={inputs.phone || ''}
+                  type="phone"
+                />
+              </FormGroup>
+            </Col>
+          </Row>
           <Form>
-            <FormGroup>
-              <Label for="exampleEmail">
-                Имя
-              </Label>
-              <Input
-                id="name"
-                name="name"
-                placeholder="..."
-                onChange={inputHandler}
-                value={inputs.login || ''}
-                type="name"
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="exampleEmail">
-                Введите ваш номер телефона
-              </Label>
-              <Input
-                id="phone"
-                name="phone"
-                placeholder="..."
-                onChange={inputHandler}
-                value={inputs.tel || ''}
-                type="phone"
-              />
-            </FormGroup>
             <FormGroup>
               <Label for="exampleEmail">
                 Введите ваш Email
@@ -94,7 +91,8 @@ export default function RegistrationModal() {
                 id="password1"
                 name="password1"
                 placeholder="new password"
-                // value={post.body || ''}
+                onChange={inputHandler}
+                value={inputs.password1 || ''}
                 type="password"
               />
             </FormGroup>
@@ -106,17 +104,30 @@ export default function RegistrationModal() {
                 id="password2"
                 name="password2"
                 placeholder="repeat new password"
-                // value={post.body || ''}
+                onChange={inputHandler}
+                value={inputs.password2 || ''}
                 type="password"
               />
             </FormGroup>
-            <Button
-              color="success"
-              outline
-              onClick={submitHandler}
-            >
-              Войти
-            </Button>
+            <FormGroup>
+              <Input
+                id="role"
+                name="role"
+                onChange={inputHandler}
+                value={inputs.role || 'USER'}
+                type="hidden"
+              />
+            </FormGroup>
+            <Row xs={2} className="row justify-content-md-center">
+              <Button
+                color="success"
+                outline
+                onClick={submitHandler}
+                className="fst-italic col-5"
+              >
+                Зарегистрироваться
+              </Button>
+            </Row>
           </Form>
         </ModalBody>
       </Modal>
