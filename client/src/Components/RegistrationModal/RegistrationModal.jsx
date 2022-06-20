@@ -7,9 +7,10 @@ import {
   Form,
   FormGroup, Input, Label, Modal, ModalBody, ModalHeader, Row,
 } from 'reactstrap';
-import regModalAction from '../../Redux/Actions/regModalAction';
+import { regModalAction, regUser } from '../../Redux/Actions/regModalAction';
 
-export default function RegistrationModal() {
+export default function RegistrationModal({ onHide }) {
+  const [inputs, setInputs] = useState({});
   // const [loginModal, setLoginModal] = useState(false);
   const { regModal } = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -17,14 +18,19 @@ export default function RegistrationModal() {
   const closeHandler = () => {
     dispatch(regModalAction(false));
   };
-  const changeRegModal = () => {
-    dispatch(regModalAction(true));
-  };
+  // const changeRegModal = () => {
+  //   dispatch(regUser(true));
+  // };
 
   const submitHandler = (e) => {
     e.preventDefault();
     // dispatch(changePostAction(post));
-    dispatch(regModalAction(false));
+    dispatch(regUser(inputs))
+      .then((data) => onHide());
+  };
+
+  const inputHandler = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   return (
@@ -42,7 +48,8 @@ export default function RegistrationModal() {
                   id="name"
                   name="name"
                   placeholder="..."
-                  // value={post.title || ''}
+                  onChange={inputHandler}
+                  value={inputs.name || ''}
                   type="name"
                 />
               </FormGroup>
@@ -56,7 +63,8 @@ export default function RegistrationModal() {
                   id="phone"
                   name="phone"
                   placeholder="..."
-                  // value={post.title || ''}
+                  onChange={inputHandler}
+                  value={inputs.phone || ''}
                   type="phone"
                 />
               </FormGroup>
@@ -71,7 +79,8 @@ export default function RegistrationModal() {
                 id="email"
                 name="email"
                 placeholder="..."
-                // value={post.title || ''}
+                onChange={inputHandler}
+                value={inputs.email || ''}
                 type="email"
               />
             </FormGroup>
@@ -83,7 +92,8 @@ export default function RegistrationModal() {
                 id="password1"
                 name="password1"
                 placeholder="new password"
-                // value={post.body || ''}
+                onChange={inputHandler}
+                value={inputs.password1 || ''}
                 type="password"
               />
             </FormGroup>
@@ -95,8 +105,18 @@ export default function RegistrationModal() {
                 id="password2"
                 name="password2"
                 placeholder="repeat new password"
-                // value={post.body || ''}
+                onChange={inputHandler}
+                value={inputs.password2 || ''}
                 type="password"
+              />
+            </FormGroup>
+            <FormGroup>
+              <Input
+                id="role"
+                name="role"
+                onChange={inputHandler}
+                value={inputs.role || 'USER'}
+                type="hidden"
               />
             </FormGroup>
             <Row xs={2} className="row justify-content-md-center">
