@@ -9,6 +9,10 @@ export const regModalAction = (value) => ({
 export const regUser = (value) => (dispatch) => {
   axios.post('/auth/signup', value)
     .then((response) => dispatch(regModalAction(response.data)))
-    .then((response) => console.log(response.data))
     .catch((err) => console.log(err));
+};
+
+export const userLogOut = () => (dispatch) => {
+  axios('/auth/logout')
+    .then((res) => dispatch(regUser({})));
 };

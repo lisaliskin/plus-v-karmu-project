@@ -9,7 +9,7 @@ import {
 } from 'reactstrap';
 import { regModalAction, regUser } from '../../Redux/Actions/regModalAction';
 
-export default function RegistrationModal() {
+export default function RegistrationModal({ onHide }) {
   const [inputs, setInputs] = useState({});
   // const [loginModal, setLoginModal] = useState(false);
   const { regModal } = useSelector((state) => state);
@@ -18,14 +18,15 @@ export default function RegistrationModal() {
   const closeHandler = () => {
     dispatch(regModalAction(false));
   };
-  const changeRegModal = () => {
-    dispatch(regUser(true));
-  };
+  // const changeRegModal = () => {
+  //   dispatch(regUser(true));
+  // };
 
   const submitHandler = (e) => {
     e.preventDefault();
     // dispatch(changePostAction(post));
-    dispatch(regUser(inputs));
+    dispatch(regUser(inputs))
+      .then((data) => onHide());
   };
 
   const inputHandler = (e) => {

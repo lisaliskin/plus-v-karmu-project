@@ -21,6 +21,7 @@ app.use(
     credentials: true,
   }),
 );
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
   session({
@@ -30,9 +31,8 @@ app.use(
     saveUninitialized: false,
     store: new FileStore(),
     cookie: {
-      secure: false,
       httpOnly: true,
-      maxAge: 1e3 * 86400, // COOKIE'S LIFETIME — 1 DAY
+      expires: 24 * 60 * 60e3, // COOKIE'S LIFETIME — 1 DAY
     },
   }),
 );

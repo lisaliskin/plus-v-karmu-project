@@ -1,16 +1,16 @@
 import React from 'react';
 import {
-  Button, Collapse, Nav, Navbar,
+  Button, Collapse, Nav, Navbar, NavbarText,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import loginModalAction from '../../Redux/Actions/loginModalAction';
-import { regModalAction, regUser } from '../../Redux/Actions/regModalAction';
+import { loginModalAction } from '../../Redux/Actions/loginModalAction';
+import { regModalAction, regUser, userLogOut } from '../../Redux/Actions/regModalAction';
 import taskModalAction from '../../Redux/Actions/taskModalAction';
 
 export default function NavBar() {
   const logo = 'logoPlusKkarme.png';
-  const { loginModal, regModal, taskModal } = useSelector((state) => state);
+  const { user } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const changeLoginModal = () => {
@@ -22,6 +22,10 @@ export default function NavBar() {
   const changeTaskModal = () => {
     dispatch(taskModalAction(true));
   };
+
+  // const logOutHAndler = () => {
+  //   dispatch(userLogOut());
+  // };
 
   return (
     <div>
@@ -57,6 +61,9 @@ export default function NavBar() {
               </Button>
             </Link>
           </Nav>
+          {/* <NavbarText onClick={logOutHAndler}>
+            {user.name ? `Hi, ${user.name}` : 'Login please'}
+          </NavbarText> */}
         </Collapse>
       </Navbar>
     </div>
