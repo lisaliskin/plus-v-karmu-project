@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 const { User } = require('../db/models');
 
 const signUp = async (req, res) => {
-  const { name, password, email } = req.body;
+  const { name, password, email, tel, role } = req.body;
 
   if (name && password && email) {
     const secretPass = await bcrypt.hash(password, Number(process.env.ROUNDS));
@@ -11,6 +11,8 @@ const signUp = async (req, res) => {
         name,
         password: secretPass,
         email,
+        tel,
+        role,
       });
       req.session.user = {
         id: newUser.id,

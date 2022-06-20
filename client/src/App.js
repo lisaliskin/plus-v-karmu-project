@@ -11,20 +11,21 @@ import LoginModal from './Components/LoginModal/LoginModal';
 import RegistrationModal from './Components/RegistrationModal/RegistrationModal';
 import MainPage from './Components/MainPage/MainPage';
 import loginModalAction from './Redux/Actions/loginModalAction';
+import NavBar from './Components/Navbar/NavBar';
+import AccountPage from './Components/AccountPage/AccountPage';
 
 function App() {
   return (
     <>
-    <Navbar />
-    <Container>
-      <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/logIn" element={<LoginModal />} />
-        <Route path="/registration" element={<RegistrationModal />} />
-      </Routes>
-      {/* <LoginModal />
-      <RegistrationModal /> */}
-    </Container>
+      <NavBar />
+      <Container>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/login" element={<LoginModal />} />
+          <Route path="/register" element={<RegistrationModal />} />
+          <Route path="/account" element={<AccountPage />} />
+        </Routes>
+      </Container>
     </>
   );
 }
