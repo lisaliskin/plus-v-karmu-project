@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Button, Collapse, Nav, Navbar, NavbarText,
+  Button, Collapse, Container, Nav, Navbar, Row,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -35,36 +35,38 @@ export default function NavBar() {
         <Link to="/">
           <img src={logo} alt="logo" height={70} className="logo" />
         </Link>
-        <Collapse navbar>
-          <Nav
-            className="me-auto"
-            navbar
-          >
-            <Link to="/lk">
-              <Button>
-                lk
-              </Button>
-            </Link>
-            <Link to="/newTask">
-              <Button outline onClick={changeTaskModal} className="registerBtn">
-                Создать задачу
-              </Button>
-            </Link>
-            <Link to="/registration">
-              <Button outline onClick={changeRegModal} className="registerBtn">
-                Зарегистрироваться
-              </Button>
-            </Link>
-            <Link to="/login">
-              <Button outline onClick={changeLoginModal} className="loginBtn">
-                Логин
-              </Button>
-            </Link>
-          </Nav>
+        <Row>
+          <Collapse navbar>
+            <Nav
+              className="me-auto"
+              navbar
+            >
+              <Link to="/account">
+                <Button outline style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}>
+                  Личный кабинет
+                </Button>
+              </Link>
+              <Link to="/newTask">
+                <Button outline onClick={changeTaskModal} className="registerBtn" style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}>
+                  Создать задачу
+                </Button>
+              </Link>
+              <Link to="/registration">
+                <Button outline onClick={changeRegModal} className="registerBtn" style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}>
+                  Зарегистрироваться
+                </Button>
+              </Link>
+              <Link to="/login">
+                <Button outline onClick={changeLoginModal} className="loginBtn" style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}>
+                  Логин
+                </Button>
+              </Link>
+            </Nav>
+          </Collapse>
+        </Row>
           {/* <NavbarText onClick={logOutHAndler}>
             {user.name ? `Hi, ${user.name}` : 'Login please'}
           </NavbarText> */}
-        </Collapse>
       </Navbar>
     </div>
   );

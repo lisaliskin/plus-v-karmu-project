@@ -4,7 +4,7 @@ import {
   Button,
   Container,
   Form,
-  FormGroup, Input, Label, Modal, ModalBody, ModalHeader,
+  FormGroup, Input, Label, Modal, ModalBody, ModalHeader, Row,
 } from 'reactstrap';
 import { loginModalAction, userSignIn } from '../../Redux/Actions/loginModalAction';
 
@@ -63,13 +63,14 @@ export default function LoginModal() {
                 type="password"
               />
             </FormGroup>
-            <Button
-              color="success"
-              outline
-              onClick={submitHandler}
-            >
-              Войти
-            </Button>
+            <Row xs={4} className="row justify-content-md-center">
+              <Button
+                onClick={submitHandler}
+                style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}
+              >
+                Войти
+              </Button>
+            </Row>
           </Form>
         </ModalBody>
       </Modal>
