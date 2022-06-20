@@ -70,7 +70,7 @@ export default function RegistrationModal() {
               <Input
                 id="email"
                 name="email"
-                placeholder="..."
+                placeholder="email"
                 // value={post.title || ''}
                 type="email"
               />
@@ -101,10 +101,8 @@ export default function RegistrationModal() {
             </FormGroup>
             <Row xs={2} className="row justify-content-md-center">
               <Button
-                color="success"
-                outline
                 onClick={submitHandler}
-                className="fst-italic col-5"
+                style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}
               >
                 Зарегистрироваться
               </Button>
