@@ -11,24 +11,29 @@ import LoginModal from './Components/LoginModal/LoginModal';
 import RegistrationModal from './Components/RegistrationModal/RegistrationModal';
 import MainPage from './Components/MainPage/MainPage';
 import loginModalAction from './Redux/Actions/loginModalAction';
+import TaskModal from './Components/TaskModal/TaskModal';
+import Lk1 from './Components/Lk1/Lk1';
 import NavBar from './Components/Navbar/NavBar';
-import AccountPage from './Components/AccountPage/AccountPage';
 import ChatsPage from './Components/ChatsPage/ChatsPage';
+
 
 function App() {
   return (
-    <>
+    <Container>
       <NavBar />
-      <Container>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/login" element={<LoginModal />} />
-          <Route path="/register" element={<RegistrationModal />} />
-          <Route path="/account" element={<AccountPage />} />
-          <Route path="/chats" element = {<ChatsPage />} />
-        </Routes>
-      </Container>
-    </>
+
+
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/logIn" element={<LoginModal />} />
+        <Route path="/lk" element={<Lk1 />} />
+        <Route path="/newTask" element={<TaskModal />} />
+        <Route path="/registration" element={<RegistrationModal />} />
+        <Route path="/chats" element = {<ChatsPage />} />
+      </Routes>
+      {/* <LoginModal />
+      <RegistrationModal /> */}
+    </Container>
 
   );
 }

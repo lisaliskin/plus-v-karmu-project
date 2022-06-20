@@ -28,9 +28,6 @@ export default function LoginModal() {
 
   return (
     <div>
-      <Button onClick={changeLoginModal}>
-        войти
-      </Button>
       <Modal isOpen={loginModal} toggle={closeHandler}>
         <ModalHeader toggle={closeHandler}>LogIn</ModalHeader>
         <ModalBody>
