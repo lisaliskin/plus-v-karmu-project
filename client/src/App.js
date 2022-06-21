@@ -8,7 +8,6 @@ import RegistrationModal from './Components/RegistrationModal/RegistrationModal'
 import MainPage from './Components/MainPage/MainPage';
 import loginModalAction from './Redux/Actions/loginModalAction';
 import TaskModal from './Components/TaskModal/TaskModal';
-import Lk1 from './Components/Lk1/Lk1';
 import NavBar from './Components/Navbar/NavBar';
 import ChatsPage from './Components/ChatsPage/ChatsPage';
 import AccountPage from './Components/AccountPage/AccountPage';
@@ -25,7 +24,7 @@ function App() {
           <Route path="/main" element={<MainPageUser />} />
           <Route path="/login" element={<LoginModal />} />
           <Route path="/registration" element={<RegistrationModal />} />
-          <Route path="/account" element={<Lk1 />} />
+          <Route path="/account" element={<AccountPage />} />
           <Route path="/newTask" element={<TaskModal />} />
           <Route path="/chats" element={<ChatsPage />} />
           <Route path="/chats/chat/1" element={<ChatIdPage />} />

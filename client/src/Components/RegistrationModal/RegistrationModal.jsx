@@ -125,6 +125,8 @@ export default function RegistrationModal({ onHide }) {
             <Row xs={2} className="row justify-content-md-center">
               <Button
                 onClick={submitHandler}
+                // data-dismiss="modal-dialog"
+                className="fst-italic col-5"
                 style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}
               >
                 Зарегистрироваться
