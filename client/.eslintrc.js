@@ -45,4 +45,6 @@ module.exports = {
       "enforceForRenamedProperties": false
     }]
    },
-};
+    'no-console': 0,
+  };
+
