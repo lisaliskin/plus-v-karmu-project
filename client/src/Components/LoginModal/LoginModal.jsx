@@ -4,9 +4,10 @@ import {
   Button,
   Container,
   Form,
-  FormGroup, Input, Label, Modal, ModalBody, ModalHeader,
+  FormGroup, Input, Label, Modal, ModalBody, ModalHeader, Row,
 } from 'reactstrap';
-import { loginModalAction, userSignIn } from '../../Redux/Actions/loginModalAction';
+import loginModalAction from '../../Redux/Actions/loginModalAction';
+import { userSignIn } from '../../Redux/Actions/logUserAction';
 
 export default function LoginModal() {
   const [inputs, setInputs] = useState({});
@@ -29,6 +30,7 @@ export default function LoginModal() {
     e.preventDefault();
     dispatch(userSignIn(inputs));
     setInputs({});
+    dispatch(loginModalAction(false));
   };
 
   return (
@@ -63,13 +65,14 @@ export default function LoginModal() {
                 type="password"
               />
             </FormGroup>
-            <Button
-              color="success"
-              outline
-              onClick={submitHandler}
-            >
-              Войти
-            </Button>
+            <Row xs={4} className="row justify-content-md-center">
+              <Button
+                onClick={submitHandler}
+                style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}
+              >
+                Войти
+              </Button>
+            </Row>
           </Form>
         </ModalBody>
       </Modal>
