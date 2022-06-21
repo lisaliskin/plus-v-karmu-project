@@ -1,7 +1,7 @@
 const { Message } = require('../db/models')
 
 const addMesage = async (req, res) => {
-  console.log('--------->Message', req);
+  console.log('--------->Message', req.body);
   
   const { text, user_id, messanger_id } = req.body;
   if (user_id && messanger_id) {
@@ -10,7 +10,10 @@ const addMesage = async (req, res) => {
         text,
         user_id,
         messanger_id,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       });
+      console.log('------>> message create')
     } catch (error){
       console.error("Не передан либо ЮЗЕР либо Мессенджер");
       return res.sendStatus(500);

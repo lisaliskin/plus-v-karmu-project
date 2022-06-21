@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Container } from 'reactstrap';
@@ -16,6 +16,13 @@ import MainPageUser from './Components/MainPageUser/MainPageUser';
 import ChatIdPage from './Components/ChatIdPage/ChatIdPage';
 
 function App() {
+  const [input, setInput] = useState(123456)
+  const {ws} = useSelector((state) => state);
+  useEffect(() => {
+    if(ws.readyState === 1) {
+      ws.onmessage(console.log(input))
+     }
+  }, [input])
   return (
     <>
       <NavBar />
