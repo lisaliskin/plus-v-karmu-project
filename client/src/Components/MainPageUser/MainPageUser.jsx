@@ -61,7 +61,6 @@ export default function MainPageUser() {
             <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true">
               <div id="item-1">
                 <h4>помощь по дому</h4>
-                <p>...</p>
               </div>
               <div id="item-1-1">
                 <h5>Item 1-1</h5>

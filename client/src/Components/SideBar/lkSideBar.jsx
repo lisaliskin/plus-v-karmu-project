@@ -11,7 +11,7 @@ import {
 
 export default function lkSideBar() {
   return (
-    <div className="mt-4 col" xs={2}>
+    <div className="mt-4 col" xs={4}>
       <img
         className="rounded-circle col"
         width="412.992px"
