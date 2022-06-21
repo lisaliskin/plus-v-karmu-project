@@ -5,7 +5,7 @@ import {
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginModalAction } from '../../Redux/Actions/loginModalAction';
-import { regModalAction, regUser, userLogOut } from '../../Redux/Actions/regModalAction';
+import regModalAction from '../../Redux/Actions/regModalAction';
 import taskModalAction from '../../Redux/Actions/taskModalAction';
 
 export default function NavBar() {
