@@ -12,9 +12,12 @@ module.exports = {
       },
       email: {
         type: Sequelize.STRING,
+        unique: true,
+        allowNull: false,
       },
       password: {
         type: Sequelize.TEXT,
+        allowNull: false,
       },
       phone: {
         type: Sequelize.STRING,

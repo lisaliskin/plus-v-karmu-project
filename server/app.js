@@ -5,6 +5,7 @@ const cors = require('cors');
 const FileStore = require('session-file-store')(session);
 
 const http = require('http');
+
 const {
   v4: uuidv4,
 } = require('uuid');
@@ -26,8 +27,9 @@ const {
   COOKIE_SECRET,
   COOKIE_NAME,
 } = process.env;
-
+console.log(COOKIE_SECRET);
 // SERVER'S SETTINGS
+// PORT=process.env.PORT;
 app.set('cookieName', COOKIE_NAME);
 
 // APP'S MIDDLEWARES
@@ -52,6 +54,12 @@ const sessionParser = session({
     httpOnly: true,
     expires: 24 * 60 * 60e3, // COOKIE'S LIFETIME — 1 DAY
   },
+});
+app.use(sessionParser);
+
+app.use((req, res, next) => {
+  res.locals.user = req.session?.user;
+  next();
 });
 
 // APP'S ROUTES

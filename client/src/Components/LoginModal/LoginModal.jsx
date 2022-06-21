@@ -6,7 +6,8 @@ import {
   Form,
   FormGroup, Input, Label, Modal, ModalBody, ModalHeader, Row,
 } from 'reactstrap';
-import { loginModalAction, userSignIn } from '../../Redux/Actions/loginModalAction';
+import loginModalAction from '../../Redux/Actions/loginModalAction';
+import { userSignIn } from '../../Redux/Actions/logUserAction';
 
 export default function LoginModal() {
   const [inputs, setInputs] = useState({});
@@ -29,6 +30,7 @@ export default function LoginModal() {
     e.preventDefault();
     dispatch(userSignIn(inputs));
     setInputs({});
+    dispatch(loginModalAction(false));
   };
 
   return (

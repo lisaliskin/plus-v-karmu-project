@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  Button, Col, Container, Row,
+  Button, Col, Container, Input, Row,
 } from "reactstrap";
 import { addMessage } from "../../Redux/Actions/messageAction";
 import { useWsContext } from "../Context/Context";
@@ -51,11 +51,18 @@ export default function ChatIdPage() {
         <Message key={el.id} el={el} />
       ))}
       <Row>
-        <Col>
-          <input name="text" placeholder="input text" onChange={inputHandler} />
+        <Col md-9>
+          <Input
+            name="text"
+            onChange={inputHandler}
+            placeholder="input text"
+          />
         </Col>
         <Col>
-          <Button type="submit" onClick={messageHandler}>
+          <Button
+            type="submit"
+            onClick={messageHandler}
+          >
             Отправить
           </Button>
         </Col>
