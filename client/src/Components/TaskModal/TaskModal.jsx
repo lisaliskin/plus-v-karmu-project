@@ -75,13 +75,6 @@ export default function TaskModal() {
               />
             </FormGroup>
             <FormGroup>
-              <Input
-                placeholder="Вид помощи, которая нужна..."
-                rows={3}
-                type="textarea"
-              />
-            </FormGroup>
-            <FormGroup>
               <Label>Количество людей, если они нужны</Label>
               <Input
                 id="number"
