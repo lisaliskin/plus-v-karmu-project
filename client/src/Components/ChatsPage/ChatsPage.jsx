@@ -7,13 +7,13 @@ export default function ChatsPage() {
   return (
     <Row>
       <Col md-2>
-      <lkSideBar />
+        <lkSideBar />
       </Col>
       <Col md-10>
-      <ChatForm />
-      <ChatForm />
-      <ChatForm />
-      <ChatForm />
+        <ChatForm />
+        <ChatForm />
+        <ChatForm />
+        <ChatForm />
       </Col>
     </Row>
   );
