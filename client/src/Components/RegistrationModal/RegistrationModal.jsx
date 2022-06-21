@@ -31,10 +31,6 @@ export default function RegistrationModal({ onHide }) {
 
     // dispatch(regModalAction(false));
   };
-  // const onClick123 = (e) => {
-  //   submitHandler(e);
-  //   setTimeout(closeHandler(), 1200);
-  // };
 
   const inputHandler = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));

@@ -55,6 +55,11 @@ const sessionParser = session({
 });
 app.use(sessionParser);
 
+app.use((req, res, next) => {
+  res.locals.user = req.session?.user;
+  next();
+});
+
 // APP'S ROUTES
 app.use('/auth', authRouter);
 app.use('/users', usersRouter);
@@ -65,6 +70,3 @@ const server = http.createServer(app);
 server.listen(PORT, () => {
   console.log('server start on', PORT);
 });
-// app.listen(PORT, () => {
-//   console.log('server start on', PORT);
-// });
