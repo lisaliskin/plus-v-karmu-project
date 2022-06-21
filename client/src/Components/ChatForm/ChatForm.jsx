@@ -8,7 +8,6 @@ export default function () {
   return (
     <Container>
       <Row>
-
         <Card className="mt-2 row-9">
           <img
             className="rounded-circle col"

@@ -5,15 +5,16 @@ const cors = require('cors');
 const FileStore = require('session-file-store')(session);
 
 const http = require('http');
-// const {
-//   v4: uuidv4,
-// } = require('uuid');
 
-// const {
-//   WebSocketServer,
-// } = require('ws');
+const {
+  v4: uuidv4,
+} = require('uuid');
 
-// const map = new Map(); // (Хранение данных. Возвращает ключ(id) => значение(браузерное соединение пользователя))
+const {
+  WebSocketServer,
+} = require('ws');
+
+const map = new Map(); // (Хранение данных. Возвращает ключ(id) => значение(браузерное соединение пользователя))
 
 const authRouter = require('./routes/auth.router');
 const usersRouter = require('./routes/users.router');
@@ -28,6 +29,7 @@ const {
 } = process.env;
 console.log(COOKIE_SECRET);
 // SERVER'S SETTINGS
+// PORT=process.env.PORT;
 app.set('cookieName', COOKIE_NAME);
 
 // APP'S MIDDLEWARES
@@ -66,6 +68,58 @@ app.use('/users', usersRouter);
 app.use('/message', messageRouter);
 
 const server = http.createServer(app);
+const wss = new WebSocketServer({ clientTracking: false, noServer: true });
+
+ //part1 'upgrade' обновление протокола
+server.on('upgrade', function (request, socket, head) {
+  console.log('Parsing session from request...');
+
+   sessionParser(request, {}, () => {
+   // if (!request.session.userId) {
+    //  socket.write('HTTP/1.1 401 Unauthorized\r\n\r\n');
+     // socket.destroy();
+     // return;
+   // }
+
+   // console.log('Session is parsed!');
+
+    wss.handleUpgrade(request, socket, head, function (ws) {  //(ws)-экземпляр подключения самого пользователя
+      wss.emit('connection', ws, request);
+    });
+  });
+});
+
+// part2 работа с подключением
+wss.on('connection', (ws, request) => {
+  const userid = request.session.userid || uuidv4() ;
+
+  map.set(userid, ws); //ws - идентификатор подключения
+
+
+  // console.log('-------->map', map.userid)
+
+  ws.on('message', (message) => {
+    const { type, payload} = JSON.parse(message);
+    console.log('message in ws.on --->>', payload)
+        switch (type) {
+          case 'SET_MESSAGE':
+          for (const [userid, clientWs] of map) {
+            clientWs.send(JSON.stringify(payload.text));
+            console.log('Отправлено всем', payload.text)
+          } 
+          break;
+          
+          default:
+            console.log('Вышел')
+            break;
+        };
+  });
+
+  ws.on('close', function () {
+    map.delete(userid);
+  });
+});
+
 
 server.listen(PORT, () => {
   console.log('server start on', PORT);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Button, Collapse, Container, Nav, Navbar, NavbarText, Row,
 } from 'reactstrap';
@@ -30,9 +30,7 @@ export default function NavBar() {
 
   return (
     <div>
-      <Navbar
-        expand="sm"
-      >
+      <Navbar expand="sm">
         <Link to="/">
           <img src={logo} alt="logo" height={70} className="logo" />
         </Link>
@@ -52,6 +50,11 @@ export default function NavBar() {
                   <Link to="/newTask">
                     <Button outline onClick={changeTaskModal} className="registerBtn" style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}>
                       Создать задачу
+                    </Button>
+                  </Link>
+                  <Link to="/chats">
+                    <Button outline onClick={changeTaskModal} className="registerBtn" style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}>
+                      Переписки
                     </Button>
                   </Link>
                   <Link to="/">
@@ -78,6 +81,9 @@ export default function NavBar() {
             </NavbarText>
           </Collapse>
         </Row>
+        {/* <NavbarText onClick={logOutHAndler}>
+            {user.name ? `Hi, ${user.name}` : 'Login please'}
+          </NavbarText> */}
       </Navbar>
     </div>
   );
