@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Container } from 'reactstrap';
 import { Routes, Route, Link } from 'react-router-dom';
@@ -16,13 +15,6 @@ import MainPageUser from './Components/MainPageUser/MainPageUser';
 import ChatIdPage from './Components/ChatIdPage/ChatIdPage';
 
 function App() {
-  const [input, setInput] = useState(123456)
-  const {ws} = useSelector((state) => state);
-  useEffect(() => {
-    if(ws.readyState === 1) {
-      ws.onmessage(console.log(input))
-     }
-  }, [input])
   return (
     <>
       <NavBar />
@@ -31,9 +23,8 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="/main" element={<MainPageUser />} />
           <Route path="/login" element={<LoginModal />} />
-          <Route path="/register" element={<RegistrationModal />} />
-          <Route path="/account" element={<AccountPage />} />
-          <Route path="/lk" element={<Lk1 />} />
+          <Route path="/registration" element={<RegistrationModal />} />
+          <Route path="/account" element={<Lk1 />} />
           <Route path="/newTask" element={<TaskModal />} />
           <Route path="/chats" element={<ChatsPage />} />
           <Route path="/chats/chat/1" element={<ChatIdPage />} />

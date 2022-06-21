@@ -3,7 +3,7 @@ import {
   Accordion,
   Row,
 } from 'reactstrap';
-import lkSideBar from '../SideBar/lkSideBar';
+import LkSideBar from '../SideBar/lkSideBar';
 import LkList from './LkList';
 
 export default function Lk1() {
@@ -24,7 +24,7 @@ export default function Lk1() {
   };
   return (
     <Row sm={2}>
-      <lkSideBar />
+      <LkSideBar />
       <div className="col-8">
         <Row>
           <Accordion open={`${togle1}`} toggle={changeToggleFunc}>

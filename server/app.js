@@ -82,16 +82,29 @@ server.on('upgrade', function (request, socket, head) {
 });
 
 // part2 работа с подключением
-wss.on('connection', function (ws, request) {
+wss.on('connection', (ws, request) => {
   const userid = request.session.userid || uuidv4() ;
 
   map.set(userid, ws); //ws - идентификатор подключения
 
-  ws.on('message', function (message) {
-    //
-    // Here we can now use session parameters.
-    //
-    console.log(`Received message ${message} from user ${userid}`);
+
+  // console.log('-------->map', map.userid)
+
+  ws.on('message', (message) => {
+    const { type, payload} = JSON.parse(message);
+    console.log('message in ws.on --->>', payload)
+        switch (type) {
+          case 'SET_MESSAGE':
+          for (const [userid, clientWs] of map) {
+            clientWs.send(JSON.stringify(payload.text));
+            console.log('Отправлено всем', payload.text)
+          } 
+          break;
+          
+          default:
+            console.log('Вышел')
+            break;
+        };
   });
 
   ws.on('close', function () {

@@ -1,3 +1,5 @@
+const { FALSE } = require("node-sass");
+
 module.exports = {
   env: {
     browser: true,
@@ -28,5 +30,19 @@ module.exports = {
     'jsx-a11y/anchor-is-valid': 0,
     'jsx-a11y/label-has-associated-control': 0,
     'jsx-a11y/no-static-element-interactions': 0,
+    'quotes': 0,
+    'default-param-last': 0,
+    "prefer-destructuring": ["error", {
+      "VariableDeclarator": {
+        "array": false,
+        "object": false
+      },
+      "AssignmentExpression": {
+        "array": false,
+        "object": false
+      }
+    }, {
+      "enforceForRenamedProperties": false
+    }]
    },
 };
