@@ -9,9 +9,10 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({ Subcategory, User }) {
+    static associate({ Subcategory, UsersTask, Messanger}) {
       this.belongsTo(Subcategory, { foreignKey: 'subcategory_id' });
-      this.belongsTo(User, { foreignKey: 'user_id' });
+      this.hasMany(UsersTask, { foreignKey: 'task_id' });
+      this.hasMany(Messanger, { foreignKey: 'task_id' });
     }
   }
   Task.init({
@@ -19,7 +20,6 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.TEXT,
     img: DataTypes.TEXT,
     subcategory_id: DataTypes.INTEGER,
-    user_id: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Task',

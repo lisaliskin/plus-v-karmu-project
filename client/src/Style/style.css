@@ -10,6 +10,12 @@ body {
   font-family: Menlo;
 }
 
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+  text-align: start;
+}
+
 .navbar {
   background-color: #ffffff;
 }
