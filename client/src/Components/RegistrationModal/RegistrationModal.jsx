@@ -128,11 +128,10 @@ export default function RegistrationModal({ onHide }) {
             </FormGroup>
             <Row xs={2} className="row justify-content-md-center">
               <Button
-                color="success"
-                outline
                 onClick={submitHandler}
                 // data-dismiss="modal-dialog"
                 className="fst-italic col-5"
+                style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}
               >
                 Зарегистрироваться
               </Button>
