@@ -28,8 +28,11 @@ export default function LoginModal() {
 
   return (
     <div>
-      <Modal isOpen={loginModal} toggle={closeHandler}>
-        <ModalHeader toggle={closeHandler}>LogIn</ModalHeader>
+      <Modal
+        isOpen={loginModal}
+        toggle={closeHandler}
+      >
+        <ModalHeader toggle={closeHandler}>Войти в личный кабинет</ModalHeader>
         <ModalBody>
           <Form>
             <FormGroup>
