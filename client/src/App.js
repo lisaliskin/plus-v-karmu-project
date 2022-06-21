@@ -10,8 +10,10 @@ import RegistrationModal from './Components/RegistrationModal/RegistrationModal'
 import MainPage from './Components/MainPage/MainPage';
 import TaskModal from './Components/TaskModal/TaskModal';
 import NavBar from './Components/Navbar/NavBar';
+import ChatsPage from './Components/ChatsPage/ChatsPage';
 import AccountPage from './Components/AccountPage/AccountPage';
 import MainPageUser from './Components/MainPageUser/MainPageUser';
+import ChatIdPage from './Components/ChatIdPage/ChatIdPage';
 
 function App() {
   return (

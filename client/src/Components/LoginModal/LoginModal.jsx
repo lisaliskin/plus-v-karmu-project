@@ -6,12 +6,17 @@ import {
   Form,
   FormGroup, Input, Label, Modal, ModalBody, ModalHeader, Row,
 } from 'reactstrap';
-import loginModalAction from '../../Redux/Actions/loginModalAction';
+import { loginModalAction, userSignIn } from '../../Redux/Actions/loginModalAction';
 
 export default function LoginModal() {
+  const [inputs, setInputs] = useState({});
+
   // const [loginModal, setLoginModal] = useState(false);
   const { loginModal } = useSelector((state) => state);
   const dispatch = useDispatch();
+  const inputHandler = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
   const closeHandler = () => {
     dispatch(loginModalAction(false));
@@ -22,8 +27,8 @@ export default function LoginModal() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    // dispatch(changePostAction(post));
-    dispatch(loginModalAction(false));
+    dispatch(userSignIn(inputs));
+    setInputs({});
   };
 
   return (
@@ -43,7 +48,8 @@ export default function LoginModal() {
                 id="exampleEmail"
                 name="email"
                 placeholder="your email"
-                // value={post.title || ''}
+                value={inputs.email || ''}
+                onChange={inputHandler}
                 type="email"
               />
             </FormGroup>
@@ -55,7 +61,8 @@ export default function LoginModal() {
                 id="examplePassword"
                 name="password"
                 placeholder="your password"
-                // value={post.body || ''}
+                value={inputs.password || ''}
+                onChange={inputHandler}
                 type="password"
               />
             </FormGroup>
