@@ -30,21 +30,38 @@ export default function AccountPage() {
   };
   return (
     <Row sm={2}>
-      <div className="mt-4 col" xs={2}>
+      <div className="mt-10 col" xs={2}>
         <img
-          className="rounded-circle col"
-          width="412.992px"
+          className="rounded-circle col-4"
+          width="400px"
           src="https://media.2x2tv.ru/content/images/size/h1080/2022/05/vfyu.jpg"
-          alt="lkPhoto"
+          alt="avatar"
         />
-        <Card className="mt-2 col-9">
-          <CardBody width="300px">
+        <Card className="mt-10 col-9">
+          <CardBody width="300px" style={{ textAlign: 'start' }}>
             <CardTitle tag="h5">Имя: Nanaue</CardTitle>
-            <CardTitle tag="h5">телефон: 899999239923</CardTitle>
-            <CardSubtitle className="mb-2 text-muted" tag="h6">
-              Количество выполненных дел: 10000
-            </CardSubtitle>
-            <CardText>1111</CardText>
+            <CardTitle tag="h5">Телефон: +7(999)992-39-92</CardTitle>
+            <CardTitle className="text-muted" tag="h6">
+              Количество выполненных дел: 17
+            </CardTitle>
+            <CardText tag="h5">Достижения</CardText>
+            <div className="d-flex justify-content-between">
+              <img
+                className="col-3"
+                src="https://cdn-icons-png.flaticon.com/512/1273/1273221.png"
+                alt="achivka"
+              />
+              <img
+                className="col-3"
+                src="https://cdn-icons-png.flaticon.com/512/1273/1273238.png"
+                alt="achivka"
+              />
+              <img
+                className="col-3"
+                src="https://cdn-icons-png.flaticon.com/512/1273/1273721.png"
+                alt="achivka"
+              />
+            </div>
           </CardBody>
         </Card>
       </div>
