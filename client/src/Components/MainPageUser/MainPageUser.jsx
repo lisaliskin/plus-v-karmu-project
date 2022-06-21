@@ -60,7 +60,7 @@ export default function MainPageUser() {
           <Col className="col-9" style={{ backgroundColor: '#fffbdb' }}>
             <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true">
               <div id="item-1">
-                <h4>Item 1</h4>
+                <h4>помощь по дому</h4>
                 <p>...</p>
               </div>
               <div id="item-1-1">
