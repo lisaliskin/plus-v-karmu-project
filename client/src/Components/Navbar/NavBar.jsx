@@ -82,7 +82,7 @@ export default function NavBar() {
               )}
             </Nav>
             <NavbarText onClick={logOutHAndler}>
-              {userSignIn.name ? `Привет, ${userSignIn.name}` : 'Login please'}
+              {userSignIn.name ? `Привет, ${userSignIn.name}` : ''}
             </NavbarText>
           </Collapse>
         </Row>
