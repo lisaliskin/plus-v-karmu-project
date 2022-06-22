@@ -7,7 +7,7 @@ a, a:hover, a:focus, a:active {
 body {
   background-color: #EAE8FF;
   color: #7776BC;
-  font-family: Menlo;
+  font-family: 'Source Code Pro', monospace;
 }
 
 .nav-link {
