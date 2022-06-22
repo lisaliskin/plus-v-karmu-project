@@ -4,11 +4,10 @@ import {
   Button, Card, CardBody, CardText, Container, Row,
 } from 'reactstrap';
 
-export default function () {
+export default function ChatForm() {
   return (
     <Container>
       <Row>
-
         <Card className="mt-2 row-9">
           <img
             className="rounded-circle col"

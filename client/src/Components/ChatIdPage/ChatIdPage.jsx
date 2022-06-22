@@ -1,24 +1,40 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Button, Col, Container, Input, Row,
-} from 'reactstrap';
-import sendMessage from '../../Redux/Actions/messageAction';
+} from "reactstrap";
+import { addMessage } from "../../Redux/Actions/messageAction";
+import { useWsContext } from "../Context/Context";
+import Message from "../Message/Message";
+
 
 export default function ChatIdPage() {
+  const { ws } = useWsContext();
+  const { message } = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  const [input, setInput] = useState({});
+  const [user_id, setUserId] = useState(1);
+  const [messanger_id, changeMessengerId] = useState(1);
 
+  const [input, setInput] = useState({ user_id, messanger_id });
   const inputHandler = (e) => {
     setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const messageHandler = (e) => {
-    dispatch(sendMessage(input));
+    ws.send(JSON.stringify({
+      type: 'SET_MESSAGE',
+      payload: input
+    }))
+
+    dispatch(addMessage(input));
   };
   return (
     <Container>
+      {message.map((el) => (
+        <Message key={el.id} el={el} />
+      ))}
       <Row>
         <Col md-9>
           <Input

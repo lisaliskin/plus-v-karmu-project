@@ -33,6 +33,9 @@ const signUp = async (req, res) => {
 const signIn = async (req, res) => {
   const { password, email } = req.body;
 
+  console.log('kdkjdkdk--->', password, email);
+  
+
   if (password && email) {
     try {
       const currentUser = await User.findOne({ where: { email } });
@@ -44,6 +47,7 @@ const signIn = async (req, res) => {
 
         return res.json({ id: currentUser.id, name: currentUser.name });
       }
+      console.log('Зашел сюда в сайн ине')
       return res.sendStatus(401);
     } catch (error) {
       console.error(error);
