@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
 import React, { createContext, useContext, useState } from "react";
 
 const WsContext = createContext();
@@ -5,9 +6,9 @@ const WsContext = createContext();
 function Context({ children }) {
   const [ws, setWs] = useState(new WebSocket(process.env.REACT_APP_WS));
 
-  ws.onmessage = function (event) {
+  ws.onmessage = (event) => {
     const text = JSON.parse(event.data);
-        console.log("-------> Отправлено всем", text);
+    console.log("-------> Отправлено всем", text);
   };
   return <WsContext.Provider value={{ ws }}>{children}</WsContext.Provider>;
 }
