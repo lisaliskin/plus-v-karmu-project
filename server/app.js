@@ -12,7 +12,7 @@ const {
 
 const { WebSocketServer } = require('ws');
 
-const map = new Map(); // (Хранение данных. Возвращает ключ(id) => значение(браузерное соединение пользователя))
+const map = new Map();
 
 const authRouter = require('./routes/auth.router');
 const usersRouter = require('./routes/users.router');
@@ -86,7 +86,7 @@ server.on('upgrade', (request, socket, head) => {
 
     // console.log('Session is parsed!');
 
-    wss.handleUpgrade(request, socket, head, (ws) => { // (ws)-экземпляр подключения самого пользователя
+    wss.handleUpgrade(request, socket, head, (ws) => {
       wss.emit('connection', ws, request);
     });
   });
@@ -101,10 +101,7 @@ wss.on('connection', (ws, request) => {
   // console.log('-------->map', map.userid)
 
   ws.on('message', (message) => {
-    const {
-      type,
-      payload
-    } = JSON.parse(message);
+    const { type, payload } = JSON.parse(message);
     console.log('message in ws.on --->>', payload);
     switch (type) {
       case 'SET_MESSAGE':

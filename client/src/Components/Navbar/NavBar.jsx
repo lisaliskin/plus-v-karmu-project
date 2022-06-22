@@ -51,11 +51,9 @@ export default function NavBar() {
                       Личный кабинет
                     </Button>
                   </Link>
-                  <Link to="/newTask">
-                    <Button outline onClick={changeTaskModal} className="registerBtn" style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}>
-                      Создать задачу
-                    </Button>
-                  </Link>
+                  <Button outline onClick={changeTaskModal} className="registerBtn" style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}>
+                    Создать задачу
+                  </Button>
                   <Link to="/chats">
                     <Button outline onClick={changeTaskModal} className="registerBtn" style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}>
                       Переписки
