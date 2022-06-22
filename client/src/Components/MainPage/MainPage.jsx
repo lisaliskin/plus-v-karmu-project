@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   Button, Card, CardBody, CardGroup, CardImg, CardSubtitle, CardText, CardTitle,
 } from 'reactstrap';
+import { getAllTasksAction } from '../../Redux/Actions/tasksGet';
 
 export default function MainPage() {
+  const dispatch = useDispatch();
+  const { tasks } = useSelector((state) => state);
+  // useEffect(() => {
+  //   if (!tasks.length) {
+  //     dispatch(getAllTasksAction());
+  //   }
+  // }, []);
   return (
     <div className="container">
       <h1>Все о проекте</h1>

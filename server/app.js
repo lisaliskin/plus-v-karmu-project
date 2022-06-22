@@ -6,6 +6,7 @@ const FileStore = require('session-file-store')(session);
 
 const authRouter = require('./routes/auth.router');
 const usersRouter = require('./routes/users.router');
+const tasksMainPageRouter = require('./routes/tasksRouter');
 
 const app = express();
 
@@ -40,6 +41,7 @@ app.use(
 // APP'S ROUTES
 app.use('/auth', authRouter);
 app.use('/users', usersRouter);
+app.use('/getTasks', tasksMainPageRouter);
 
 app.listen(PORT, () => {
   console.log('Сервер запущен на порте', PORT);
