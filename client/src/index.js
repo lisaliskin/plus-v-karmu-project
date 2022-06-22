@@ -6,7 +6,7 @@ import axios from "axios";
 import App from "./App";
 import "./Style/style.css";
 import storeR from "./Redux/store";
-import Context from './Components/Context/Context'
+import Context from './Components/Context/Context';
 
 axios.defaults.baseURL = process.env.REACT_APP_URL;
 axios.defaults.withCredentials = true;
@@ -19,5 +19,5 @@ root.render(
         <App />
       </Context>
     </Provider>
-  </BrowserRouter>
+  </BrowserRouter>,
 );
