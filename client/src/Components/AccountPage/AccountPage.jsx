@@ -29,21 +29,23 @@ export default function AccountPage() {
     // return '0';
   };
   return (
-    <Row sm={2}>
-      <div className="mt-10 col" xs={2}>
+    <Row>
+      <div className="mt-10 col-4">
         <img
           className="rounded-circle col-4"
           width="400px"
           src="https://media.2x2tv.ru/content/images/size/h1080/2022/05/vfyu.jpg"
           alt="avatar"
         />
-        <Card className="mt-10 col-9">
-          <CardBody width="300px" style={{ textAlign: 'start' }}>
+        <Card className="mt-10 col-12">
+          <CardBody width="300px">
             <CardTitle tag="h5">Имя: Nanaue</CardTitle>
             <CardTitle tag="h5">Телефон: +7(999)992-39-92</CardTitle>
+            <hr />
             <CardTitle className="text-muted" tag="h6">
               Количество выполненных дел: 17
             </CardTitle>
+            <hr />
             <CardText tag="h5">Достижения</CardText>
             <div className="d-flex justify-content-between">
               <img
