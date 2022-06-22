@@ -12,10 +12,10 @@ export default function ChatIdPage() {
   const { message } = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  const [user_id, setUserId] = useState(1);
-  const [messanger_id, changeMessengerId] = useState(1);
+  const [userId, setUserId] = useState(1);
+  const [messangerId, changeMessengerId] = useState(1);
 
-  const [input, setInput] = useState({ user_id, messanger_id });
+  const [input, setInput] = useState({ userId, messangerId });
 
   // useEffect(() => {
   //   if (ws.readyState === 1) {
@@ -39,7 +39,7 @@ export default function ChatIdPage() {
       type: 'SET_MESSAGE',
       payload: input,
 
-    }))
+    }));
 
     dispatch(addMessage(input));
   };
@@ -49,7 +49,7 @@ export default function ChatIdPage() {
         <Message key={el.id} el={el} />
       ))}
       <Row>
-        <Col md-9>
+        <Col>
           <Input
             name="text"
             onChange={inputHandler}

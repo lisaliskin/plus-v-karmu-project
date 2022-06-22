@@ -6,11 +6,9 @@ export const addAllChats = (value) => ({
   payload: value,
 });
 
-
-
-export const getAllChats = (value) =>  async (dispatch) => {
-  console.log('polchili id', value.id)
+export const getAllChats = (value) => async (dispatch) => {
+  console.log('polchili id', value.id);
   const response = await axios.post('/chat/get', value);
   console.log('-----> Пришла дата', response.data);
-  dispatch(addAllChats(response.data))
-}
+  dispatch(addAllChats(response.data));
+};

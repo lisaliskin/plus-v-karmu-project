@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import {
   Button,
   Collapse,
-  Container,
   Nav,
   Navbar,
   NavbarText,
@@ -12,13 +11,15 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import regModalAction from "../../Redux/Actions/regModalAction";
 import taskModalAction from "../../Redux/Actions/taskModalAction";
-import { userLogOut } from "../../Redux/Actions/regUserAction";
+// import { userLogOut } from "../../Redux/Actions/regUserAction";
 import loginModalAction from "../../Redux/Actions/loginModalAction";
 import { getAllChats } from "../../Redux/Actions/chatAction";
 import { logOut } from "../../Redux/Actions/logUserAction";
 
 export default function NavBar() {
-  const logo = "logoPlusKkarme.png";
+  const logo = "icons/logoPlusKkarme.png";
+  const lk = "icons/user.png";
+  const message = "icons/envelope.png";
   const { userSignIn, user } = useSelector((state) => state);
   // const id = userSignIn.id;
   const dispatch = useDispatch();
@@ -37,8 +38,8 @@ export default function NavBar() {
   };
 
   useEffect(() => {
-    dispatch(getAllChats(userSignIn))
-  }, [userSignIn])
+    dispatch(getAllChats(userSignIn));
+  }, [userSignIn]);
 
   return (
     <div>
@@ -53,26 +54,10 @@ export default function NavBar() {
                 // <>
                 <div className="justify-content-md-start">
                   <Link to="/account">
-                    <Button
-                      style={{
-                        color: "#FFEC51",
-                        backgroundColor: "#7776BC",
-                      }}
-                    >
-                      Личный кабинет
-                    </Button>
+                    <img src={lk} alt="lk" height={40} className="lk" />
                   </Link>
-                  <Link to="/newTask">
-                    <Button
-                      onClick={changeTaskModal}
-                      className="taskBtn"
-                      style={{
-                        color: "#FFEC51",
-                        backgroundColor: "#7776BC",
-                      }}
-                    >
-                      Создать задачу
-                    </Button>
+                  <Link to="/account/chats">
+                    <img src={message} alt="message" height={40} className="message" />
                   </Link>
                   <Link to="/">
                     <Button
@@ -115,14 +100,11 @@ export default function NavBar() {
                 </>
               )}
             </Nav>
-            <NavbarText>
+            {/* <NavbarText style={{ marginRight: '100px' }}>
               {userSignIn?.name ? `Привет, ${userSignIn.name}` : ''}
-            </NavbarText>
+            </NavbarText> */}
           </Collapse>
         </Row>
-        {/* <NavbarText onClick={logOutHAndler}>
-            {user.name ? `Hi, ${user.name}` : 'Login please'}
-          </NavbarText> */}
       </Navbar>
     </div>
   );
