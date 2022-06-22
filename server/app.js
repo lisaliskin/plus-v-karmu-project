@@ -10,11 +10,9 @@ const {
   v4: uuidv4,
 } = require('uuid');
 
-const {
-  WebSocketServer,
-} = require('ws');
+const { WebSocketServer } = require('ws');
 
-const map = new Map(); // (Хранение данных. Возвращает ключ(id) => значение(браузерное соединение пользователя))
+const map = new Map();
 
 const authRouter = require('./routes/auth.router');
 const usersRouter = require('./routes/users.router');
@@ -70,7 +68,10 @@ app.use('/message', messageRouter);
 app.use('/chat', chatRouter);
 
 const server = http.createServer(app);
-const wss = new WebSocketServer({ clientTracking: false, noServer: true });
+const wss = new WebSocketServer({
+  clientTracking: false,
+  noServer: true,
+});
 
 // part1 'upgrade' обновление протокола
 server.on('upgrade', (request, socket, head) => {
@@ -85,7 +86,7 @@ server.on('upgrade', (request, socket, head) => {
 
     // console.log('Session is parsed!');
 
-    wss.handleUpgrade(request, socket, head, (ws) => { // (ws)-экземпляр подключения самого пользователя
+    wss.handleUpgrade(request, socket, head, (ws) => {
       wss.emit('connection', ws, request);
     });
   });
@@ -93,8 +94,7 @@ server.on('upgrade', (request, socket, head) => {
 
 // part2 работа с подключением
 wss.on('connection', (ws, request) => {
-  const mockUser = uuidv4();
-  const userid = request?.session?.userid || mockUser;
+  const userid = request.session.userid || uuidv4();
 
   map.set(userid, ws); // ws - идентификатор подключения
 

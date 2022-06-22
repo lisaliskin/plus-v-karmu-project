@@ -15,6 +15,7 @@ import taskModalAction from "../../Redux/Actions/taskModalAction";
 import { userLogOut } from "../../Redux/Actions/regUserAction";
 import loginModalAction from "../../Redux/Actions/loginModalAction";
 import { getAllChats } from "../../Redux/Actions/chatAction";
+import { logOut } from "../../Redux/Actions/logUserAction";
 
 export default function NavBar() {
   const logo = "logoPlusKkarme.png";
@@ -32,12 +33,12 @@ export default function NavBar() {
   };
 
   const logOutHAndler = () => {
-    dispatch(userLogOut());
+    dispatch(logOut());
   };
 
   useEffect(() => {
-    dispatch(getAllChats(userSignIn));
-  }, [userSignIn]);
+    dispatch(getAllChats(userSignIn))
+  }, [userSignIn])
 
   return (
     <div>
@@ -114,8 +115,8 @@ export default function NavBar() {
                 </>
               )}
             </Nav>
-            <NavbarText onClick={logOutHAndler}>
-              {userSignIn.name ? `Привет, ${userSignIn.name}` : ""}
+            <NavbarText>
+              {userSignIn?.name ? `Привет, ${userSignIn.name}` : ''}
             </NavbarText>
           </Collapse>
         </Row>

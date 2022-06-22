@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Button, Col, Container, Input, Row,
@@ -7,7 +6,6 @@ import {
 import { addMessage } from "../../Redux/Actions/messageAction";
 import { useWsContext } from "../Context/Context";
 import Message from "../Message/Message";
-
 
 export default function ChatIdPage() {
   const { ws } = useWsContext();
@@ -25,7 +23,6 @@ export default function ChatIdPage() {
   //       type:'SET_MESSAGE',
   //       payload: input
   //     }))
-      
   //     ws.onmessage = function (input) {
   //       console.log(`[message] Данные получены с сервера: ${input}`)
   //     };
@@ -39,8 +36,9 @@ export default function ChatIdPage() {
 
   const messageHandler = (e) => {
     ws.send(JSON.stringify({
-      type:'SET_MESSAGE',
-      payload: input
+      type: 'SET_MESSAGE',
+      payload: input,
+
     }))
 
     dispatch(addMessage(input));
