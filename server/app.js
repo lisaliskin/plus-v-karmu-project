@@ -19,6 +19,7 @@ const map = new Map(); // (Хранение данных. Возвращает �
 const authRouter = require('./routes/auth.router');
 const usersRouter = require('./routes/users.router');
 const messageRouter = require('./routes/message.router');
+const chatRouter = require('./routes/chat.router')
 
 const app = express();
 
@@ -66,6 +67,7 @@ app.use((req, res, next) => {
 app.use('/auth', authRouter);
 app.use('/users', usersRouter);
 app.use('/message', messageRouter);
+app.use('/chat', chatRouter);
 
 const server = http.createServer(app);
 const wss = new WebSocketServer({ clientTracking: false, noServer: true });

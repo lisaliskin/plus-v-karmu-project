@@ -4,7 +4,7 @@ import {
   Button, Card, CardBody, CardText, Container, Row,
 } from 'reactstrap';
 
-export default function () {
+export default function ChatForm() {
   return (
     <Container>
       <Row>

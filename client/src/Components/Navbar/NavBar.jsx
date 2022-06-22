@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Button, Collapse, Container, Nav, Navbar, NavbarText, Row,
 } from 'reactstrap';
@@ -8,12 +8,13 @@ import regModalAction from '../../Redux/Actions/regModalAction';
 import taskModalAction from '../../Redux/Actions/taskModalAction';
 import { userLogOut } from '../../Redux/Actions/regUserAction';
 import loginModalAction from '../../Redux/Actions/loginModalAction';
+import { getAllChats } from "../../Redux/Actions/chatAction";
 
 export default function NavBar() {
   const logo = 'logoPlusKkarme.png';
   const { userSignIn, user } = useSelector((state) => state);
+  // const id = userSignIn.id;
   const dispatch = useDispatch();
-
   const changeLoginModal = () => {
     dispatch(loginModalAction(true));
   };
@@ -23,10 +24,14 @@ export default function NavBar() {
   const changeTaskModal = () => {
     dispatch(taskModalAction(true));
   };
-
+  
   const logOutHAndler = () => {
     dispatch(userLogOut());
   };
+
+  useEffect(() => {
+    dispatch(getAllChats(userSignIn))
+  },[userSignIn])
 
   return (
     <div>
