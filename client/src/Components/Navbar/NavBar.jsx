@@ -100,9 +100,6 @@ export default function NavBar() {
                 </>
               )}
             </Nav>
-            {/* <NavbarText style={{ marginRight: '100px' }}>
-              {userSignIn?.name ? `Привет, ${userSignIn.name}` : ''}
-            </NavbarText> */}
           </Collapse>
         </Row>
       </Navbar>

@@ -25,7 +25,7 @@ function LkSideBar() {
           src="https://media.2x2tv.ru/content/images/size/h1080/2022/05/vfyu.jpg"
           alt="avatar"
         />
-        <Card className="mt-10 col-12">
+        <Card className="mt-10 col-12 shadow">
           <CardBody width="300px">
             <CardTitle tag="h5">Имя: Nanaue</CardTitle>
             <CardTitle tag="h5">Телефон: +7(999)992-39-92</CardTitle>

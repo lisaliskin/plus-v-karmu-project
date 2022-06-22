@@ -1,8 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Accordion, Col, Row } from "reactstrap";
-import LkList from "../AccountPage/LkList";
-import ChatForm from "../ChatForm/ChatForm";
+import { Row } from "reactstrap";
 import LkSideBar from "../SideBar/LkSideBar";
 import ChatIdPage from "../ChatIdPage/ChatIdPage";
 
@@ -15,9 +13,7 @@ export default function ChatsPage() {
         <LkSideBar />
       </div>
       <div className="col-8">
-        <Row>
-          <ChatIdPage />
-        </Row>
+        <ChatIdPage />
       </div>
     </Row>
   );
