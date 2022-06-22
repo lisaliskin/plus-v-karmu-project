@@ -12,7 +12,7 @@ export const addAllChats = (value) => {
 
 export const getAllChats = (value) =>  async (dispatch) => {
   console.log('polchili id', value.id)
-  const response = await axios.get('/chat/get', value);
-  // console.log(response.data)
+  const response = await axios.post('/chat/get', value);
+  console.log('-----> Пришла дата', response.data);
   dispatch(addAllChats(response.data))
 }
