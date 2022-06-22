@@ -35,7 +35,8 @@ const signUp = async (req, res) => {
 const signIn = async (req, res) => {
   const { password, email } = req.body;
 
-  console.log('kdkjdkdk--->', password, email);
+  // console.log('kdkjdkdk--->', password, email);
+  
 
   if (password && email) {
     try {
