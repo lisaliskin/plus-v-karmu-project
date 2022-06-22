@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Accordion,
+  Button,
   Card,
   CardBody,
   CardSubtitle,
@@ -9,17 +11,17 @@ import {
   Col,
   Container,
   Row,
-} from 'reactstrap';
-import LkList from './LkList';
+} from "reactstrap";
+import LkList from "./LkList";
 
 export default function AccountPage() {
-  const [togle1, setTogle1] = useState('0');
+  const [togle1, setTogle1] = useState("0");
 
   const changeToggleFunc = (num) => {
-    if (togle1 === '0') {
-      setTogle1('1');
+    if (togle1 === "0") {
+      setTogle1("1");
     } else {
-      setTogle1('0');
+      setTogle1("0");
     }
     // const num1 = num;
 
@@ -64,6 +66,18 @@ export default function AccountPage() {
                 alt="achivka"
               />
             </div>
+            <hr />
+            <Link to="/account/chats">
+              <Button
+                className="chatBtn"
+                style={{
+                  color: "#FFEC51",
+                  backgroundColor: "#7776BC",
+                }}
+              >
+                Чат
+              </Button>
+            </Link>
           </CardBody>
         </Card>
       </div>
