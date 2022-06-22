@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+import {
+  BrowserRouter,
+} from 'react-router-dom';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-import 'semantic-ui-css/semantic.min.css';
+import './Style/style.css';
+import storeR from './Redux/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <App />,
+  <BrowserRouter>
+    <Provider store={storeR}>
+      <App />
+    </Provider>
+  </BrowserRouter>,
 );
-
-reportWebVitals();
