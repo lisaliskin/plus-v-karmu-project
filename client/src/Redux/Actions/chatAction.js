@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ADD_ALL_CHATS} from '../types/types';
+import { ADD_ALL_CHATS } from '../types/types';
 
 export const addAllChats = (value) => {
   return {

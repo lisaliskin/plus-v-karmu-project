@@ -10,16 +10,14 @@ const {
   v4: uuidv4,
 } = require('uuid');
 
-const {
-  WebSocketServer,
-} = require('ws');
+const { WebSocketServer } = require('ws');
 
 const map = new Map(); // (Хранение данных. Возвращает ключ(id) => значение(браузерное соединение пользователя))
 
 const authRouter = require('./routes/auth.router');
 const usersRouter = require('./routes/users.router');
 const messageRouter = require('./routes/message.router');
-const chatRouter = require('./routes/chat.router')
+const chatRouter = require('./routes/chat.router');
 
 const app = express();
 
@@ -70,22 +68,25 @@ app.use('/message', messageRouter);
 app.use('/chat', chatRouter);
 
 const server = http.createServer(app);
-const wss = new WebSocketServer({ clientTracking: false, noServer: true });
+const wss = new WebSocketServer({
+  clientTracking: false,
+  noServer: true,
+});
 
- //part1 'upgrade' обновление протокола
-server.on('upgrade', function (request, socket, head) {
+// part1 'upgrade' обновление протокола
+server.on('upgrade', (request, socket, head) => {
   console.log('Parsing session from request...');
 
-   sessionParser(request, {}, () => {
-   // if (!request.session.userId) {
+  sessionParser(request, {}, () => {
+    // if (!request.session.userId) {
     //  socket.write('HTTP/1.1 401 Unauthorized\r\n\r\n');
-     // socket.destroy();
-     // return;
-   // }
+    // socket.destroy();
+    // return;
+    // }
 
-   // console.log('Session is parsed!');
+    // console.log('Session is parsed!');
 
-    wss.handleUpgrade(request, socket, head, function (ws) {  //(ws)-экземпляр подключения самого пользователя
+    wss.handleUpgrade(request, socket, head, (ws) => { // (ws)-экземпляр подключения самого пользователя
       wss.emit('connection', ws, request);
     });
   });
@@ -93,35 +94,36 @@ server.on('upgrade', function (request, socket, head) {
 
 // part2 работа с подключением
 wss.on('connection', (ws, request) => {
-  const userid = request.session.userid || uuidv4() ;
+  const userid = request.session.userid || uuidv4();
 
-  map.set(userid, ws); //ws - идентификатор подключения
-
+  map.set(userid, ws); // ws - идентификатор подключения
 
   // console.log('-------->map', map.userid)
 
   ws.on('message', (message) => {
-    const { type, payload} = JSON.parse(message);
-    console.log('message in ws.on --->>', payload)
-        switch (type) {
-          case 'SET_MESSAGE':
-          for (const [userid, clientWs] of map) {
-            clientWs.send(JSON.stringify(payload.text));
-            console.log('Отправлено всем', payload.text)
-          } 
-          break;
-          
-          default:
-            console.log('Вышел')
-            break;
-        };
+    const {
+      type,
+      payload
+    } = JSON.parse(message);
+    console.log('message in ws.on --->>', payload);
+    switch (type) {
+      case 'SET_MESSAGE':
+        for (const [userid, clientWs] of map) {
+          clientWs.send(JSON.stringify(payload.text));
+          console.log('Отправлено всем', payload.text);
+        }
+        break;
+
+      default:
+        console.log('Вышел');
+        break;
+    }
   });
 
-  ws.on('close', function () {
+  ws.on('close', () => {
     map.delete(userid);
   });
 });
-
 
 server.listen(PORT, () => {
   console.log('server start on', PORT);

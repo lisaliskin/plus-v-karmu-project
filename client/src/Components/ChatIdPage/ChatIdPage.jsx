@@ -18,28 +18,13 @@ export default function ChatIdPage() {
   const [messanger_id, changeMessengerId] = useState(1);
 
   const [input, setInput] = useState({ user_id, messanger_id });
-
-  // useEffect(() => {
-  //   if (ws.readyState === 1) {
-  //     ws.send(JSON.stringify({
-  //       type:'SET_MESSAGE',
-  //       payload: input
-  //     }))
-      
-  //     ws.onmessage = function (input) {
-  //       console.log(`[message] Данные получены с сервера: ${input}`)
-  //     };
-  //   }
-  //   console.log(ws);
-  // }, []);
-
   const inputHandler = (e) => {
     setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const messageHandler = (e) => {
     ws.send(JSON.stringify({
-      type:'SET_MESSAGE',
+      type: 'SET_MESSAGE',
       payload: input
     }))
 

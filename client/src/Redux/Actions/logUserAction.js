@@ -17,5 +17,5 @@ export const deleteUser = (value) => ({
 
 export const logOut = (value) => (dispatch) => {
   axios.get('/auth/signout', value)
-    .then((res) => dispatch(deleteUser(res.user)));
+    .then((res) => dispatch(deleteUser({})));
 };
