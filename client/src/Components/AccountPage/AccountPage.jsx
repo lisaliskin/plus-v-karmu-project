@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Accordion,
+  Button,
   Card,
   CardBody,
   CardSubtitle,
@@ -9,17 +11,17 @@ import {
   Col,
   Container,
   Row,
-} from 'reactstrap';
-import LkList from './LkList';
+} from "reactstrap";
+import LkList from "./LkList";
 
 export default function AccountPage() {
-  const [togle1, setTogle1] = useState('0');
+  const [togle1, setTogle1] = useState("0");
 
   const changeToggleFunc = (num) => {
-    if (togle1 === '0') {
-      setTogle1('1');
+    if (togle1 === "0") {
+      setTogle1("1");
     } else {
-      setTogle1('0');
+      setTogle1("0");
     }
     // const num1 = num;
 
@@ -29,21 +31,23 @@ export default function AccountPage() {
     // return '0';
   };
   return (
-    <Row sm={2}>
-      <div className="mt-10 col" xs={2}>
+    <Row>
+      <div className="mt-10 col-4">
         <img
           className="rounded-circle col-4"
           width="400px"
           src="https://media.2x2tv.ru/content/images/size/h1080/2022/05/vfyu.jpg"
           alt="avatar"
         />
-        <Card className="mt-10 col-9">
-          <CardBody width="300px" style={{ textAlign: 'start' }}>
+        <Card className="mt-10 col-12">
+          <CardBody width="300px">
             <CardTitle tag="h5">Имя: Nanaue</CardTitle>
             <CardTitle tag="h5">Телефон: +7(999)992-39-92</CardTitle>
+            <hr />
             <CardTitle className="text-muted" tag="h6">
               Количество выполненных дел: 17
             </CardTitle>
+            <hr />
             <CardText tag="h5">Достижения</CardText>
             <div className="d-flex justify-content-between">
               <img
@@ -62,6 +66,18 @@ export default function AccountPage() {
                 alt="achivka"
               />
             </div>
+            <hr />
+            <Link to="/account/chats">
+              <Button
+                className="chatBtn"
+                style={{
+                  color: "#FFEC51",
+                  backgroundColor: "#7776BC",
+                }}
+              >
+                Чат
+              </Button>
+            </Link>
           </CardBody>
         </Card>
       </div>

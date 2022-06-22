@@ -6,14 +6,16 @@ import LkSideBar from "../SideBar/lkSideBar";
 
 export default function ChatsPage() {
   const dispatch = useDispatch();
-  const { chats } = useSelector((state) => state)
+  const { chats } = useSelector((state) => state);
   return (
     <Row>
       <Col md-2>
         <LkSideBar />
       </Col>
       <Col md-10>
-      {chats.map(el => <ChatForm key = {el.id} el = {el} />)}
+        {chats.map((el) => (
+          <ChatForm key={el.id} el={el} />
+        ))}
       </Col>
     </Row>
   );

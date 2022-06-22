@@ -1,7 +1,7 @@
-'use strict';
 const {
-  Model
+  Model,
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class UsersTask extends Model {
     /**
@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   UsersTask.init({
     user_id: DataTypes.INTEGER,
-    task_id: DataTypes.INTEGER
+    task_id: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'UsersTask',

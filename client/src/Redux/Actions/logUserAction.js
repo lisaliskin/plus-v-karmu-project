@@ -6,7 +6,7 @@ export const logUserAction = (value) => ({
   payload: value,
 });
 export const userSignIn = (value) => (dispatch) => {
-  axios.post('/auth/signin', value)
+  axios.post(`${process.env.REACT_APP_SERVER_URL}/auth/signin`, value)
     .then((res) => dispatch(logUserAction(res.data)));
 };
 
@@ -17,5 +17,5 @@ export const deleteUser = (value) => ({
 
 export const logOut = (value) => (dispatch) => {
   axios.get('/auth/signout', value)
-    .then((res) => dispatch(deleteUser(res.user)));
+    .then((res) => dispatch(deleteUser({})));
 };

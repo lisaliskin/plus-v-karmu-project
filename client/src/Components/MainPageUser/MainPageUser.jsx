@@ -6,10 +6,11 @@ export default function MainPageUser() {
     <div>
       <Container>
         <Row className="justify-content-start" style={{ color: '#7776BC' }}>
-          <Col className="col-3" style={{ backgroundColor: '#fffbdb' }}>
+          <Col className="col-3">
             <nav id="navbar-example3" className="navbar flex-column align-items-stretch p-3">
               <a className="navbar-brand" href="#">
                 <h5>Категории добрых дел</h5>
+                <hr />
               </a>
               <nav className="nav nav-pills flex-column">
                 <a className="nav-link" href="#item-1">помощь по дому</a>
@@ -57,7 +58,7 @@ export default function MainPageUser() {
               </nav>
             </nav>
           </Col>
-          <Col className="col-9" style={{ backgroundColor: '#fffbdb' }}>
+          <Col className="col-9">
             <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true">
               <div id="item-1">
                 <h4>помощь по дому</h4>
