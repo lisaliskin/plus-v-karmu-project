@@ -45,6 +45,13 @@ export default function ChatIdPage() {
   };
   return (
     <Container>
+      <div className="form-floating">
+        <textarea className="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style={{ height: "100px" }} />
+      </div>
+      <div className="input-group mb-3">
+        <input type="text" className="form-control" placeholder="введите сообщение" aria-label="Recipient's username" aria-describedby="button-addon2" />
+        <button className="btn btn-outline-secondary" type="button" id="button-addon2">отправить</button>
+      </div>
       {message.map((el) => (
         <Message key={el.id} el={el} />
       ))}
