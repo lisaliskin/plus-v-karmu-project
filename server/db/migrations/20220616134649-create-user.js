@@ -12,12 +12,15 @@ module.exports = {
       },
       email: {
         type: Sequelize.STRING,
+        unique: true,
+        allowNull: false,
       },
       password: {
         type: Sequelize.TEXT,
+        allowNull: false,
       },
-      tel: {
-        type: Sequelize.INTEGER,
+      phone: {
+        type: Sequelize.STRING,
       },
       role: {
         type: Sequelize.STRING,

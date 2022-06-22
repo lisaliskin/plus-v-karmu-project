@@ -75,13 +75,6 @@ export default function TaskModal() {
               />
             </FormGroup>
             <FormGroup>
-              <Input
-                placeholder="Вид помощи, которая нужна..."
-                rows={3}
-                type="textarea"
-              />
-            </FormGroup>
-            <FormGroup>
               <Label>Количество людей, если они нужны</Label>
               <Input
                 id="number"
@@ -91,17 +84,17 @@ export default function TaskModal() {
                 <option value="num">
                   ...
                 </option>
-                <option value="10">
-                  1-10
+                <option value="3">
+                  1-3
                 </option>
-                <option value="20">
-                  11-20
+                <option value="7">
+                  4-7
                 </option>
-                <option value="30">
-                  21-30
+                <option value="15">
+                  7-15
                 </option>
                 <option value="many">
-                  больше 30-ти
+                  больше 15-ти
                 </option>
               </Input>
             </FormGroup>
@@ -109,18 +102,17 @@ export default function TaskModal() {
         </ModalBody>
         <ModalFooter>
           <Button
-            color="primary"
+            style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}
             onClick={submitHandler}
           >
-            Do Something
+            Создать
           </Button>
           {' '}
           <Button
-            color="success"
-            outline
             onClick={closeHandler}
+            style={{ color: '#7776BC', backgroundColor: '#FFEC51', fontFamily: 'Menlo' }}
           >
-            Cancel
+            Отмена
           </Button>
         </ModalFooter>
       </Modal>

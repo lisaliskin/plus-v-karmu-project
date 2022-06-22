@@ -6,21 +6,19 @@ a, a:hover, a:focus, a:active {
 
 body {
   background-color: #EAE8FF;
-  color: #FF674D;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #7776BC;
+  font-family: Menlo;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+  text-align: start;
 }
 
 .navbar {
   background-color: #ffffff;
 }
-
-/* .registerBtn {
-  margin-right: 20px;
-}
-
-.navbar-nav {
-  margin-left: 1200px;
-} */
 
 .logo {
   margin-left: 100px;

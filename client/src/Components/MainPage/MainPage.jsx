@@ -38,9 +38,9 @@ export default function MainPage() {
                 Card subtitle
               </CardSubtitle>
               <CardText>
-                This is a wider card with
+                This is a wider card with supporting text
               </CardText>
-              <Button>
+              <Button style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}>
                 Button
               </Button>
             </CardBody>
@@ -65,7 +65,7 @@ export default function MainPage() {
               <CardText>
                 This is a wider card with supporting text
               </CardText>
-              <Button>
+              <Button style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}>
                 Button
               </Button>
             </CardBody>
@@ -90,7 +90,7 @@ export default function MainPage() {
               <CardText>
                 This is a wider card with supporting text
               </CardText>
-              <Button>
+              <Button style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}>
                 Button
               </Button>
             </CardBody>
