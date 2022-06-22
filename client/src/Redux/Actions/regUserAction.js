@@ -11,8 +11,3 @@ export const regUser = (value) => (dispatch) => {
     .then((response) => dispatch(regUserAction(response.data)))
     .catch((err) => console.log(err));
 };
-
-export const userLogOut = () => (dispatch) => {
-  axios('/auth/logout')
-    .then((res) => dispatch(regUser({})));
-};

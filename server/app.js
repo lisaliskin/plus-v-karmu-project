@@ -10,9 +10,7 @@ const {
   v4: uuidv4,
 } = require('uuid');
 
-const {
-  WebSocketServer,
-} = require('ws');
+const { WebSocketServer } = require('ws');
 
 const map = new Map();
 
@@ -70,7 +68,10 @@ app.use('/message', messageRouter);
 app.use('/chat', chatRouter);
 
 const server = http.createServer(app);
-const wss = new WebSocketServer({ clientTracking: false, noServer: true });
+const wss = new WebSocketServer({
+  clientTracking: false,
+  noServer: true,
+});
 
 // part1 'upgrade' обновление протокола
 server.on('upgrade', (request, socket, head) => {

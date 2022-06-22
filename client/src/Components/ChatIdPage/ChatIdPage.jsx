@@ -38,6 +38,7 @@ export default function ChatIdPage() {
     ws.send(JSON.stringify({
       type: 'SET_MESSAGE',
       payload: input,
+
     }))
 
     dispatch(addMessage(input));
