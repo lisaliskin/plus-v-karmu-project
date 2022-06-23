@@ -37,7 +37,7 @@ export default function MainPage() {
           <Col className="col-9">
             <h3>Добрые делишки</h3>
             <CardGroup>
-              { tasks.map((el) => <MainPageCard el={el} key={el.id} />) }
+              { tasks.length && tasks.map((el) => <MainPageCard el={el} key={el.id} />) }
             </CardGroup>
           </Col>
         </Row>

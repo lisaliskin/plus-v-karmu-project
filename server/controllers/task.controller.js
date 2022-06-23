@@ -11,17 +11,15 @@ const create = async (req, res) => {
   const {
     name,
     description,
-    img,
     subcategory_id,
     user_id,
   } = req.body;
-  if (name && description && img && subcategory_id) {
+  if (name && description && subcategory_id) {
     try {
       console.log('-------------START-----------------');
       const newTask = await Task.create({
         name,
         description,
-        img,
         subcategory_id,
       });
       console.log('=-=-=-=-=-=-=-=-=-\n', newTask.dataValues.id, user_id);

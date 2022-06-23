@@ -10,8 +10,7 @@ export default function AccountPage() {
         <LkSideBar />
       </div>
       <div className="col-8">
-        <TaskForm />
-        <TaskForm />
+        <h4>Мои невыполненные добрые дела</h4>
         <TaskForm />
         <TaskForm />
       </div>

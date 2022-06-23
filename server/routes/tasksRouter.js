@@ -15,11 +15,14 @@ tasksRouter.post('/', async (req, res) => {
     }, {
       model: User,
     }],
+    order: [
+      ['createdAt', 'DESC'],
+    ],
   });
   // const allTasks = await Task.findAll();
   // console.log('==========', JSON.parse(JSON.stringify(allTasks)));
   if (allTasks) {
-    return res.json(JSON.parse(JSON.stringify(allTasks)));
+    return res.json((allTasks));
   }
   return res.sendStatus(401);
 });
