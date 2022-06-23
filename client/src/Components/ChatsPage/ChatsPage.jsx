@@ -1,7 +1,7 @@
 import React from "react";
 // import { useDispatch, useSelector } from "react-redux";
 import { Row } from "reactstrap";
-import LkSideBar from "../SideBar/lkSideBar";
+import LkSideBar from "../SideBar/LkSideBar";
 import ChatIdPage from "../ChatIdPage/ChatIdPage";
 import MessForm from "../MessForm/MessForm";
 
