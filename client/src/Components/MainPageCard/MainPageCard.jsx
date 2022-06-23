@@ -6,7 +6,7 @@ import {
 
 export default function MainPageCard({ el }) {
   return (
-    <Card>
+    <Card className="taskCard">
       <CardImg
         alt="Card image cap"
         src={`${el.img}`}
@@ -33,7 +33,7 @@ export default function MainPageCard({ el }) {
             fontFamily: "Menlo",
           }}
         >
-          Button
+          Сделать доброе дело
         </Button>
       </CardBody>
     </Card>
