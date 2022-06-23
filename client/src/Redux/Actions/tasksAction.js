@@ -14,7 +14,7 @@ export const addOneTasks = (value) => ({
   type: ADD_ONE_TASK,
   payload: value,
 });
-export const getOneTasksAction = () => async (dispatch) => {
-  const response = await axios('/tasks/task');
+export const getOneTasksAction = (task) => async (dispatch) => {
+  const response = await axios.post('/tasks/task', task);
   dispatch(addOneTasks(response.data));
 };

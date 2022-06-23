@@ -11,7 +11,7 @@ import {
 } from 'reactstrap';
 import taskModalAction from "../../Redux/Actions/taskModalAction";
 
-function LkSideBar() {
+export default function LkSideBar() {
   const dispatch = useDispatch();
   const changeTaskModal = () => {
     dispatch(taskModalAction(true));
@@ -65,23 +65,21 @@ function LkSideBar() {
               </Button>
             </Link>
             <hr />
-            <Link to="/newTask" style={{ marginRight: 'unset' }}>
-              <Button
-                onClick={changeTaskModal}
-                className="taskBtn"
-                style={{
-                  color: "#FFEC51",
-                  backgroundColor: "#7776BC",
-                }}
-              >
-                Создать задачу
-              </Button>
-            </Link>
+            {/* <Link style={{ marginRight: 'unset' }}> */}
+            <Button
+              onClick={changeTaskModal}
+              className="taskBtn"
+              style={{
+                color: "#FFEC51",
+                backgroundColor: "#7776BC",
+              }}
+            >
+              Создать задачу
+            </Button>
+            {/* </Link> */}
           </CardBody>
         </Card>
       </div>
     </Row>
   );
 }
-
-export default LkSideBar;

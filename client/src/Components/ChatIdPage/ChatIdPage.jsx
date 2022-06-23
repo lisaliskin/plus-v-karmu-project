@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import {
-  Button, Col, Container, Input, Row,
-} from "reactstrap";
+import { Button, Col, Container, Input, Row } from "reactstrap";
 import { addMessage } from "../../Redux/Actions/messageAction";
 import { useWsContext } from "../Context/Context";
 import Message from "../Message/Message";
@@ -18,9 +16,11 @@ export default function ChatIdPage() {
   const dispatch = useDispatch();
   const currentChat = chats.find((el) => el.id === Number(id));
   // console.log('_------> HAHAH',currentChat.messages[1].user_id,  'tvoi', userSignIn.id)
-  const currentName = currentChat.messages.find((el) => el.User.id !== userSignIn.id);
+  const currentName = currentChat.messages.find(
+    (el) => el.User.id !== userSignIn.id
+  );
   const { User } = currentName;
-  console.log('----->Name', User)
+  console.log("----->Name", User);
 
   const [user_id, setUserId] = useState(userSignIn.id);
   const [messanger_id, changeMessengerId] = useState(Number(id));
@@ -45,33 +45,46 @@ export default function ChatIdPage() {
   };
 
   const messageHandler = (e) => {
-  //  dispatch(addMessage(input));
+    //  dispatch(addMessage(input));
     ws.send(
       JSON.stringify({
         type: "SET_MESSAGE",
         payload: input,
-      }),
+      })
     );
   };
   return (
     <Container>
-      <div>
-        {User.name}
-      </div>
+      <div>{User.name}</div>
       <div className="form-floating">
         {currentChat.messages.map((el) => {
           if (el.user_id === userSignIn.id) {
-          return  <Message key={el.id} el={el} style={{ textAlign: "rigth"}}/>
+            return (
+              <Message key={el.id} el={el} style={{ textAlign: "rigth" }} />
+            );
           }
-         return <Message key={el.id} el={el} style={{textAlign: "left"}}/>
-        }
-      )}
+          return <Message key={el.id} el={el} style={{ textAlign: "left" }} />;
+        })}
       </div>
       <div className="input-group mb-3">
-        <input name="text" onChange={inputHandler} type="text" className="form-control" placeholder="введите сообщение" aria-label="Recipient's username" aria-describedby="button-addon2" />
-        <button className="btn btn-outline-secondary" onClick={messageHandler} type="button" id="button-addon2">отправить</button>
+        <input
+          name="text"
+          onChange={inputHandler}
+          type="text"
+          className="form-control"
+          placeholder="введите сообщение"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+        />
+        <button
+          className="btn btn-outline-secondary"
+          onClick={messageHandler}
+          type="button"
+          id="button-addon2"
+        >
+          отправить
+        </button>
       </div>
-
     </Container>
   );
 }

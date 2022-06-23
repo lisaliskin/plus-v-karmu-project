@@ -20,8 +20,9 @@ const chatRouter = require("./routes/chat.router");
 const tasksRouter = require("./routes/tasksRouter");
 const taskRouter = require("./routes/tasks.router");
 const catRouter = require("./routes/categories.router");
+const subCatRouter = require("./routes/subCat.router");
 
-//WSfunctions
+//ws Функции
 const { addMesageWS } = require("./wsFunctions/messageFunc");
 
 const app = express();
@@ -72,6 +73,7 @@ app.use("/chat", chatRouter);
 app.use("/tasks1", tasksRouter);
 app.use("/tasks", taskRouter);
 app.use("/categories", catRouter);
+app.use("/subCategories", subCatRouter);
 
 const server = http.createServer(app);
 const wss = new WebSocketServer({

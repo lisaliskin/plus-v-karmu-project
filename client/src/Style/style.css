@@ -10,6 +10,10 @@ body {
   font-family: 'Source Code Pro', monospace;
 }
 
+.achivka {
+  transition: all .2s ease-in-out;
+}
+
 .achivka:hover {
   -webkit-transform: scale(1.2);
   -ms-transform: scale(1.2);
@@ -44,15 +48,24 @@ transform: translateX(-7px);
 }
 
 .container {
-  margin-top: 50px;
+  margin-top: 30px;
   text-align: center;
 }
 
-.containerExample {
+/* .containerExample {
   margin-top: 50px;
-}
+} */
 
-.card {
+/* .card {
   margin-top: 50px;
+} */
+
+/* .taskCard {
+  margin: 30px 100px;
+} */
+
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
 }
 

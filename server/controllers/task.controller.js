@@ -11,22 +11,20 @@ const create = async (req, res) => {
   const {
     name,
     description,
-    img,
     subcategory_id,
-    id,
+    user_id,
   } = req.body;
-  if (name && description && img && subcategory_id) {
+  if (name && description && subcategory_id) {
     try {
       console.log('-------------START-----------------');
       const newTask = await Task.create({
         name,
         description,
-        img,
         subcategory_id,
       });
-      console.log('----------------------------------\n', newTask.dataValues.id, id);
+      console.log('=-=-=-=-=-=-=-=-=-\n', newTask.dataValues.id, user_id);
       const newUsersTask = await UsersTask.create({
-        user_id: id,
+        user_id,
         task_id: newTask.dataValues.id,
       });
       return res.json({
@@ -38,7 +36,7 @@ const create = async (req, res) => {
       return res.sendStatus(500);
     }
   }
-  return res.sendStatus(401);
+  return res.sendStatus(500);
 };
 
 const getAllTasks = async (req, res) => {

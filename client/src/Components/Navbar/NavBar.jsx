@@ -79,6 +79,7 @@ export default function NavBar() {
                     onClick={changeRegModal}
                     className="registerBtn"
                     style={{
+                      marginRight: '50px',
                       color: "#FFEC51",
                       backgroundColor: "#7776BC",
                     }}
@@ -89,6 +90,7 @@ export default function NavBar() {
                     onClick={changeLoginModal}
                     className="loginBtn"
                     style={{
+                      marginRight: '50px',
                       color: "#FFEC51",
                       backgroundColor: "#7776BC",
                     }}
