@@ -23,17 +23,19 @@ export default function TaskModal() {
       padTo2Digits(date.getDate()),
     ].join('-');
   }
-  const { taskModal } = useSelector((state) => state);
+  const { taskModal, userSignIn } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const memoSubCat = useMemo(() => subCat
     .filter((el) => el.category_id === currentCat), [currentCat]);
 
+  console.log('_______', memoSubCat);
+
   const closeHandler = () => {
     dispatch(taskModalAction(false));
   };
   useEffect(() => {
-    console.log(currentCat);
+    // console.log(currentCat);
   }, [currentCat]);
   useEffect(() => {
     console.log(categories);
@@ -41,8 +43,17 @@ export default function TaskModal() {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    // TODO написать обработчик события
+    if (!inputs.subcategory_id) {
+      return;
+    }
+    console.log('sdafsadf', inputs);
+    console.log('sdafsadf', inputs.subcategory_id);
+    console.log('sdafsadf=============', memoSubCat.find((el) => el.name === inputs.subcategory_id).id);
     const formData = {
-      ...inputs, subcategory_id: memoSubCat.find((el) => el.name === inputs.subcategory_id).id,
+      ...inputs,
+      subcategory_id: memoSubCat.find((el) => el.name === inputs.subcategory_id).id,
+      user_id: userSignIn.id,
     };
     dispatch(getOneTasksAction(formData));
     // dispatch(changePostAction(post));
@@ -50,6 +61,7 @@ export default function TaskModal() {
   };
 
   const inputHandler = (e) => {
+    console.log('inputHandler', e.target.name, e.target.value);
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
@@ -61,6 +73,15 @@ export default function TaskModal() {
         </ModalHeader>
         <ModalBody>
           <Form>
+            {/* <FormGroup>
+              <Input
+                // type="hidden"
+                id="user_id"
+                name="user_id"
+                onChange={inputHandler}
+                value={`${userSignIn.id}`}
+              />
+            </FormGroup> */}
             <FormGroup>
               <div>Дата события</div>
               <Input
@@ -97,6 +118,9 @@ export default function TaskModal() {
                 onChange={inputHandler}
                 value={inputs.subcategory_id || ''}
               >
+                <option id={99} value="" hidden disable>
+                  выберите
+                </option>
                 {memoSubCat.map((el) => (
                   <Optionss
                     key={el.id}
