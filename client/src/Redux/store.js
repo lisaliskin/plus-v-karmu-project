@@ -8,6 +8,8 @@ import taskModalReducer from './Reducers/taskModalReducer';
 import tasksReducer from './Reducers/tasksReducer';
 import wsReducer from './Reducers/wsReducer';
 import chatReduser from './Reducers/chatReduser';
+import tasksReducer from './Reducers/tasksReduser';
+import categoriesReducer from './Reducers/categoriesReduser';
 
 export const store = configureStore({
   reducer: {
@@ -20,6 +22,8 @@ export const store = configureStore({
     regUser: regUserReducer,
     userSignIn: logUserReducer,
     chats: chatReduser,
+    tasks: tasksReducer,
+    categories: categoriesReducer,
   },
 });
 export default store;
