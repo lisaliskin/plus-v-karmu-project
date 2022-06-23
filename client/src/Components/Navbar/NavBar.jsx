@@ -15,11 +15,11 @@ import taskModalAction from "../../Redux/Actions/taskModalAction";
 import loginModalAction from "../../Redux/Actions/loginModalAction";
 import { getAllChats } from "../../Redux/Actions/chatAction";
 import { logOut } from "../../Redux/Actions/logUserAction";
+import logo from '../../icons/logoPlusKkarme.png';
+import lk from '../../icons/user.png';
+import message from '../../icons/envelope.png';
 
 export default function NavBar() {
-  const logo = "icons/logoPlusKkarme.png";
-  const lk = "icons/user.png";
-  const message = "icons/envelope.png";
   const { userSignIn, user } = useSelector((state) => state);
   // const id = userSignIn.id;
   const dispatch = useDispatch();

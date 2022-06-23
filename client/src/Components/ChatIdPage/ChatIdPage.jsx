@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Button, Col, Container, Input, Row } from "reactstrap";
+import {
+  Button, Col, Container, Input, Row,
+} from "reactstrap";
 import { addMessage } from "../../Redux/Actions/messageAction";
 import { useWsContext } from "../Context/Context";
 import Message from "../Message/Message";
@@ -17,7 +19,7 @@ export default function ChatIdPage() {
   const currentChat = chats.find((el) => el.id === Number(id));
   // console.log('_------> HAHAH',currentChat.messages[1].user_id,  'tvoi', userSignIn.id)
   const currentName = currentChat.messages.find(
-    (el) => el.User.id !== userSignIn.id
+    (el) => el.User.id !== userSignIn.id,
   );
   const { User } = currentName;
   console.log("----->Name", User);
@@ -50,13 +52,13 @@ export default function ChatIdPage() {
       JSON.stringify({
         type: "SET_MESSAGE",
         payload: input,
-      })
+      }),
     );
   };
   return (
     <Container>
-      <div>{User.name}</div>
-      <div className="form-floating">
+      <h4 style={{ backgroundColor: 'white', border: '#7776BC' }}>{User.name}</h4>
+      <div className="form-floating" style={{ backgroundColor: 'white' }}>
         {currentChat.messages.map((el) => {
           if (el.user_id === userSignIn.id) {
             return (
@@ -78,6 +80,10 @@ export default function ChatIdPage() {
         />
         <button
           className="btn btn-outline-secondary"
+          style={{
+            color: "#FFEC51",
+            backgroundColor: "#7776BC",
+          }}
           onClick={messageHandler}
           type="button"
           id="button-addon2"

@@ -13,6 +13,7 @@ import NavBar from './Components/Navbar/NavBar';
 import ChatsPage from './Components/ChatsPage/ChatsPage';
 import AccountPage from './Components/AccountPage/AccountPage';
 import ChatIdPage from './Components/ChatIdPage/ChatIdPage';
+import ChatPage from './Components/ChatPage/ChatsPage';
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
           <Route path="/account" element={<AccountPage />} />
           {/* <Route path="/newtask" element={<TaskModal />} /> */}
           <Route path="/account/chats" element={<ChatsPage />} />
-          <Route path="/account/chats/chat/:id" element={<ChatIdPage />} />
+          <Route path="/account/chats/chat/:id" element={<ChatPage />} />
         </Routes>
         <LoginModal />
         <RegistrationModal />
