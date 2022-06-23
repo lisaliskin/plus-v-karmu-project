@@ -5,7 +5,7 @@ const {
 
 const tasksRouter = Router();
 
-tasksRouter.get('/', async (req, res) => {
+tasksRouter.post('/', async (req, res) => {
   const allTasks = await Task.findAll({
     include: [{
       model: Subcategory,
@@ -15,12 +15,13 @@ tasksRouter.get('/', async (req, res) => {
     }, {
       model: User,
     }],
-    raw: true,
   });
+  // const allTasks = await Task.findAll();
+  // console.log('==========', JSON.parse(JSON.stringify(allTasks)));
   if (allTasks) {
-    return res.json({ allTasks });
+    return res.json(JSON.parse(JSON.stringify(allTasks)));
   }
-  return res.json([]);
+  return res.sendStatus(401);
 });
 
 module.exports = tasksRouter;

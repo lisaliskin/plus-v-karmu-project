@@ -10,6 +10,25 @@ body {
   font-family: 'Source Code Pro', monospace;
 }
 
+.achivka:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.avatar:hover {
+  box-shadow:
+  1px 1px #7776BC,
+  2px 2px #7776BC,
+  3px 3px #7776BC,
+  4px 4px #7776BC,
+  5px 5px #7776BC,
+  6px 6px #7776BC,
+  7px 7px #7776BC;
+-webkit-transform: translateX(-7px);
+transform: translateX(-7px);
+}
+
 .nav-link {
   text-decoration: none;
   color: inherit;
@@ -36,3 +55,4 @@ body {
 .card {
   margin-top: 50px;
 }
+

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
 import React, { createContext, useContext, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllChats } from "../../Redux/Actions/chatAction";

@@ -17,10 +17,13 @@ export default function ChatIdPage() {
   console.log("------> чат id", id);
   const dispatch = useDispatch();
   const currentChat = chats.find((el) => el.id === Number(id));
-  // console.log(currentChat)
+  // console.log('_------> HAHAH',currentChat.messages[1].user_id,  'tvoi', userSignIn.id)
+  const currentName = currentChat.messages.find((el) => el.User.id !== userSignIn.id);
+  const { User } = currentName;
+  console.log('----->Name', User)
 
   const [user_id, setUserId] = useState(userSignIn.id);
-  const [messanger_id, changeMessengerId] = useState(id);
+  const [messanger_id, changeMessengerId] = useState(Number(id));
 
   const [input, setInput] = useState({ user_id, messanger_id });
 
@@ -52,22 +55,23 @@ export default function ChatIdPage() {
   };
   return (
     <Container>
-      {message.map((el) => (
-        <Message key={el.id} el={el} />
-      ))}
-      <Row>
-        <Col md-9>
-          <Input name="text" onChange={inputHandler} placeholder="input text" />
-        </Col>
-        <Col>
-          <Button type="submit" onClick={messageHandler}>
-            Отправить
-          </Button>
-        </Col>
-      </Row>
-      {currentChat.messages.map((el) => (
-        <Message key={el.id} el={el} />
-      ))}
+      <div>
+        {User.name}
+      </div>
+      <div className="form-floating">
+        {currentChat.messages.map((el) => {
+          if (el.user_id === userSignIn.id) {
+          return  <Message key={el.id} el={el} style={{ textAlign: "rigth"}}/>
+          }
+         return <Message key={el.id} el={el} style={{textAlign: "left"}}/>
+        }
+      )}
+      </div>
+      <div className="input-group mb-3">
+        <input name="text" onChange={inputHandler} type="text" className="form-control" placeholder="введите сообщение" aria-label="Recipient's username" aria-describedby="button-addon2" />
+        <button className="btn btn-outline-secondary" onClick={messageHandler} type="button" id="button-addon2">отправить</button>
+      </div>
+
     </Container>
   );
 }
