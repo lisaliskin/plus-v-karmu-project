@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {
-  Button, Card, CardBody, CardGroup, CardImg, CardSubtitle, CardText, CardTitle, Row,
+  CardText, Row,
 } from 'reactstrap';
 
 export default function MainPageCard({ el }) {
-  const doBtn = 'icons/checkbox.png';
+  const doBtn = 'icons/unCheck.png';
   const message = "icons/envelope.png";
   return (
     <div className="container overflow-hidden p-3 bg-light shadow">
@@ -23,7 +23,7 @@ export default function MainPageCard({ el }) {
           <Row className="d-flex align-items-center justify-content-center">
             <h4>{el.Subcategory.Category.name}</h4>
             {el.Subcategory.name}
-            {el.description}
+            <h3>{el.description}</h3>
             <CardText>{el.name}</CardText>
           </Row>
         </div>
