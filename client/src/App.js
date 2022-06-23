@@ -24,7 +24,7 @@ function App() {
           <Route path="/account" element={<AccountPage />} />
           {/* <Route path="/newtask" element={<TaskModal />} /> */}
           <Route path="/account/chats" element={<ChatsPage />} />
-          <Route path="/account/chats/chat/1" element={<ChatIdPage />} />
+          <Route path="/account/chats/chat/:id" element={<ChatIdPage />} />
         </Routes>
         <LoginModal />
         <RegistrationModal />
