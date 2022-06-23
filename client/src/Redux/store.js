@@ -1,9 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
-import loginModalAction from './Actions/loginModalAction';
 import loginModalReducer from './Reducers/loginModalReducer';
+import messageReducer from './Reducers/messageReducer';
+import logUserReducer from './Reducers/logUserReduser';
 import regModalReducer from './Reducers/regModalReducer';
+import regUserReducer from './Reducers/regUserReducer';
 import taskModalReducer from './Reducers/taskModalReducer';
-import tasksReducer from './Reducers/tasksReducer';
+import wsReducer from './Reducers/wsReducer';
+import chatReduser from './Reducers/chatReduser';
+import tasksReducer from './Reducers/tasksReduser';
+import categoriesReducer from './Reducers/categoriesReduser';
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +16,12 @@ export const store = configureStore({
     regModal: regModalReducer,
     taskModal: taskModalReducer,
     tasks: tasksReducer,
+    message: messageReducer,
+    ws: wsReducer,
+    regUser: regUserReducer,
+    userSignIn: logUserReducer,
+    chats: chatReduser,
+    categories: categoriesReducer,
   },
 });
 export default store;

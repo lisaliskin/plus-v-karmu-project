@@ -1,7 +1,21 @@
-import React from 'react';
+import React from "react";
+import { Row } from "reactstrap";
+import LkSideBar from "../SideBar/lkSideBar";
+import TaskForm from "../TaskForm/TaskForm";
 
 export default function AccountPage() {
   return (
-    <div>AccountPage</div>
+    <Row>
+      <div className="mt-10 col">
+        <LkSideBar />
+      </div>
+      <div className="col-8">
+        <TaskForm />
+        <TaskForm />
+        <TaskForm />
+        <TaskForm />
+        <TaskForm />
+      </div>
+    </Row>
   );
 }

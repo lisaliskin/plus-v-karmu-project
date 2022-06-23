@@ -4,14 +4,20 @@ import {
   Button,
   Container,
   Form,
-  FormGroup, Input, Label, Modal, ModalBody, ModalHeader,
+  FormGroup, Input, Label, Modal, ModalBody, ModalHeader, Row,
 } from 'reactstrap';
 import loginModalAction from '../../Redux/Actions/loginModalAction';
+import { userSignIn } from '../../Redux/Actions/logUserAction';
 
 export default function LoginModal() {
+  const [inputs, setInputs] = useState({});
+
   // const [loginModal, setLoginModal] = useState(false);
   const { loginModal } = useSelector((state) => state);
   const dispatch = useDispatch();
+  const inputHandler = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
   const closeHandler = () => {
     dispatch(loginModalAction(false));
@@ -22,14 +28,18 @@ export default function LoginModal() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    // dispatch(changePostAction(post));
+    dispatch(userSignIn(inputs));
+    setInputs({});
     dispatch(loginModalAction(false));
   };
 
   return (
     <div>
-      <Modal isOpen={loginModal} toggle={closeHandler}>
-        <ModalHeader toggle={closeHandler}>LogIn</ModalHeader>
+      <Modal
+        isOpen={loginModal}
+        toggle={closeHandler}
+      >
+        <ModalHeader toggle={closeHandler}>Войти в личный кабинет</ModalHeader>
         <ModalBody>
           <Form>
             <FormGroup>
@@ -40,7 +50,8 @@ export default function LoginModal() {
                 id="exampleEmail"
                 name="email"
                 placeholder="your email"
-                // value={post.title || ''}
+                value={inputs.email || ''}
+                onChange={inputHandler}
                 type="email"
               />
             </FormGroup>
@@ -52,17 +63,19 @@ export default function LoginModal() {
                 id="examplePassword"
                 name="password"
                 placeholder="your password"
-                // value={post.body || ''}
+                value={inputs.password || ''}
+                onChange={inputHandler}
                 type="password"
               />
             </FormGroup>
-            <Button
-              color="success"
-              outline
-              onClick={submitHandler}
-            >
-              Войти
-            </Button>
+            <Row xs={4} className="row justify-content-md-center">
+              <Button
+                onClick={submitHandler}
+                style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}
+              >
+                Войти
+              </Button>
+            </Row>
           </Form>
         </ModalBody>
       </Modal>

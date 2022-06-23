@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
   Button, Form, FormGroup, Input, Label, Modal, ModalBody, ModalFooter, ModalHeader,
 } from 'reactstrap';
 import taskModalAction from '../../Redux/Actions/taskModalAction';
+import Optionss from './options';
 
 export default function TaskModal() {
+  const [inputs, setInputs] = useState({});
+  const { categories } = useSelector((state) => state);
   function padTo2Digits(num) {
     return num.toString().padStart(2, '0');
   }
@@ -29,6 +32,11 @@ export default function TaskModal() {
     // dispatch(changePostAction(post));
     dispatch(taskModalAction(false));
   };
+
+  const inputHandler = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
   return (
     <div>
       <Modal isOpen={taskModal} toggle={closeHandler}>
@@ -42,9 +50,10 @@ export default function TaskModal() {
               <Input
                 placeholder="Дата события..."
                 type="date"
-                id="date"
-                name="date"
-                value={`${formatDate(new Date())}`}
+                id="name"
+                name="name"
+                onChange={inputHandler}
+                // value={`${formatDate(new Date())}`}
                 min={`${formatDate(new Date())}`}
                 max="2023-12-31"
               />
@@ -56,28 +65,19 @@ export default function TaskModal() {
                 name="category"
                 type="select"
               >
-                <option value="30">
-                  ...
-                </option>
-                <option value="помощь по дому">
+                {categories.map((el) => <Optionss key={el.id} el={el} />)}
+                {/* <option value="помощь по дому">
                   помощь по дому
                 </option>
                 <option value="няньки/сиделки">
                   няньки/сиделки
-                </option>
+                </option> */}
               </Input>
             </FormGroup>
             <FormGroup>
               <Input
                 placeholder="Суть задачи..."
                 rows={5}
-                type="textarea"
-              />
-            </FormGroup>
-            <FormGroup>
-              <Input
-                placeholder="Вид помощи, которая нужна..."
-                rows={3}
                 type="textarea"
               />
             </FormGroup>
@@ -91,17 +91,17 @@ export default function TaskModal() {
                 <option value="num">
                   ...
                 </option>
-                <option value="10">
-                  1-10
+                <option value="3">
+                  1-3
                 </option>
-                <option value="20">
-                  11-20
+                <option value="7">
+                  4-7
                 </option>
-                <option value="30">
-                  21-30
+                <option value="15">
+                  7-15
                 </option>
                 <option value="many">
-                  больше 30-ти
+                  больше 15-ти
                 </option>
               </Input>
             </FormGroup>
@@ -109,18 +109,17 @@ export default function TaskModal() {
         </ModalBody>
         <ModalFooter>
           <Button
-            color="primary"
+            style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}
             onClick={submitHandler}
           >
-            Do Something
+            Создать
           </Button>
           {' '}
           <Button
-            color="success"
-            outline
             onClick={closeHandler}
+            style={{ color: '#7776BC', backgroundColor: '#FFEC51', fontFamily: 'Menlo' }}
           >
-            Cancel
+            Отмена
           </Button>
         </ModalFooter>
       </Modal>

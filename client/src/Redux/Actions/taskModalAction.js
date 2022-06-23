@@ -1,6 +1,6 @@
 import { SET_TASK_MODAL } from '../types/modalstype';
 
-export const taskModalAction = (value) => ({
+const taskModalAction = (value) => ({
   type: SET_TASK_MODAL,
   payload: value,
 });
