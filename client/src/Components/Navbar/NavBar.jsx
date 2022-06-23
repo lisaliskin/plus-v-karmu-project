@@ -65,6 +65,7 @@ export default function NavBar() {
                         color: "#FFEC51",
                         backgroundColor: "#7776BC",
                       }}
+                      onClick={logOutHAndler}
                     >
                       Выйти
                     </Button>
@@ -73,30 +74,26 @@ export default function NavBar() {
                 // </>
               ) : (
                 <>
-                  <Link to="/registration">
-                    <Button
-                      onClick={changeRegModal}
-                      className="registerBtn"
-                      style={{
-                        color: "#FFEC51",
-                        backgroundColor: "#7776BC",
-                      }}
-                    >
-                      Зарегистрироваться
-                    </Button>
-                  </Link>
-                  <Link to="/login">
-                    <Button
-                      onClick={changeLoginModal}
-                      className="loginBtn"
-                      style={{
-                        color: "#FFEC51",
-                        backgroundColor: "#7776BC",
-                      }}
-                    >
-                      Логин
-                    </Button>
-                  </Link>
+                  <Button
+                    onClick={changeRegModal}
+                    className="registerBtn"
+                    style={{
+                      color: "#FFEC51",
+                      backgroundColor: "#7776BC",
+                    }}
+                  >
+                    Зарегистрироваться
+                  </Button>
+                  <Button
+                    onClick={changeLoginModal}
+                    className="loginBtn"
+                    style={{
+                      color: "#FFEC51",
+                      backgroundColor: "#7776BC",
+                    }}
+                  >
+                    Логин
+                  </Button>
                 </>
               )}
             </Nav>
