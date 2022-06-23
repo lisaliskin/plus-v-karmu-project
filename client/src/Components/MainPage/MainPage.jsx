@@ -4,15 +4,18 @@ import {
   Button, Card, CardBody, CardGroup, CardImg, CardSubtitle, CardText, CardTitle,
 } from 'reactstrap';
 import { catAction } from '../../Redux/Actions/categoriesAction';
+import { subCatAction } from '../../Redux/Actions/subCatAction';
 import { getAllTasksAction } from '../../Redux/Actions/tasksGet';
 import MainPageCard from '../MainPageCard/MainPageCard';
 
 export default function MainPage() {
   const dispatch = useDispatch();
-  // const { categories } = useSelector((state) => state);
 
   useEffect(() => {
     dispatch(catAction());
+  }, []);
+  useEffect(() => {
+    dispatch(subCatAction());
   }, []);
 
   const { tasks } = useSelector((state) => state);
@@ -32,7 +35,7 @@ export default function MainPage() {
       <div className="containerExample">
         <h3>Примеры добрых дел</h3>
         <CardGroup>
-          { tasks.map((el) => <MainPageCard el={el} key={el.id} />) }
+          {tasks.length && tasks.map((el) => <MainPageCard el={el} key={el.id} />)}
         </CardGroup>
       </div>
     </div>

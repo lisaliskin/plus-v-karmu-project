@@ -9,6 +9,7 @@ import wsReducer from './Reducers/wsReducer';
 import chatReduser from './Reducers/chatReduser';
 import tasksReducer from './Reducers/tasksReduser';
 import categoriesReducer from './Reducers/categoriesReduser';
+import subCatReducer from './Reducers/subCatReducer';
 
 export const store = configureStore({
   reducer: {
@@ -22,6 +23,7 @@ export const store = configureStore({
     userSignIn: logUserReducer,
     chats: chatReduser,
     categories: categoriesReducer,
+    subCat: subCatReducer,
   },
 });
 export default store;

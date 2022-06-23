@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import {
-  Button, Card, CardBody, CardGroup, CardImg, CardSubtitle, CardText, CardTitle,
+  Button, Card, CardBody, CardGroup, CardImg, CardSubtitle, CardText, CardTitle, Row,
 } from 'reactstrap';
 
 export default function MainPageCard({ el }) {
@@ -26,15 +26,26 @@ export default function MainPageCard({ el }) {
           {el.description}
         </CardSubtitle>
         <CardText>{el.name}</CardText>
-        <Button
-          style={{
-            color: "#FFEC51",
-            backgroundColor: "#7776BC",
-            fontFamily: "Menlo",
-          }}
-        >
-          Button
-        </Button>
+        <Row>
+          <Button
+            style={{
+              color: "#FFEC51",
+              backgroundColor: "#7776BC",
+              fontFamily: "Menlo",
+            }}
+          >
+            Сделать доброе дело
+          </Button>
+          <Button
+            style={{
+              color: "#FFEC51",
+              backgroundColor: "#7776BC",
+              fontFamily: "Menlo",
+            }}
+          >
+            Сообщения
+          </Button>
+        </Row>
       </CardBody>
     </Card>
   );
