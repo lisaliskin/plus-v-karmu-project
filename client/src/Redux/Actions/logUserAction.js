@@ -6,7 +6,7 @@ export const logUserAction = (value) => ({
   payload: value,
 });
 export const userSignIn = (value) => (dispatch) => {
-  axios.post(`${process.env.REACT_APP_SERVER_URL}/auth/signin`, value)
+  axios.post(`/auth/signin`, value)
     .then((res) => dispatch(logUserAction(res.data)));
 };
 

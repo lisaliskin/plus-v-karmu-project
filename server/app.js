@@ -19,6 +19,11 @@ const usersRouter = require('./routes/users.router');
 const messageRouter = require('./routes/message.router');
 const chatRouter = require('./routes/chat.router');
 
+//WSfunctions
+const { addMesageWS } = require('./wsFunctions/messageFunc')
+
+const { addMesage } = require('./controllers/message.controller')
+
 const app = express();
 
 const {
@@ -102,13 +107,18 @@ wss.on('connection', (ws, request) => {
 
   ws.on('message', (message) => {
     const { type, payload } = JSON.parse(message);
-    console.log('message in ws.on --->>', payload);
+    console.log('message in ws.on --->>', type, payload);
     switch (type) {
       case 'SET_MESSAGE':
-        for (const [userid, clientWs] of map) {
-          clientWs.send(JSON.stringify(payload.text));
-          console.log('Отправлено всем', payload.text);
+        async function setMessage(payload) {
+          await addMesageWS(payload);
+          console.log('создание сообщения в WS исполнено')
+          for (const [userid, clientWs] of map) {
+            clientWs.send(JSON.stringify({type, payload}));
+            console.log('Отправлено всем lol', payload.text);
+          }
         }
+        setMessage(payload)
         break;
 
       default:

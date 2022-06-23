@@ -80,6 +80,7 @@ export default function NavBar() {
                         color: "#FFEC51",
                         backgroundColor: "#7776BC",
                       }}
+                      onClick={logOutHAndler}
                     >
                       Выйти
                     </Button>

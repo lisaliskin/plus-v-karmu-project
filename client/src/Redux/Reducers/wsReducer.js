@@ -1,4 +1,4 @@
-const wsReducer = (state = new WebSocket(process.env.REACT_APP_WS), action) => {
+const wsReducer = (state = [], action) => {
   const { type, payload } = action;
   switch (type) {
     case 'SET_NEW':
