@@ -5,7 +5,7 @@ import {
 } from 'reactstrap';
 
 export default function MainPageCard({ el }) {
-  const chooseBtn = 'icons/check-mark.png';
+  const chooseBtn = 'icons/unCheck.png';
   const message = "icons/envelope.png";
   return (
     <div className="container overflow-hidden p-3 bg-light shadow">
