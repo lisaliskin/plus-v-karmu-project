@@ -1,11 +1,20 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
 import { Row } from "reactstrap";
-import LkSideBar from "../SideBar/LkSideBar";
+import { useDispatch, useSelector } from "react-redux";
 import TaskForm from "../TaskForm/TaskForm";
+import LkSideBar from "../SideBar/LkSideBar";
+import { getAllTasksAction } from "../../Redux/Actions/tasksGet";
+// import { getAllTasksAction } from "../../Redux/Actions/tasksAction";
 
 export default function AccountPage() {
-  const { tasks } = useSelector((state) => state);
+  const { tasks, taskModal } = useSelector((state) => state);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllTasksAction());
+    // if (!tasks.length) {
+    //   console.log(tasks)
+    // }
+  }, [taskModal]);
   return (
     <Row>
       <div className="mt-10 col">
