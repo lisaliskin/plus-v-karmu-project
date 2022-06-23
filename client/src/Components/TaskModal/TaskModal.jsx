@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import './TaskModal.css';
 import {
   Button, Form, FormGroup, Input, Label, Modal, ModalBody, ModalFooter, ModalHeader,
@@ -45,7 +44,6 @@ export default function TaskModal() {
       ...inputs, subcategory_id: memoSubCat.find((el) => el.name === inputs.subcategory_id).id,
     };
     dispatch(getOneTasksAction(formData));
-    // dispatch(changePostAction(post));
     dispatch(taskModalAction(false));
   };
 
@@ -70,7 +68,6 @@ export default function TaskModal() {
                 name="name"
                 onChange={inputHandler}
                 value={inputs.name || ''}
-                // value={`${formatDate(new Date())}`}
                 min={`${formatDate(new Date())}`}
                 max="2023-12-31"
               />
@@ -114,16 +111,6 @@ export default function TaskModal() {
                 placeholder="Суть задачи..."
                 rows={5}
                 type="textarea"
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label>Количество людей, если они нужны</Label>
-              <Input
-                id="img"
-                name="img"
-                onChange={inputHandler}
-                value={inputs.img || ''}
-                type="text"
               />
             </FormGroup>
           </Form>
