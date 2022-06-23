@@ -6,7 +6,7 @@ const tasksReducer = (state = [], action) => {
     case ADD_ALL_TASKS:
       return payload;
     case ADD_ONE_TASK:
-      return payload;
+      return [...state, ...payload];
     default:
       // console.log('======================');
       return state;

@@ -13,7 +13,7 @@ const create = async (req, res) => {
     description,
     img,
     subcategory_id,
-    id,
+    user_id,
   } = req.body;
   if (name && description && img && subcategory_id) {
     try {
@@ -24,9 +24,9 @@ const create = async (req, res) => {
         img,
         subcategory_id,
       });
-      console.log('----------------------------------\n', newTask.dataValues.id, id);
+      console.log('=-=-=-=-=-=-=-=-=-\n', newTask.dataValues.id, user_id);
       const newUsersTask = await UsersTask.create({
-        user_id: id,
+        user_id,
         task_id: newTask.dataValues.id,
       });
       return res.json({
