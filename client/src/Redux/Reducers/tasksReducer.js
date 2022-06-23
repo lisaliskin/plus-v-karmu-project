@@ -4,8 +4,10 @@ const tasksReducer = (state = [], action) => {
   const { type, payload } = action;
   switch (type) {
     case ADD_ALL_TASKS:
-      return payload;
+      // console.log(ADD_ALL_TASKS);
+      return [...payload];
     default:
+      // console.log('======================');
       return state;
   }
 };

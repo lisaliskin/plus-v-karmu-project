@@ -15,8 +15,10 @@ export default function NavBar() {
   const { userSignIn, user } = useSelector((state) => state);
   // const id = userSignIn.id;
   const dispatch = useDispatch();
+
   const changeLoginModal = () => {
-    dispatch(loginModalAction(true));
+    console.log('hello');
+     dispatch(loginModalAction(true));
   };
   const changeRegModal = () => {
     dispatch(regModalAction(true));
@@ -24,14 +26,13 @@ export default function NavBar() {
   const changeTaskModal = () => {
     dispatch(taskModalAction(true));
   };
-  
   const logOutHAndler = () => {
     dispatch(userLogOut());
   };
 
   useEffect(() => {
-    dispatch(getAllChats(userSignIn))
-  },[userSignIn])
+    dispatch(getAllChats(userSignIn));
+  }, [userSignIn]);
 
   return (
     <div>
@@ -56,7 +57,7 @@ export default function NavBar() {
                     Создать задачу
                   </Button>
                   <Link to="/chats">
-                    <Button outline onClick={changeTaskModal} className="registerBtn" style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}>
+                    <Button outline className="registerBtn" style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}>
                       Переписки
                     </Button>
                   </Link>
@@ -66,16 +67,12 @@ export default function NavBar() {
                 </>
               ) : (
                 <>
-                  <Link to="/registration">
-                    <Button outline onClick={changeRegModal} className="registerBtn" style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}>
-                      Зарегистрироваться
-                    </Button>
-                  </Link>
-                  <Link to="/login">
-                    <Button outline onClick={changeLoginModal} className="loginBtn" style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}>
-                      Логин
-                    </Button>
-                  </Link>
+                  <Button outline onClick={changeRegModal} className="registerBtn" style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}>
+                    Зарегистрироваться
+                  </Button>
+                  <Button outline onClick={changeLoginModal} className="loginBtn" style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}>
+                    Логин
+                  </Button>
                 </>
               )}
             </Nav>

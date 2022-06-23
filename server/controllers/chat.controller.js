@@ -1,7 +1,7 @@
 const { Messanger, UserMessanger } = require('../db/models')
 
 const getChats = async (req, res) => {
-  console.log('--------->Chat', req);
+  // console.log('--------->Chat', req);
   
   const { id } = req.body;
   if (id) {

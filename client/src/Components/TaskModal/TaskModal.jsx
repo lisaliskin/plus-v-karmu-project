@@ -29,6 +29,9 @@ export default function TaskModal() {
     // dispatch(changePostAction(post));
     dispatch(taskModalAction(false));
   };
+  const inputHandler = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
   return (
     <div>
       <Modal isOpen={taskModal} toggle={closeHandler}>
@@ -44,7 +47,7 @@ export default function TaskModal() {
                 type="date"
                 id="date"
                 name="date"
-                value={`${formatDate(new Date())}`}
+                // value={inputHandler && `${formatDate(new Date())}`}
                 min={`${formatDate(new Date())}`}
                 max="2023-12-31"
               />

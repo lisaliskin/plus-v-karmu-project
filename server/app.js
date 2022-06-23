@@ -20,6 +20,7 @@ const authRouter = require('./routes/auth.router');
 const usersRouter = require('./routes/users.router');
 const messageRouter = require('./routes/message.router');
 const chatRouter = require('./routes/chat.router');
+const tasksRouter = require('./routes/tasksRouter');
 
 const app = express();
 
@@ -68,6 +69,7 @@ app.use('/auth', authRouter);
 app.use('/users', usersRouter);
 app.use('/message', messageRouter);
 app.use('/chat', chatRouter);
+app.use('/tasks', tasksRouter);
 
 const server = http.createServer(app);
 const wss = new WebSocketServer({ clientTracking: false, noServer: true });
