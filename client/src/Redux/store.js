@@ -5,6 +5,7 @@ import logUserReducer from './Reducers/logUserReduser';
 import regModalReducer from './Reducers/regModalReducer';
 import regUserReducer from './Reducers/regUserReducer';
 import taskModalReducer from './Reducers/taskModalReducer';
+import tasksReducer from './Reducers/tasksReducer';
 import wsReducer from './Reducers/wsReducer';
 import chatReduser from './Reducers/chatReduser';
 import tasksReducer from './Reducers/tasksReduser';
@@ -15,6 +16,7 @@ export const store = configureStore({
     loginModal: loginModalReducer,
     regModal: regModalReducer,
     taskModal: taskModalReducer,
+    tasks: tasksReducer,
     message: messageReducer,
     ws: wsReducer,
     regUser: regUserReducer,

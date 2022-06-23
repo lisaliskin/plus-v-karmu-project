@@ -23,13 +23,16 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/main" element={<MainPageUser />} />
-          <Route path="/login" element={<LoginModal />} />
-          <Route path="/registration" element={<RegistrationModal />} />
+          {/* <Route path="/login" element={<LoginModal />} /> */}
+          {/* <Route path="/registration" element={<RegistrationModal />} /> */}
           <Route path="/account" element={<AccountPage />} />
           <Route path="/newtask" element={<TaskModal />} />
-          <Route path="/chats" element={<ChatsPage />} />
+          <Route path="/account/chats" element={<ChatsPage />} />
           <Route path="/chats/chat/1" element={<ChatIdPage />} />
         </Routes>
+        <LoginModal />
+        <RegistrationModal />
+        <TaskModal />
       </Container>
     </>
   );

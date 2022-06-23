@@ -19,5 +19,5 @@ root.render(
         <App />
       </Context>
     </Provider>
-  </BrowserRouter>
+  </BrowserRouter>,
 );

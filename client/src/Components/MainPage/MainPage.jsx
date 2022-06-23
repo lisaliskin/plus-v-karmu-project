@@ -4,6 +4,7 @@ import {
   Button, Card, CardBody, CardGroup, CardImg, CardSubtitle, CardText, CardTitle,
 } from 'reactstrap';
 import { catAction } from '../../Redux/Actions/categoriesAction';
+import { getAllTasksAction } from '../../Redux/Actions/tasksGet';
 
 export default function MainPage() {
   const dispatch = useDispatch();
@@ -13,6 +14,12 @@ export default function MainPage() {
     dispatch(catAction());
   }, []);
 
+  const { tasks } = useSelector((state) => state);
+  // useEffect(() => {
+  //   if (!tasks.length) {
+  //     dispatch(getAllTasksAction());
+  //   }
+  // }, []);
   return (
     <div className="container">
       <h1>Все о проекте</h1>

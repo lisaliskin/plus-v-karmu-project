@@ -10,7 +10,9 @@ const {
   v4: uuidv4,
 } = require('uuid');
 
-const { WebSocketServer } = require('ws');
+const {
+  WebSocketServer
+} = require('ws');
 
 const map = new Map();
 // (Хранение данных. Возвращает ключ(id) => значение(браузерное соединение пользователя))

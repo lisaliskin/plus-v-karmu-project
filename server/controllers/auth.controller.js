@@ -48,7 +48,7 @@ const signIn = async (req, res) => {
     email,
   } = req.body;
 
-  console.log('kdkjdkdk--->', password, email);
+  // console.log('kdkjdkdk--->', password, email);
 
   if (password && email) {
     try {
@@ -58,6 +58,7 @@ const signIn = async (req, res) => {
         },
       });
       if (currentUser && await bcrypt.compare(password, currentUser.password)) {
+        console.log('TOLKO CHTO ID', currentUser.id);
         req.session.user = {
           id: currentUser.id,
           name: currentUser.name,
