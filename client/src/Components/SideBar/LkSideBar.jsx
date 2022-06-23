@@ -18,14 +18,14 @@ export default function LkSideBar() {
   };
   return (
     <Row>
-      <div className="mt-10 col">
+      <div className="col" style={{ marginTop: '50px' }}>
         <img
           className="avatar rounded-circle col-6"
           width="400px"
           src="https://media.2x2tv.ru/content/images/size/h1080/2022/05/vfyu.jpg"
           alt="avatar"
         />
-        <Card className="mt-10 col-12 shadow">
+        <Card className="col-12 shadow" style={{ marginTop: '30px' }}>
           <CardBody width="300px">
             <CardTitle tag="h5">Имя: Nanaue</CardTitle>
             <CardTitle tag="h5">Телефон: +7(999)992-39-92</CardTitle>

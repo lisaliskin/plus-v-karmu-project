@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import {
   CardText, Row,
 } from 'reactstrap';
+import doBtn from '../../icons/unCheck.png';
+import message from '../../icons/envelope.png';
 
 export default function MainPageCard({ el }) {
-  const doBtn = 'icons/unCheck.png';
-  const message = "icons/envelope.png";
   return (
     <div className="container overflow-hidden p-3 bg-light shadow">
       <div className="row gx-5">
