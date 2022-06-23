@@ -26,7 +26,8 @@ const getChats = async (req, res) => {
       });
       // const getMessangers = JSON.parse(JSON.stringify(allChats));
       // const messangers = getMessangers.Messangers
-      // console.log('-------> VSE CHATY', JSON.parse(JSON.stringify(allChats[0].Messangers[0].Messages)))
+      // console.log('-------> VSE CHATY', JSON.parse
+      // (JSON.stringify(allChats[0].Messangers[0].Messages)))
       console.log('-------> VSE CHATY', chatsWithMessage[0].allMessages);
       if (chatsWithMessage[0].allMessages) {
         return res.json(chatsWithMessage[0].allMessages);

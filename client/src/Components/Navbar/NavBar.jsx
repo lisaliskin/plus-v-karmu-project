@@ -23,7 +23,9 @@ export default function NavBar() {
   const { userSignIn, user } = useSelector((state) => state);
   // const id = userSignIn.id;
   const dispatch = useDispatch();
+
   const changeLoginModal = () => {
+    console.log('hello');
     dispatch(loginModalAction(true));
   };
   const changeRegModal = () => {
@@ -32,7 +34,6 @@ export default function NavBar() {
   const changeTaskModal = () => {
     dispatch(taskModalAction(true));
   };
-
   const logOutHAndler = () => {
     dispatch(logOut());
   };

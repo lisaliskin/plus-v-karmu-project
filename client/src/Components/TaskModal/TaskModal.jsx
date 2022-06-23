@@ -53,7 +53,7 @@ export default function TaskModal() {
                 id="name"
                 name="name"
                 onChange={inputHandler}
-                value={`${formatDate(new Date())}`}
+                // value={`${formatDate(new Date())}`}
                 min={`${formatDate(new Date())}`}
                 max="2023-12-31"
               />

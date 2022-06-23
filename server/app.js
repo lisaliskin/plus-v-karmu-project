@@ -21,6 +21,7 @@ const authRouter = require('./routes/auth.router');
 const usersRouter = require('./routes/users.router');
 const messageRouter = require('./routes/message.router');
 const chatRouter = require('./routes/chat.router');
+const tasksRouter = require('./routes/tasksRouter');
 const taskRouter = require('./routes/tasks.router');
 const catRouter = require('./routes/categories.router');
 
@@ -71,6 +72,7 @@ app.use('/auth', authRouter);
 app.use('/users', usersRouter);
 app.use('/message', messageRouter);
 app.use('/chat', chatRouter);
+app.use('/tasks1', tasksRouter);
 app.use('/tasks', taskRouter);
 app.use('/categories', catRouter);
 
