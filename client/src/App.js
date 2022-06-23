@@ -22,7 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/account" element={<AccountPage />} />
-          <Route path="/newtask" element={<TaskModal />} />
+          {/* <Route path="/newtask" element={<TaskModal />} /> */}
           <Route path="/account/chats" element={<ChatsPage />} />
           <Route path="/account/chats/chat/1" element={<ChatIdPage />} />
         </Routes>

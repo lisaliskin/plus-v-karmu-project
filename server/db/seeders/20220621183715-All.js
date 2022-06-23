@@ -42,12 +42,90 @@ module.exports = {
     ];
 
     const categories = [
-      { name: 'animals', createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Помощь по дому', createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Няньки/сиделки', createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Животные', createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Одолжить', createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Репетиторство', createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Транспорт', createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Общение', createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Красота и здоровье', createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Фотосессии/видеосъемка', createdAt: new Date(), updatedAt: new Date() },
+
     ];
 
     const subcategories = [
       {
-        name: 'help for animals', category_id: 1, createdAt: new Date(), updatedAt: new Date(),
+        name: 'Уборка', category_id: 1, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'Готовка', category_id: 1, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'Ремонт', category_id: 1, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'Посидеть с ребенком', category_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'Позаботиться о пожилом человеке', category_id: 2, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'Выгул собаки', category_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'Передержка котика', category_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'Передержка пёсика', category_id: 3, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'Отдать даром', category_id: 4, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'Дать погонять', category_id: 4, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'Помощь с д/з', category_id: 5, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'Профессиональные задачи', category_id: 5, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'Иностранные языки', category_id: 5, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'Переезд', category_id: 6, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'Ремонт(велик, скейт и тд)', category_id: 6, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'Подвезти', category_id: 6, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'Психологическая помощь', category_id: 7, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'просто поговорить', category_id: 7, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'Прически/стрижка', category_id: 8, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'Массаж', category_id: 8, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'Макияж', category_id: 8, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'Спорт', category_id: 8, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'Фотосессии', category_id: 9, createdAt: new Date(), updatedAt: new Date(),
+      },
+      {
+        name: 'Видеосъемка', category_id: 9, createdAt: new Date(), updatedAt: new Date(),
       },
     ];
 

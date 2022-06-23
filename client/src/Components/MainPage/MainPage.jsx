@@ -4,16 +4,19 @@ import {
   CardGroup, Col, Container, Row,
 } from 'reactstrap';
 import { catAction } from '../../Redux/Actions/categoriesAction';
+import { subCatAction } from '../../Redux/Actions/subCatAction';
 import { getAllTasksAction } from '../../Redux/Actions/tasksGet';
 import CategoriesBlock from '../CategoriesBlock/CategoriesBlock';
 import MainPageCard from '../MainPageCard/MainPageCard';
 
 export default function MainPage() {
   const dispatch = useDispatch();
-  // const { categories } = useSelector((state) => state);
 
   useEffect(() => {
     dispatch(catAction());
+  }, []);
+  useEffect(() => {
+    dispatch(subCatAction());
   }, []);
 
   const { tasks } = useSelector((state) => state);

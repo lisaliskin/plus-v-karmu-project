@@ -38,7 +38,7 @@ const create = async (req, res) => {
       return res.sendStatus(500);
     }
   }
-  return res.sendStatus(401);
+  return res.sendStatus(500);
 };
 
 const getAllTasks = async (req, res) => {

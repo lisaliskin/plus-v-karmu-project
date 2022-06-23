@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Optionss({ el }) {
+export default function Categories({ el }) {
   // const { categories } = useSelector((state) => state);
 
   return (

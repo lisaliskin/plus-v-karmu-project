@@ -5,3 +5,4 @@ export const ADD_ALL_TASKS = 'ADD_ALL_TASKS';
 export const SET_MESSAGE = 'SET_MESSAGE';
 export const ADD_ONE_TASK = 'ADD_ALL_TASK';
 export const SET_CATEGORY = 'SET_CATEGORY';
+export const SET_SUB_CATEGORIES = 'SET_SUB_CATEGORIES';
