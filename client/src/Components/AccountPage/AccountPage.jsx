@@ -14,7 +14,6 @@ export default function AccountPage() {
         <TaskForm />
         <TaskForm />
         <TaskForm />
-        <TaskForm />
       </div>
     </Row>
   );

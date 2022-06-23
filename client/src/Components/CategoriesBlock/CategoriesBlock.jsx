@@ -4,56 +4,56 @@ import { Col } from 'reactstrap';
 export default function CategoriesBlock() {
   return (
     <Col className="col-3">
-      <nav id="navbar-example3" className="navbar flex-column align-items-stretch p-3">
-        <a className="navbar-brand" href="#">
-          <h5>Категории добрых дел</h5>
-          <hr />
-        </a>
-        <nav className="nav nav-pills flex-column">
-          <a className="nav-link" href="#item-1">помощь по дому</a>
-          <nav className="nav nav-pills flex-column">
-            <a className="nav-link ms-3 my-1" href="#item-1-1">уборка</a>
-            <a className="nav-link ms-3 my-1" href="#item-1-2">готовка</a>
-            <a className="nav-link ms-3 my-1" href="#item-1-3">ремонт</a>
-          </nav>
-          <a className="nav-link" href="#item-2">няньки/сиделки</a>
-          <a className="nav-link" href="#item-3">животные</a>
-          <nav className="nav nav-pills flex-column">
-            <a className="nav-link ms-3 my-1" href="#item-3-1">выгул</a>
-            <a className="nav-link ms-3 my-1" href="#item-3-2">передержка</a>
-          </nav>
-          <a className="nav-link" href="#item-4">одолжить</a>
-          <nav className="nav nav-pills flex-column">
-            <a className="nav-link ms-3 my-1" href="#item-4-1">навсегда</a>
-            <a className="nav-link ms-3 my-1" href="#item-4-2">временно</a>
-          </nav>
-          <a className="nav-link" href="#item-5">репетиторство</a>
-          <nav className="nav nav-pills flex-column">
-            <a className="nav-link ms-3 my-1" href="#item-5-1">помощь с д/з</a>
-            <a className="nav-link ms-3 my-1" href="#item-5-2">профессиональные задачи</a>
-            <a className="nav-link ms-3 my-1" href="#item-5-3">иностранные языки</a>
-          </nav>
-          <a className="nav-link" href="#item-6">транспорт</a>
-          <nav className="nav nav-pills flex-column">
-            <a className="nav-link ms-3 my-1" href="#item-6-1">транспорт</a>
-            <a className="nav-link ms-3 my-1" href="#item-6-2">ремонт транспорта(велосипед и тд)</a>
-            <a className="nav-link ms-3 my-1" href="#item-6-3">такси</a>
-          </nav>
-          <a className="nav-link" href="#item-7">общение</a>
-          <nav className="nav nav-pills flex-column">
-            <a className="nav-link ms-3 my-1" href="#item-7-1">психолог</a>
-            <a className="nav-link ms-3 my-1" href="#item-7-2">просто поговорить</a>
-          </nav>
-          <a className="nav-link" href="#item-8">красота и здоровье</a>
-          <nav className="nav nav-pills flex-column">
-            <a className="nav-link ms-3 my-1" href="#item-8-1">макияж</a>
-            <a className="nav-link ms-3 my-1" href="#item-8-2">прически/стрижки</a>
-            <a className="nav-link ms-3 my-1" href="#item-8-3">массаж</a>
-            <a className="nav-link ms-3 my-1" href="#item-8-4">спорт</a>
-          </nav>
-          <a className="nav-link" href="#item-9">фотосессии/видеосъемка</a>
-        </nav>
-      </nav>
+      <div className="accordion accordion-flush" id="accordionFlushExample">
+        <div className="accordion-item">
+          <h2 className="accordion-header" id="flush-headingOne">
+            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+              Accordion Item #1
+            </button>
+          </h2>
+          <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+            <div className="accordion-body">
+              Placeholder content for this accordion, which is intended to demonstrate the
+              {' '}
+              <code>.accordion-flush</code>
+              {' '}
+              class. This is the first accordion body.
+            </div>
+          </div>
+        </div>
+        <div className="accordion-item">
+          <h2 className="accordion-header" id="flush-headingTwo">
+            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+              Accordion Item #2
+            </button>
+          </h2>
+          <div id="flush-collapseTwo" className="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+            <div className="accordion-body">
+              Placeholder content for this accordion, which is intended to demonstrate the
+              {' '}
+              <code>.accordion-flush</code>
+              {' '}
+              class. This is the second accordion body. Let's imagine this being filled with some actual content.
+            </div>
+          </div>
+        </div>
+        <div className="accordion-item">
+          <h2 className="accordion-header" id="flush-headingThree">
+            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+              Accordion Item #3
+            </button>
+          </h2>
+          <div id="flush-collapseThree" className="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+            <div className="accordion-body">
+              Placeholder content for this accordion, which is intended to demonstrate the
+              {' '}
+              <code>.accordion-flush</code>
+              {' '}
+              class. This is the third accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.
+            </div>
+          </div>
+        </div>
+      </div>
     </Col>
   );
 }
