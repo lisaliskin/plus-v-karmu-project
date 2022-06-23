@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  Button, Card, CardBody, CardGroup, CardImg, CardSubtitle, CardText, CardTitle,
+  CardGroup, Col, Container, Row,
 } from 'reactstrap';
 import { catAction } from '../../Redux/Actions/categoriesAction';
 import { getAllTasksAction } from '../../Redux/Actions/tasksGet';
+import CategoriesBlock from '../CategoriesBlock/CategoriesBlock';
 import MainPageCard from '../MainPageCard/MainPageCard';
 
 export default function MainPage() {
@@ -26,15 +27,18 @@ export default function MainPage() {
 
   // console.log(tasks[0])
   return (
-    <div className="container">
-      <h1>Все о проекте</h1>
-      <p>здесь будет описание нашего проекта, для кого и с какой целью он создан</p>
-      <div className="containerExample">
-        <h3>Примеры добрых дел</h3>
-        <CardGroup>
-          { tasks.map((el) => <MainPageCard el={el} key={el.id} />) }
-        </CardGroup>
-      </div>
+    <div>
+      <Container>
+        <Row className="justify-content-start" style={{ color: '#7776BC' }}>
+          <CategoriesBlock />
+          <Col className="col-9">
+            <h3>Добрые делишки</h3>
+            <CardGroup>
+              { tasks.map((el) => <MainPageCard el={el} key={el.id} />) }
+            </CardGroup>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
