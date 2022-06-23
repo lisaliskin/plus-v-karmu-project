@@ -1,6 +1,6 @@
 import React from "react";
 import { Row } from "reactstrap";
-import LkSideBar from "../SideBar/LkSideBar";
+import LkSideBar from "../SideBar/lkSideBar";
 import TaskForm from "../TaskForm/TaskForm";
 
 export default function AccountPage() {

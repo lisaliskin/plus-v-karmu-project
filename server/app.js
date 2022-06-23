@@ -11,7 +11,7 @@ const {
 } = require('uuid');
 
 const {
-  WebSocketServer
+  WebSocketServer,
 } = require('ws');
 
 const map = new Map();
@@ -121,7 +121,6 @@ wss.on('connection', (ws, request) => {
           console.log('Отправлено всем', payload.text);
         }
         break;
-
       default:
         console.log('Вышел');
         break;
