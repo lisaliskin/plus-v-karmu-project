@@ -12,12 +12,15 @@ const {
 
 const { WebSocketServer } = require('ws');
 
-const map = new Map(); // (Хранение данных. Возвращает ключ(id) => значение(браузерное соединение пользователя))
+const map = new Map();
+// (Хранение данных. Возвращает ключ(id) => значение(браузерное соединение пользователя))
 
 const authRouter = require('./routes/auth.router');
 const usersRouter = require('./routes/users.router');
 const messageRouter = require('./routes/message.router');
 const chatRouter = require('./routes/chat.router');
+const taskRouter = require('./routes/tasks.router');
+const catRouter = require('./routes/categories.router');
 
 const app = express();
 
@@ -66,6 +69,8 @@ app.use('/auth', authRouter);
 app.use('/users', usersRouter);
 app.use('/message', messageRouter);
 app.use('/chat', chatRouter);
+app.use('/tasks', taskRouter);
+app.use('/categories', catRouter);
 
 const server = http.createServer(app);
 const wss = new WebSocketServer({
@@ -86,7 +91,8 @@ server.on('upgrade', (request, socket, head) => {
 
     // console.log('Session is parsed!');
 
-    wss.handleUpgrade(request, socket, head, (ws) => { // (ws)-экземпляр подключения самого пользователя
+    wss.handleUpgrade(request, socket, head, (ws) => {
+      // (ws)-экземпляр подключения самого пользователя
       wss.emit('connection', ws, request);
     });
   });
@@ -103,7 +109,7 @@ wss.on('connection', (ws, request) => {
   ws.on('message', (message) => {
     const {
       type,
-      payload
+      payload,
     } = JSON.parse(message);
     console.log('message in ws.on --->>', payload);
     switch (type) {

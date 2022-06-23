@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   Button, Card, CardBody, CardGroup, CardImg, CardSubtitle, CardText, CardTitle,
 } from 'reactstrap';
+import { catAction } from '../../Redux/Actions/categoriesAction';
 
 export default function MainPage() {
+  const dispatch = useDispatch();
+  // const { categories } = useSelector((state) => state);
+
+  useEffect(() => {
+    dispatch(catAction());
+  }, []);
+
   return (
     <div className="container">
       <h1>Все о проекте</h1>

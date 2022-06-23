@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
   Button, Form, FormGroup, Input, Label, Modal, ModalBody, ModalFooter, ModalHeader,
 } from 'reactstrap';
 import taskModalAction from '../../Redux/Actions/taskModalAction';
+import Optionss from './options';
 
 export default function TaskModal() {
+  const [inputs, setInputs] = useState({});
+  const { categories } = useSelector((state) => state);
   function padTo2Digits(num) {
     return num.toString().padStart(2, '0');
   }
@@ -29,6 +32,11 @@ export default function TaskModal() {
     // dispatch(changePostAction(post));
     dispatch(taskModalAction(false));
   };
+
+  const inputHandler = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
   return (
     <div>
       <Modal isOpen={taskModal} toggle={closeHandler}>
@@ -42,8 +50,9 @@ export default function TaskModal() {
               <Input
                 placeholder="Дата события..."
                 type="date"
-                id="date"
-                name="date"
+                id="name"
+                name="name"
+                onChange={inputHandler}
                 value={`${formatDate(new Date())}`}
                 min={`${formatDate(new Date())}`}
                 max="2023-12-31"
@@ -56,15 +65,13 @@ export default function TaskModal() {
                 name="category"
                 type="select"
               >
-                <option value="30">
-                  ...
-                </option>
-                <option value="помощь по дому">
+                {categories.map((el) => <Optionss key={el.id} el={el} />)}
+                {/* <option value="помощь по дому">
                   помощь по дому
                 </option>
                 <option value="няньки/сиделки">
                   няньки/сиделки
-                </option>
+                </option> */}
               </Input>
             </FormGroup>
             <FormGroup>
