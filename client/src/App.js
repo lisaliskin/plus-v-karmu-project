@@ -12,7 +12,6 @@ import TaskModal from './Components/TaskModal/TaskModal';
 import NavBar from './Components/Navbar/NavBar';
 import ChatsPage from './Components/ChatsPage/ChatsPage';
 import AccountPage from './Components/AccountPage/AccountPage';
-import MainPageUser from './Components/MainPageUser/MainPageUser';
 import ChatIdPage from './Components/ChatIdPage/ChatIdPage';
 
 function App() {
@@ -22,13 +21,10 @@ function App() {
       <Container>
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/main" element={<MainPageUser />} />
-          {/* <Route path="/login" element={<LoginModal />} /> */}
-          {/* <Route path="/registration" element={<RegistrationModal />} /> */}
           <Route path="/account" element={<AccountPage />} />
           {/* <Route path="/newtask" element={<TaskModal />} /> */}
           <Route path="/account/chats" element={<ChatsPage />} />
-          <Route path="/chats/chat/1" element={<ChatIdPage />} />
+          <Route path="/account/chats/chat/1" element={<ChatIdPage />} />
         </Routes>
         <LoginModal />
         <RegistrationModal />

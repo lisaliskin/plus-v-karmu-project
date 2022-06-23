@@ -4,56 +4,133 @@ import { Col } from 'reactstrap';
 export default function CategoriesBlock() {
   return (
     <Col className="col-3">
-      <nav id="navbar-example3" className="navbar flex-column align-items-stretch p-3">
-        <a className="navbar-brand" href="#">
-          <h5>Категории добрых дел</h5>
-          <hr />
-        </a>
-        <nav className="nav nav-pills flex-column">
-          <a className="nav-link" href="#item-1">помощь по дому</a>
-          <nav className="nav nav-pills flex-column">
-            <a className="nav-link ms-3 my-1" href="#item-1-1">уборка</a>
-            <a className="nav-link ms-3 my-1" href="#item-1-2">готовка</a>
-            <a className="nav-link ms-3 my-1" href="#item-1-3">ремонт</a>
-          </nav>
-          <a className="nav-link" href="#item-2">няньки/сиделки</a>
-          <a className="nav-link" href="#item-3">животные</a>
-          <nav className="nav nav-pills flex-column">
-            <a className="nav-link ms-3 my-1" href="#item-3-1">выгул</a>
-            <a className="nav-link ms-3 my-1" href="#item-3-2">передержка</a>
-          </nav>
-          <a className="nav-link" href="#item-4">одолжить</a>
-          <nav className="nav nav-pills flex-column">
-            <a className="nav-link ms-3 my-1" href="#item-4-1">навсегда</a>
-            <a className="nav-link ms-3 my-1" href="#item-4-2">временно</a>
-          </nav>
-          <a className="nav-link" href="#item-5">репетиторство</a>
-          <nav className="nav nav-pills flex-column">
-            <a className="nav-link ms-3 my-1" href="#item-5-1">помощь с д/з</a>
-            <a className="nav-link ms-3 my-1" href="#item-5-2">профессиональные задачи</a>
-            <a className="nav-link ms-3 my-1" href="#item-5-3">иностранные языки</a>
-          </nav>
-          <a className="nav-link" href="#item-6">транспорт</a>
-          <nav className="nav nav-pills flex-column">
-            <a className="nav-link ms-3 my-1" href="#item-6-1">транспорт</a>
-            <a className="nav-link ms-3 my-1" href="#item-6-2">ремонт транспорта(велосипед и тд)</a>
-            <a className="nav-link ms-3 my-1" href="#item-6-3">такси</a>
-          </nav>
-          <a className="nav-link" href="#item-7">общение</a>
-          <nav className="nav nav-pills flex-column">
-            <a className="nav-link ms-3 my-1" href="#item-7-1">психолог</a>
-            <a className="nav-link ms-3 my-1" href="#item-7-2">просто поговорить</a>
-          </nav>
-          <a className="nav-link" href="#item-8">красота и здоровье</a>
-          <nav className="nav nav-pills flex-column">
-            <a className="nav-link ms-3 my-1" href="#item-8-1">макияж</a>
-            <a className="nav-link ms-3 my-1" href="#item-8-2">прически/стрижки</a>
-            <a className="nav-link ms-3 my-1" href="#item-8-3">массаж</a>
-            <a className="nav-link ms-3 my-1" href="#item-8-4">спорт</a>
-          </nav>
-          <a className="nav-link" href="#item-9">фотосессии/видеосъемка</a>
-        </nav>
-      </nav>
+      <h5>Категории добрых дел</h5>
+      <hr />
+      <div className="accordion accordion-flush" id="accordionFlushExample">
+        <div className="accordion-item">
+          <h2 className="accordion-header" id="flush-headingOne">
+            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+              помощь по дому
+            </button>
+          </h2>
+          <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+            <ul className="accordion-body list-unstyled">
+              <li className="mb-1">уборка</li>
+              <li className="mb-1">готовка</li>
+              <li className="mb-1">ремонт</li>
+            </ul>
+          </div>
+        </div>
+        <div className="accordion-item">
+          <h2 className="accordion-header" id="flush-headingTwo">
+            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+              няньки/сиделки
+            </button>
+          </h2>
+          <div id="flush-collapseTwo" className="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+            <ul className="accordion-body list-unstyled">
+              <li className="mb-1">посидеть с ребенком</li>
+              <li className="mb-1">позаботиться о пожилом человеке</li>
+            </ul>
+          </div>
+        </div>
+        <div className="accordion-item">
+          <h2 className="accordion-header" id="flush-headingThree">
+            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+              животные
+            </button>
+          </h2>
+          <div id="flush-collapseThree" className="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+            <ul className="accordion-body list-unstyled">
+              <li className="mb-1">выгул собаки</li>
+              <li className="mb-1">передержка котика</li>
+              <li className="mb-1">передержка пёсика</li>
+            </ul>
+          </div>
+        </div>
+        <div className="accordion-item">
+          <h2 className="accordion-header" id="flush-headingFour">
+            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+              одолжить
+            </button>
+          </h2>
+          <div id="flush-collapseFour" className="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+            <ul className="accordion-body list-unstyled">
+              <li className="mb-1">отдать даром</li>
+              <li className="mb-1">дать погонять</li>
+            </ul>
+          </div>
+        </div>
+        <div className="accordion-item">
+          <h2 className="accordion-header" id="flush-headingFive">
+            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+              репетиторство
+            </button>
+          </h2>
+          <div id="flush-collapseFive" className="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+            <ul className="accordion-body list-unstyled">
+              <li className="mb-1">помощь с д/з</li>
+              <li className="mb-1">профессиональные задачи</li>
+              <li className="mb-1">иностранные языки</li>
+            </ul>
+          </div>
+        </div>
+        <div className="accordion-item">
+          <h2 className="accordion-header" id="flush-headingSix">
+            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+              транспорт
+            </button>
+          </h2>
+          <div id="flush-collapseSix" className="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
+            <ul className="accordion-body list-unstyled">
+              <li className="mb-1">переезд</li>
+              <li className="mb-1">ремонт(велик, скейт и тд)</li>
+              <li className="mb-1">подвезти</li>
+            </ul>
+          </div>
+        </div>
+        <div className="accordion-item">
+          <h2 className="accordion-header" id="flush-headingSeven">
+            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
+              общение
+            </button>
+          </h2>
+          <div id="flush-collapseSeven" className="accordion-collapse collapse" aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
+            <ul className="accordion-body list-unstyled">
+              <li className="mb-1">психологическая помощь</li>
+              <li className="mb-1">просто поговорить</li>
+            </ul>
+          </div>
+        </div>
+        <div className="accordion-item">
+          <h2 className="accordion-header" id="flush-headingEight">
+            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEight" aria-expanded="false" aria-controls="flush-collapseEight">
+              красота и здоровье
+            </button>
+          </h2>
+          <div id="flush-collapseEight" className="accordion-collapse collapse" aria-labelledby="flush-headingEight" data-bs-parent="#accordionFlushExample">
+            <ul className="accordion-body list-unstyled">
+              <li className="mb-1">прически/стрижка</li>
+              <li className="mb-1">массаж</li>
+              <li className="mb-1">макияж</li>
+              <li className="mb-1">спорт</li>
+            </ul>
+          </div>
+        </div>
+        <div className="accordion-item">
+          <h2 className="accordion-header" id="flush-headingNine">
+            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseNine" aria-expanded="false" aria-controls="flush-collapseNine">
+              фотосессии/видеосъемка
+            </button>
+          </h2>
+          <div id="flush-collapseEight" className="accordion-collapse collapse" aria-labelledby="flush-headingEight" data-bs-parent="#accordionFlushExample">
+            <ul className="accordion-body list-unstyled">
+              <li className="mb-1">фотосессии</li>
+              <li className="mb-1">видеосъемка</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </Col>
   );
 }

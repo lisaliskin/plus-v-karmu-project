@@ -6,7 +6,7 @@ import {
 
 export default function MainPageCard({ el }) {
   return (
-    <Card>
+    <Card className="taskCard">
       <CardImg
         alt="Card image cap"
         src={`${el.img}`}
@@ -31,7 +31,6 @@ export default function MainPageCard({ el }) {
             style={{
               color: "#FFEC51",
               backgroundColor: "#7776BC",
-              fontFamily: "Menlo",
             }}
           >
             Сделать доброе дело
@@ -40,7 +39,6 @@ export default function MainPageCard({ el }) {
             style={{
               color: "#FFEC51",
               backgroundColor: "#7776BC",
-              fontFamily: "Menlo",
             }}
           >
             Сообщения

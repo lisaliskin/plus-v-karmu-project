@@ -8,7 +8,8 @@ import "./Style/style.css";
 import storeR from "./Redux/store";
 import Context from './Components/Context/Context';
 
-axios.defaults.baseURL = process.env.REACT_APP_URL;
+axios.defaults.baseURL = process.env.REACT_APP_SERVER_URL;
+console.log(process.env);
 axios.defaults.withCredentials = true;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

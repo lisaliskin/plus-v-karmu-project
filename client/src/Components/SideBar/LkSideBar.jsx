@@ -11,7 +11,7 @@ import {
 } from 'reactstrap';
 import taskModalAction from "../../Redux/Actions/taskModalAction";
 
-function LkSideBar() {
+export default function LkSideBar() {
   const dispatch = useDispatch();
   const changeTaskModal = () => {
     dispatch(taskModalAction(true));
@@ -83,5 +83,3 @@ function LkSideBar() {
     </Row>
   );
 }
-
-export default LkSideBar;

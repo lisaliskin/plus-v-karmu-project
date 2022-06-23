@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function TaskForm() {
+export default function MessForm() {
   const chooseBtn = 'icons/check-mark.png';
   return (
     <div className="container overflow-hidden p-3 bg-light shadow">
@@ -16,10 +16,10 @@ export default function TaskForm() {
           </div>
         </div>
         <div className="col-8 d-flex align-items-center justify-content-center">
-          <p>Здесь должна быть таска</p>
+          <p>Здесь должно быть сообщение</p>
         </div>
         <div className="col-2 d-flex align-items-center justify-content-center">
-          <Link to="/account/chat" style={{ marginRight: 'unset' }}>
+          <Link to="/account/chats/chat/1" style={{ marginRight: 'unset' }}>
             <img src={chooseBtn} alt="done" height={40} className="done" />
           </Link>
         </div>
