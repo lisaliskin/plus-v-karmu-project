@@ -4,7 +4,7 @@ import {
   Button, Card, CardBody, CardGroup, CardImg, CardSubtitle, CardText, CardTitle,
 } from 'reactstrap';
 
-export default function MainPageCard({el}) {
+export default function MainPageCard({ el }) {
   return (
     <Card>
       <CardImg
@@ -14,8 +14,14 @@ export default function MainPageCard({el}) {
         width="100%"
       />
       <CardBody>
-        <CardTitle tag="h5">Категория:{el.Subcategory.Category.name}</CardTitle>
-        <CardTitle tag="h5">Подкатегория:{el.Subcategory.name}</CardTitle>
+        <CardTitle tag="h5">
+          Категория:
+          {el.Subcategory.Category.name}
+        </CardTitle>
+        <CardTitle tag="h5">
+          Подкатегория:
+          {el.Subcategory.name}
+        </CardTitle>
         <CardSubtitle className="mb-2 text-muted" tag="h6">
           {el.description}
         </CardSubtitle>

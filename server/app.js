@@ -15,12 +15,15 @@ const {
 } = require('ws');
 
 const map = new Map();
+// (Хранение данных. Возвращает ключ(id) => значение(браузерное соединение пользователя))
 
 const authRouter = require('./routes/auth.router');
 const usersRouter = require('./routes/users.router');
 const messageRouter = require('./routes/message.router');
 const chatRouter = require('./routes/chat.router');
 const tasksRouter = require('./routes/tasksRouter');
+const taskRouter = require('./routes/tasks.router');
+const catRouter = require('./routes/categories.router');
 
 const app = express();
 
@@ -69,10 +72,15 @@ app.use('/auth', authRouter);
 app.use('/users', usersRouter);
 app.use('/message', messageRouter);
 app.use('/chat', chatRouter);
-app.use('/tasks', tasksRouter);
+app.use('/tasks1', tasksRouter);
+app.use('/tasks', taskRouter);
+app.use('/categories', catRouter);
 
 const server = http.createServer(app);
-const wss = new WebSocketServer({ clientTracking: false, noServer: true });
+const wss = new WebSocketServer({
+  clientTracking: false,
+  noServer: true,
+});
 
 // part1 'upgrade' обновление протокола
 server.on('upgrade', (request, socket, head) => {
@@ -88,6 +96,7 @@ server.on('upgrade', (request, socket, head) => {
     // console.log('Session is parsed!');
 
     wss.handleUpgrade(request, socket, head, (ws) => {
+      // (ws)-экземпляр подключения самого пользователя
       wss.emit('connection', ws, request);
     });
   });
@@ -102,7 +111,10 @@ wss.on('connection', (ws, request) => {
   // console.log('-------->map', map.userid)
 
   ws.on('message', (message) => {
-    const { type, payload } = JSON.parse(message);
+    const {
+      type,
+      payload,
+    } = JSON.parse(message);
     console.log('message in ws.on --->>', payload);
     switch (type) {
       case 'SET_MESSAGE':
@@ -111,7 +123,6 @@ wss.on('connection', (ws, request) => {
           console.log('Отправлено всем', payload.text);
         }
         break;
-
       default:
         console.log('Вышел');
         break;

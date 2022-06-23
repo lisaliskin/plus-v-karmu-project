@@ -3,11 +3,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   Button, Card, CardBody, CardGroup, CardImg, CardSubtitle, CardText, CardTitle,
 } from 'reactstrap';
+import { catAction } from '../../Redux/Actions/categoriesAction';
 import { getAllTasksAction } from '../../Redux/Actions/tasksGet';
 import MainPageCard from '../MainPageCard/MainPageCard';
 
 export default function MainPage() {
   const dispatch = useDispatch();
+  // const { categories } = useSelector((state) => state);
+
+  useEffect(() => {
+    dispatch(catAction());
+  }, []);
+
   const { tasks } = useSelector((state) => state);
 
   useEffect(() => {

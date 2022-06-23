@@ -1,24 +1,32 @@
 import React, { useEffect } from "react";
 import {
-  Button, Collapse, Container, Nav, Navbar, NavbarText, Row,
-} from 'reactstrap';
-import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import regModalAction from '../../Redux/Actions/regModalAction';
-import taskModalAction from '../../Redux/Actions/taskModalAction';
-import { userLogOut } from '../../Redux/Actions/regUserAction';
-import loginModalAction from '../../Redux/Actions/loginModalAction';
+  Button,
+  Collapse,
+  Nav,
+  Navbar,
+  NavbarText,
+  Row,
+} from "reactstrap";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import regModalAction from "../../Redux/Actions/regModalAction";
+import taskModalAction from "../../Redux/Actions/taskModalAction";
+// import { userLogOut } from "../../Redux/Actions/regUserAction";
+import loginModalAction from "../../Redux/Actions/loginModalAction";
 import { getAllChats } from "../../Redux/Actions/chatAction";
+import { logOut } from "../../Redux/Actions/logUserAction";
 
 export default function NavBar() {
-  const logo = 'logoPlusKkarme.png';
+  const logo = "icons/logoPlusKkarme.png";
+  const lk = "icons/user.png";
+  const message = "icons/envelope.png";
   const { userSignIn, user } = useSelector((state) => state);
   // const id = userSignIn.id;
   const dispatch = useDispatch();
 
   const changeLoginModal = () => {
     console.log('hello');
-     dispatch(loginModalAction(true));
+    dispatch(loginModalAction(true));
   };
   const changeRegModal = () => {
     dispatch(regModalAction(true));
@@ -27,7 +35,7 @@ export default function NavBar() {
     dispatch(taskModalAction(true));
   };
   const logOutHAndler = () => {
-    dispatch(userLogOut());
+    dispatch(logOut());
   };
 
   useEffect(() => {
@@ -42,48 +50,56 @@ export default function NavBar() {
         </Link>
         <Row>
           <Collapse navbar>
-            <Nav
-              className="me-auto"
-              navbar
-            >
+            <Nav className="me-auto" navbar>
               {userSignIn?.id ? (
-                <>
+                // <>
+                <div className="justify-content-md-start">
                   <Link to="/account">
-                    <Button outline style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}>
-                      Личный кабинет
-                    </Button>
+                    <img src={lk} alt="lk" height={40} className="lk" />
                   </Link>
-                  <Button outline onClick={changeTaskModal} className="registerBtn" style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}>
-                    Создать задачу
-                  </Button>
-                  <Link to="/chats">
-                    <Button outline className="registerBtn" style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}>
-                      Переписки
-                    </Button>
+                  <Link to="/account/chats">
+                    <img src={message} alt="message" height={40} className="message" />
                   </Link>
                   <Link to="/">
-                    Выйти
+                    <Button
+                      style={{
+                        color: "#FFEC51",
+                        backgroundColor: "#7776BC",
+                      }}
+                      onClick={logOutHAndler}
+                    >
+                      Выйти
+                    </Button>
                   </Link>
-                </>
+                </div>
+                // </>
               ) : (
                 <>
-                  <Button outline onClick={changeRegModal} className="registerBtn" style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}>
+                  <Button
+                    onClick={changeRegModal}
+                    className="registerBtn"
+                    style={{
+                      color: "#FFEC51",
+                      backgroundColor: "#7776BC",
+                    }}
+                  >
                     Зарегистрироваться
                   </Button>
-                  <Button outline onClick={changeLoginModal} className="loginBtn" style={{ color: '#FFEC51', backgroundColor: '#7776BC', fontFamily: 'Menlo' }}>
+                  <Button
+                    onClick={changeLoginModal}
+                    className="loginBtn"
+                    style={{
+                      color: "#FFEC51",
+                      backgroundColor: "#7776BC",
+                    }}
+                  >
                     Логин
                   </Button>
                 </>
               )}
             </Nav>
-            <NavbarText onClick={logOutHAndler}>
-              {userSignIn.name ? `Привет, ${userSignIn.name}` : ''}
-            </NavbarText>
           </Collapse>
         </Row>
-        {/* <NavbarText onClick={logOutHAndler}>
-            {user.name ? `Hi, ${user.name}` : 'Login please'}
-          </NavbarText> */}
       </Navbar>
     </div>
   );
