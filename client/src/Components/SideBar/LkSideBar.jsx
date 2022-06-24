@@ -16,9 +16,7 @@ import ava from '../../icons/ava.jpeg';
 export default function LkSideBar() {
   const { userSignIn, allUsers } = useSelector((state) => state);
   const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(getAllUsers());
-  // }, []);
+  const count = useSelector((state) => state.count);
   const changeTaskModal = () => {
     dispatch(taskModalAction(true));
   };
@@ -61,7 +59,7 @@ export default function LkSideBar() {
               />
             </div>
             <hr />
-            <Link to="/account/chats" style={{ marginRight: 'unset' }}>
+            <Link to="/account/chats" style={{ marginRight: "unset" }}>
               <Button
                 className="chatBtn"
                 style={{
@@ -69,8 +67,9 @@ export default function LkSideBar() {
                   backgroundColor: "#7776BC",
                 }}
               >
-                Сообщения
+                Сообщения<span class="badge badge-danger" style={{backgroundColor: 'red'}}>{ count ? <div>{`+ ${count}`}</div> : null}</span>
               </Button>
+              {/* { count !== 0 ? <div>{`+ ${count}`}</div> } */}
             </Link>
             <hr />
             {/* <Link style={{ marginRight: 'unset' }}> */}

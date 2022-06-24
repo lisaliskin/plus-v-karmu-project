@@ -130,7 +130,17 @@ wss.on('connection', (ws, request) => {
       case 'SET_MESSAGE':
         async function setMessage(payload) {
           await addMesageWS(payload);
-          console.log('создание сообщения в WS исполнено');
+          console.log("создание сообщения в WS исполнено");
+          
+          for (const [userid, clientWs] of map) {
+            console.log("ЗАшел в if", payload.user_id);
+            if (clientWs !== payload.user_id) {
+              console.log("ЗАшел в if HAHAHA", payload.user_id);
+              await clientWs.send(JSON.stringify({ type: 'ADD_COUNT', payload: null }));
+              console.log("Отправлено всем count", payload.text);
+            }
+          }
+
           for (const [userid, clientWs] of map) {
             clientWs.send(JSON.stringify({
               type,

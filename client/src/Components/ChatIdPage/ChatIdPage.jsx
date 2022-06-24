@@ -47,9 +47,10 @@ export default function ChatIdPage() {
     setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const messageHandler = (e) => {
+  const messageHandler = async (e) => {
     //  dispatch(addMessage(input));
-    ws.send(
+
+    await ws.send(
       JSON.stringify({
         type: "SET_MESSAGE",
         payload: input,
