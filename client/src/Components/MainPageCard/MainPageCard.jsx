@@ -1,16 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import {
-  CardText, Row,
-} from 'reactstrap';
+import { Link, useNavigate } from "react-router-dom";
+import { CardText, Row } from "reactstrap";
+import { createChat, getAllChats } from "../../Redux/Actions/chatAction";
 import { doSubTask } from "../../Redux/Actions/tasksAction";
-import doBtn from '../../icons/unCheck.png';
-import message from '../../icons/envelope.png';
+import doBtn from "../../icons/unCheck.png";
+import message from "../../icons/envelope.png";
 
 export default function MainPageCard({ el }) {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { userSignIn } = useSelector((state) => state);
+  const { chats } = useSelector((state) => state);
+  const currentChat = chats[0];
+  console.log("Выбранный чат", currentChat);
+
+  // useEffect(() => {
+  //   currentChat && navigate(`/account/chats/chat/${currentChat.id}`);
+  // }, [chats])
+
+  const messageHandler = (e) => {
+    // const response = await axios.post('/chat/new', value);
+    // getAllChats(response.data)
+    dispatch(createChat({ el, userSignIn }));
+    //  navigate(`/`);
+  };
+  // useEffect(() => {
+
+  //   console.log('use effect chats --->',chats)
+  //   // navigate(`/account/chats/chat/${currentChat.id}`);
+  // }, [chats])
+
   const subscribeHandler = () => {
     dispatch(doSubTask({ el, userSignIn }));
   };
@@ -36,16 +56,27 @@ export default function MainPageCard({ el }) {
         </div>
         <div className="col-2">
           <Row className="d-flex align-items-center justify-content-center">
-            {/* <div className="d-flex align-items-center justify-content-center"> */}
-            {/* <Link to="/account/task" style={{ marginRight: 'unset' }}> */}
             <div>
-              <img role="presentation" src={doBtn} alt="done" onClick={subscribeHandler} height={40} className="done" />
+              <img
+                role="presentation"
+                src={doBtn}
+                alt="done"
+                onClick={subscribeHandler}
+                height={40}
+                className="done"
+              />
             </div>
-            {/* </Link> */}
-            <Link to="/account/chats">
-              <img src={message} alt="message" height={40} className="message" />
-            </Link>
-            {/* </div> */}
+            <a
+              to={`/account/chats/chat/${currentChat}`}
+              onClick={messageHandler}
+            >
+              <img
+                src={message}
+                alt="message"
+                height={40}
+                className="message"
+              />
+            </a>
           </Row>
         </div>
       </div>

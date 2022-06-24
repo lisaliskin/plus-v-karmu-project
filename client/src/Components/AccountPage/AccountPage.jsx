@@ -24,6 +24,13 @@ export default function AccountPage() {
   }, []);
   // const mySubTasks = tasks.filter((el) => el.podpisan_id === userSignIn.id);
   // const myTasks = tasks.filter((el) => el.creator_id === userSignIn.id);
+  useEffect(() => {
+    dispatch(getAllTasksAction());
+    console.log('1234567');
+    // if (!tasks.length) {
+    //   console.log(tasks)
+    // }
+  }, [tasks]);
   return (
     <Row xs={8}>
       <div className="mt-10 col">
