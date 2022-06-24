@@ -16,10 +16,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Task.init({
+    creator_id: DataTypes.INTEGER,
+    podpisan_id: DataTypes.INTEGER,
     name: DataTypes.STRING,
     description: DataTypes.TEXT,
     img: DataTypes.TEXT,
     subcategory_id: DataTypes.INTEGER,
+    status: DataTypes.BOOLEAN,
   }, {
     sequelize,
     modelName: 'Task',

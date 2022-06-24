@@ -7,6 +7,12 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      creator_id: {
+        type: Sequelize.INTEGER,
+      },
+      podpisan_id: {
+        type: Sequelize.INTEGER,
+      },
       name: {
         type: Sequelize.STRING,
       },
@@ -15,6 +21,9 @@ module.exports = {
       },
       img: {
         type: Sequelize.TEXT,
+      },
+      status: {
+        type: Sequelize.BOOLEAN,
       },
       subcategory_id: {
         type: Sequelize.INTEGER,

@@ -28,7 +28,7 @@ export default function TaskModal() {
   const memoSubCat = useMemo(() => subCat
     .filter((el) => el.category_id === currentCat), [currentCat]);
 
-  console.log('_______', memoSubCat);
+  // console.log('_______', memoSubCat);
 
   const closeHandler = () => {
     dispatch(taskModalAction(false));

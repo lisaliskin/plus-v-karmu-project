@@ -1,12 +1,19 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {
   CardText, Row,
 } from 'reactstrap';
+import { doSubTask } from "../../Redux/Actions/tasksAction";
 import doBtn from '../../icons/unCheck.png';
 import message from '../../icons/envelope.png';
 
 export default function MainPageCard({ el }) {
+  const dispatch = useDispatch();
+  const { userSignIn } = useSelector((state) => state);
+  const subscribeHandler = () => {
+    dispatch(doSubTask({ el, userSignIn }));
+  };
   return (
     <div className="container overflow-hidden p-3 bg-light shadow">
       <div className="row gx-5">
@@ -30,9 +37,11 @@ export default function MainPageCard({ el }) {
         <div className="col-2">
           <Row className="d-flex align-items-center justify-content-center">
             {/* <div className="d-flex align-items-center justify-content-center"> */}
-            <Link to="/account/task" style={{ marginRight: 'unset' }}>
-              <img src={doBtn} alt="done" height={40} className="done" />
-            </Link>
+            {/* <Link to="/account/task" style={{ marginRight: 'unset' }}> */}
+            <div>
+              <img role="presentation" src={doBtn} alt="done" onClick={subscribeHandler} height={40} className="done" />
+            </div>
+            {/* </Link> */}
             <Link to="/account/chats">
               <img src={message} alt="message" height={40} className="message" />
             </Link>

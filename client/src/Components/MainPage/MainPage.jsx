@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -5,6 +6,7 @@ import {
 } from 'reactstrap';
 import { catAction } from '../../Redux/Actions/categoriesAction';
 import { subCatAction } from '../../Redux/Actions/subCatAction';
+import { getAllTasksAction1 } from '../../Redux/Actions/tasksAction';
 import { getAllTasksAction } from '../../Redux/Actions/tasksGet';
 import CategoriesBlock from '../CategoriesBlock/CategoriesBlock';
 import MainPageCard from '../MainPageCard/MainPageCard';
@@ -19,14 +21,15 @@ export default function MainPage() {
     dispatch(subCatAction());
   }, []);
 
-  const { tasks } = useSelector((state) => state);
+  const { tasks, chosenSubCat } = useSelector((state) => state);
 
   useEffect(() => {
     dispatch(getAllTasksAction());
+    console.log('1234567');
     // if (!tasks.length) {
     //   console.log(tasks)
     // }
-  }, []);
+  }, [chosenSubCat]);
 
   // console.log(tasks[0])
   return (
@@ -37,7 +40,13 @@ export default function MainPage() {
           <Col className="col-9">
             <h3>Добрые делишки</h3>
             <CardGroup>
-              { tasks.length && tasks.map((el) => <MainPageCard el={el} key={el.id} />) }
+              {chosenSubCat.id
+                ? (tasks.filter((el) => el.subcategory_id === chosenSubCat.id).length
+                  ? (tasks.filter((el) => el.subcategory_id === chosenSubCat.id)
+                    .map((el) => <MainPageCard key={el.id} el={el} />))
+                  : <div>Пока нет вариантов по данной категории</div>)
+                : (tasks.length && tasks
+                  .map((el) => <MainPageCard key={el.id} el={el} />))}
             </CardGroup>
           </Col>
         </Row>
