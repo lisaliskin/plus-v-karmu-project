@@ -46,7 +46,7 @@ export default function NavBar() {
     <div>
       <Navbar expand="sm">
         <Link to="/">
-          <img src={logo} alt="logo" height={70} className="logo" />
+          <img src={logo} alt="logo" height={70} id="logo" />
         </Link>
         <Row>
           <Collapse navbar>
@@ -55,10 +55,10 @@ export default function NavBar() {
                 // <>
                 <div className="justify-content-md-start">
                   <Link to="/account">
-                    <img src={lk} alt="lk" height={40} className="lk" />
+                    <img src={lk} alt="lk" height={40} id="icon" />
                   </Link>
                   <Link to="/account/chats">
-                    <img src={message} alt="message" height={40} className="message" />
+                    <img src={message} alt="message" height={40} id="icon" />
                   </Link>
                   <Link to="/">
                     <Button

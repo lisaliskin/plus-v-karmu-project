@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Row } from 'reactstrap';
 import { useDispatch, useSelector } from "react-redux";
 import message from '../../icons/envelope.png';
@@ -47,10 +46,10 @@ export default function taskForm1({ el }) {
           <div className="col-2 d-flex align-items-center justify-content-center" style={{ marginLeft: '50px', marginTop: '15px' }}>
             <div>
               {tasks.find((elem) => elem.id === el.id).status
-                ? <img role="presentation" onClick={updateStatusTaskHandler} src={done2Btn} alt="done" height={40} className="done" />
-                : <img role="presentation" onClick={updateStatusTaskHandler} src={doneBtn} alt="done" height={40} className="done" />}
-              <img role="presentation" src={message} alt="message" height={40} className="message" style={{ marginTop: '30px' }} />
-              <img role="presentation" onClick={delSubHandler} src={deleteBtn} alt="message" height={40} className="message" style={{ marginTop: '30px' }} />
+                ? <img role="presentation" onClick={updateStatusTaskHandler} src={done2Btn} alt="done" height={40} id="icon" />
+                : <img role="presentation" onClick={updateStatusTaskHandler} src={doneBtn} alt="done" height={40} id="icon" />}
+              <img role="presentation" src={message} alt="message" height={40} id="icon" style={{ marginTop: '30px' }} />
+              <img role="presentation" onClick={delSubHandler} src={deleteBtn} alt="message" height={40} id="icon" style={{ marginTop: '30px' }} />
             </div>
             {/* <Link to="/account/chats" /> */}
           </div>

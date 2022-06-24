@@ -38,7 +38,7 @@ export default function SozdanTaskForm({ el }) {
         <div className="col-2">
           <div className="col-2 d-flex align-items-center justify-content-center" style={{ marginLeft: '50px', marginTop: '15px' }}>
             <div>
-              <img role="presentation" onClick={delTaskHandler} src={deleteBtn} alt="message" height={40} className="message" style={{ marginTop: '30px' }} />
+              <img role="presentation" onClick={delTaskHandler} src={deleteBtn} alt="message" height={40} id="icon" style={{ marginTop: '30px' }} />
             </div>
             {/* <Link to="/account/chats" /> */}
           </div>

@@ -33,9 +33,7 @@ export default function AccountPage() {
         <h4>Мои подписанные таски</h4>
         {tasks.length && tasks.filter((el) => el.podpisan_id === userSignIn.id)
           .map((el) => <TaskForm key={el.id} el={el} />)}
-      </div>
-      <div className="col-8">
-        <h4>Мои созданные таски</h4>
+        <h4 style={{ marginTop: '30px' }}>Мои созданные таски</h4>
         {tasks.length && tasks.filter((el) => el.creator_id === userSignIn.id)
           .map((el) => <SozdanTaskForm key={el.id} el={el} />)}
       </div>

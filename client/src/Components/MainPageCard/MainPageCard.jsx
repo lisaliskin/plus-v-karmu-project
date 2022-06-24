@@ -36,16 +36,12 @@ export default function MainPageCard({ el }) {
         </div>
         <div className="col-2">
           <Row className="d-flex align-items-center justify-content-center">
-            {/* <div className="d-flex align-items-center justify-content-center"> */}
-            {/* <Link to="/account/task" style={{ marginRight: 'unset' }}> */}
             <div>
-              <img role="presentation" src={doBtn} alt="done" onClick={subscribeHandler} height={40} className="done" />
+              <img role="presentation" src={doBtn} alt="done" onClick={subscribeHandler} height={40} id="icon" />
             </div>
-            {/* </Link> */}
             <Link to="/account/chats">
-              <img src={message} alt="message" height={40} className="message" />
+              <img src={message} alt="message" height={40} id="icon" />
             </Link>
-            {/* </div> */}
           </Row>
         </div>
       </div>
