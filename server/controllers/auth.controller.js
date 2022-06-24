@@ -23,6 +23,7 @@ const signUp = async (req, res) => {
         email,
         phone,
         role,
+        points: 0,
       });
       req.session.user = {
         id: newUser.id,

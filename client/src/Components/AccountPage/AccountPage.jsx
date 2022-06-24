@@ -7,7 +7,9 @@ import { getAllTasksAction } from "../../Redux/Actions/tasksGet";
 // import { getAllTasksAction } from "../../Redux/Actions/tasksAction";
 
 export default function AccountPage() {
-  const { tasks, taskModal } = useSelector((state) => state);
+  const {
+    tasks, taskModal, chosenSubCat, userSignIn,
+  } = useSelector((state) => state);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllTasksAction());
@@ -15,14 +17,22 @@ export default function AccountPage() {
     //   console.log(tasks)
     // }
   }, [taskModal]);
+  // const mySubTasks = tasks.filter((el) => el.podpisan_id === userSignIn.id);
+  // const myTasks = tasks.filter((el) => el.creator_id === userSignIn.id);
   return (
-    <Row>
+    <Row xs={8}>
       <div className="mt-10 col">
         <LkSideBar />
       </div>
       <div className="col-8">
-        <h4>Мои невыполненные добрые дела</h4>
-        {tasks.length && tasks.map((el) => <TaskForm key={el.id} el={el} />)}
+        <h4>Мои подписанные таски</h4>
+        {tasks.length && tasks.filter((el) => el.podpisan_id === userSignIn.id)
+          .map((el) => <TaskForm key={el.id} el={el} />)}
+      </div>
+      <div className="col-8">
+        <h4>Мои созданные таски</h4>
+        {tasks.length && tasks.filter((el) => el.creator_id === userSignIn.id)
+          .map((el) => <TaskForm key={el.id} el={el} />)}
       </div>
     </Row>
   );
