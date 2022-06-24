@@ -29,9 +29,9 @@ export default function MainPageCard({ el }) {
         <div className="col-2">
           <div className="col-2 d-flex align-items-center justify-content-center" style={{ marginLeft: '50px', marginTop: '15px' }}>
             <Link to="/account/task">
-              <img src={chooseBtn} alt="done" height={40} className="done" />
-              <img src={message} alt="message" height={40} className="message" style={{ marginTop: '30px' }} />
-              <img src={deleteBtn} alt="message" height={40} className="message" style={{ marginTop: '30px' }} />
+              <img src={chooseBtn} alt="done" height={40} className="icon" />
+              <img src={message} alt="message" height={40} className="icon" style={{ marginTop: '30px' }} />
+              <img src={deleteBtn} alt="message" height={40} className="icon" style={{ marginTop: '30px' }} />
             </Link>
             {/* <Link to="/account/chats" /> */}
           </div>

@@ -28,6 +28,7 @@ export default function ChatIdPage() {
   const [messanger_id, changeMessengerId] = useState(Number(id));
 
   const [input, setInput] = useState({ user_id, messanger_id });
+  console.log('input', input);
 
   // useEffect(() => {
   //   if (ws.readyState === 1) {
