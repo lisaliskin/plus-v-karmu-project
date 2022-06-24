@@ -22,6 +22,9 @@ module.exports = {
       phone: {
         type: Sequelize.STRING,
       },
+      points: {
+        type: Sequelize.INTEGER,
+      },
       role: {
         type: Sequelize.STRING,
         defaultValue: 'USER',

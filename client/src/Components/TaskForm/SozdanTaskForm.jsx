@@ -3,25 +3,17 @@ import { Link } from "react-router-dom";
 import { Row } from 'reactstrap';
 import { useDispatch, useSelector } from "react-redux";
 import message from '../../icons/envelope.png';
-import doneBtn from '../../icons/done.png';
-import done2Btn from '../../icons/done2.png';
+import chooseBtn from '../../icons/unCheck.png';
 import deleteBtn from '../../icons/delete.png';
-import { deleteSubTask, updateStatusTaskAction } from "../../Redux/Actions/tasksAction";
-import { getAllUsers } from "../../Redux/Actions/logUserAction";
+import { deleteSubTask, deleteTask } from "../../Redux/Actions/tasksAction";
 
-export default function taskForm1({ el }) {
-  const { userSignIn, tasks } = useSelector((state) => state);
+export default function SozdanTaskForm({ el }) {
+  const { userSignIn } = useSelector((state) => state);
 
   const dispatch = useDispatch();
 
-  const updateStatusTaskHandler = () => {
-    dispatch(updateStatusTaskAction({ el, userSignIn }));
-    dispatch(getAllUsers());
-    dispatch();
-  };
-
-  const delSubHandler = () => {
-    dispatch(deleteSubTask({ el, userSignIn }));
+  const delTaskHandler = () => {
+    dispatch(deleteTask({ el, userSignIn }));
   };
   return (
     <div className="container overflow-hidden p-3 bg-light shadow">
@@ -46,11 +38,7 @@ export default function taskForm1({ el }) {
         <div className="col-2">
           <div className="col-2 d-flex align-items-center justify-content-center" style={{ marginLeft: '50px', marginTop: '15px' }}>
             <div>
-              {tasks.find((elem) => elem.id === el.id).status
-                ? <img role="presentation" onClick={updateStatusTaskHandler} src={done2Btn} alt="done" height={40} className="done" />
-                : <img role="presentation" onClick={updateStatusTaskHandler} src={doneBtn} alt="done" height={40} className="done" />}
-              <img role="presentation" src={message} alt="message" height={40} className="message" style={{ marginTop: '30px' }} />
-              <img role="presentation" onClick={delSubHandler} src={deleteBtn} alt="message" height={40} className="message" style={{ marginTop: '30px' }} />
+              <img role="presentation" onClick={delTaskHandler} src={deleteBtn} alt="message" height={40} className="message" style={{ marginTop: '30px' }} />
             </div>
             {/* <Link to="/account/chats" /> */}
           </div>

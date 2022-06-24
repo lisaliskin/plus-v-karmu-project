@@ -52,20 +52,23 @@ transform: translateX(-7px);
   text-align: center;
 }
 
-/* .containerExample {
-  margin-top: 50px;
-} */
-
-/* .card {
-  margin-top: 50px;
-} */
-
-/* .taskCard {
-  margin: 30px 100px;
-} */
-
 .list-unstyled {
   padding-left: 0;
   list-style: none;
 }
 
+.icon:hover {
+  opacity: .5;
+  transform: scale(1.2);
+  /* cursor: url('./icons8-cursor-64\ \(1\).png'), auto; */
+} 
+
+.btn:hover {
+  transform: scale(1.2);
+  pointer-events: all;
+  /* cursor: url('./icons8-cursor-64\ \(1\).png'), auto; */
+}
+
+/* div {
+  cursor: url('./icons8-cursor-64.png'), auto;
+} */
