@@ -11,6 +11,7 @@ import {
 } from 'reactstrap';
 import { getAllUsers } from '../../Redux/Actions/logUserAction';
 import taskModalAction from "../../Redux/Actions/taskModalAction";
+import ava from '../../icons/ava.jpeg';
 
 export default function LkSideBar() {
   const { userSignIn, allUsers } = useSelector((state) => state);
@@ -27,7 +28,7 @@ export default function LkSideBar() {
         <img
           className="avatar rounded-circle col-6"
           width="400px"
-          src="https://media.2x2tv.ru/content/images/size/h1080/2022/05/vfyu.jpg"
+          src={ava}
           alt="avatar"
         />
         <Card className="col-12 shadow" style={{ marginTop: '30px' }}>
