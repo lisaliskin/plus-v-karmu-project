@@ -77,7 +77,7 @@ export default function NavBar() {
                 <>
                   <Button
                     onClick={changeRegModal}
-                    className="registerBtn"
+                    className="btn"
                     style={{
                       marginRight: '50px',
                       color: "#FFEC51",
@@ -88,7 +88,7 @@ export default function NavBar() {
                   </Button>
                   <Button
                     onClick={changeLoginModal}
-                    className="loginBtn"
+                    className="btn"
                     style={{
                       marginRight: '50px',
                       color: "#FFEC51",
