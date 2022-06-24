@@ -1,18 +1,12 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
-import {
-  Button,
-  Card,
-  CardBody,
-  CardText,
-  CardTitle,
-  Row,
-} from 'reactstrap';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { Button, Card, CardBody, CardText, CardTitle, Row } from "reactstrap";
 import taskModalAction from "../../Redux/Actions/taskModalAction";
 
 export default function LkSideBar() {
   const dispatch = useDispatch();
+  const count = useSelector((state) => state.count);
   const changeTaskModal = () => {
     dispatch(taskModalAction(true));
   };
@@ -53,7 +47,7 @@ export default function LkSideBar() {
               />
             </div>
             <hr />
-            <Link to="/account/chats" style={{ marginRight: 'unset' }}>
+            <Link to="/account/chats" style={{ marginRight: "unset" }}>
               <Button
                 className="chatBtn"
                 style={{
@@ -61,8 +55,9 @@ export default function LkSideBar() {
                   backgroundColor: "#7776BC",
                 }}
               >
-                Сообщения
+                Сообщения<span class="badge badge-danger" style={{backgroundColor: 'red'}}>{ count ? <div>{`+ ${count}`}</div> : null}</span>
               </Button>
+              {/* { count !== 0 ? <div>{`+ ${count}`}</div> } */}
             </Link>
             <hr />
             {/* <Link style={{ marginRight: 'unset' }}> */}

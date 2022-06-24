@@ -2,8 +2,8 @@
 import React, { createContext, useContext, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllChats } from "../../Redux/Actions/chatAction";
-import { SET_MESSAGE } from "../../Redux/types/modalstype";
-import { ADD_ALL_CHATS } from "../../Redux/types/types";
+import { addCount } from "../../Redux/Actions/countAction";
+
 
 const WsContext = createContext();
 
@@ -16,18 +16,15 @@ function Context({ children }) {
     // const {type, payload} = JSON.parse(event.data);
     const { type, payload } = JSON.parse(event.data);
 
-    console.log("-------> Отправлено всем kek", type);
-    console.log("-------> Отправлено всем kek", userSignIn.id);
     switch (type) {
       case "SET_MESSAGE":
-        console.log("switch zashel set message");
         dispatch(getAllChats(userSignIn));
-        console.log(userSignIn.id);
 
-        break;
+      case "ADD_COUNT":
+        console.log('Зашел ADD_COUNT')
+        dispatch(addCount(1))
       default:
-        console.log("ZAchel v break");
-      // return state;
+        console.log("ZAchel v default");
     }
   };
   return <WsContext.Provider value={{ ws }}>{children}</WsContext.Provider>;

@@ -10,6 +10,7 @@ import chatReduser from './Reducers/chatReduser';
 import tasksReducer from './Reducers/tasksReduser';
 import categoriesReducer from './Reducers/categoriesReduser';
 import subCatReducer from './Reducers/subCatReducer';
+import countReducer from './Reducers/countReducer';
 
 export const store = configureStore({
   reducer: {
@@ -24,6 +25,7 @@ export const store = configureStore({
     chats: chatReduser,
     categories: categoriesReducer,
     subCat: subCatReducer,
+    count: countReducer,
   },
 });
 export default store;
