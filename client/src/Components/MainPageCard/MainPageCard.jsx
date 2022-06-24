@@ -57,26 +57,11 @@ export default function MainPageCard({ el }) {
         <div className="col-2">
           <Row className="d-flex align-items-center justify-content-center">
             <div>
-              <img
-                role="presentation"
-                src={doBtn}
-                alt="done"
-                onClick={subscribeHandler}
-                height={40}
-                className="done"
-              />
+              <img role="presentation" src={doBtn} alt="done" onClick={subscribeHandler} height={40} id="icon" />
             </div>
-            <a
-              to={`/account/chats/chat/${currentChat}`}
-              onClick={messageHandler}
-            >
-              <img
-                src={message}
-                alt="message"
-                height={40}
-                className="message"
-              />
-            </a>
+            <Link to="/account/chats">
+              <img src={message} alt="message" height={40} id="icon" />
+            </Link>
           </Row>
         </div>
       </div>
