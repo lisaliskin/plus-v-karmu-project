@@ -26,3 +26,18 @@ export const doSubTask = (value) => async (dispatch) => {
   const response = await axios.post('/tasks/subTask', value);
   dispatch(getAllTasksAction(response.data));
 };
+
+export const deleteSubTask = (value) => async (dispatch) => {
+  const response = await axios.post('/tasks/delSubTask', value);
+  dispatch(getAllTasksAction(response.data));
+};
+
+export const deleteTask = (value) => async (dispatch) => {
+  const response = await axios.post('/tasks/delTask', value);
+  dispatch(getAllTasksAction(response.data));
+};
+
+export const updateStatusTaskAction = (value) => async (dispatch) => {
+  const response = await axios.post('/tasks/updateStatusTask', value);
+  dispatch(getAllTasksAction(response.data));
+};

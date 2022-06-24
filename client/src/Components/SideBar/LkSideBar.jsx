@@ -1,5 +1,5 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
   Button,
@@ -9,29 +9,36 @@ import {
   CardTitle,
   Row,
 } from 'reactstrap';
+import { getAllUsers } from '../../Redux/Actions/logUserAction';
 import taskModalAction from "../../Redux/Actions/taskModalAction";
 
 export default function LkSideBar() {
+  const { userSignIn, allUsers } = useSelector((state) => state);
   const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(getAllUsers());
+  // }, []);
   const changeTaskModal = () => {
     dispatch(taskModalAction(true));
   };
   return (
     <Row>
-      <div className="mt-10 col">
+      <div className="col" style={{ marginTop: '50px' }}>
         <img
           className="avatar rounded-circle col-6"
           width="400px"
           src="https://media.2x2tv.ru/content/images/size/h1080/2022/05/vfyu.jpg"
           alt="avatar"
         />
-        <Card className="mt-10 col-12 shadow">
+        <Card className="col-12 shadow" style={{ marginTop: '30px' }}>
           <CardBody width="300px">
-            <CardTitle tag="h5">Имя: Nanaue</CardTitle>
-            <CardTitle tag="h5">Телефон: +7(999)992-39-92</CardTitle>
+            <CardTitle tag="h5">{`Имя: ${userSignIn.name}`}</CardTitle>
+            <CardTitle tag="h5">{`Телефон: ${userSignIn.phone}`}</CardTitle>
             <hr />
             <CardTitle className="text-muted" tag="h6">
-              Количество выполненных дел: 17
+              {`Текущая карма: ${allUsers.length && allUsers.find((elem) => elem.id === userSignIn.id).points}`}
+              {/* {`Текущая карма: ${userSignIn.points}`} */}
+
             </CardTitle>
             <hr />
             <CardText tag="h5">Достижения</CardText>

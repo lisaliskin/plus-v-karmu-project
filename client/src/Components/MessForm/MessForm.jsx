@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from 'reactstrap';
+import chooseBtn from '../../icons/unCheck.png';
 
-export default function MessForm() {
-  const chooseBtn = 'icons/check-mark.png';
+export default function MessForm({ el }) {
   return (
     <div className="container overflow-hidden p-3 bg-light shadow">
       <div className="row gx-5">
@@ -16,11 +17,19 @@ export default function MessForm() {
           </div>
         </div>
         <div className="col-8 d-flex align-items-center justify-content-center">
-          <p>Здесь должно быть сообщение</p>
+          <p>{el.messages[el.messages.length - 1].text}</p>
         </div>
         <div className="col-2 d-flex align-items-center justify-content-center">
-          <Link to="/account/chats/chat/1" style={{ marginRight: 'unset' }}>
-            <img src={chooseBtn} alt="done" height={40} className="done" />
+          <Link to={`/account/chats/chat/${el.id}`} style={{ marginRight: 'unset' }}>
+            <Button
+              style={{
+                color: "#FFEC51",
+                backgroundColor: "#7776BC",
+                marginRight: '30px',
+              }}
+            >
+              Перейти
+            </Button>
           </Link>
         </div>
       </div>

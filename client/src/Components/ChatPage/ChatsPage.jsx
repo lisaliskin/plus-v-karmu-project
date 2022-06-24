@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Row } from "reactstrap";
 import LkSideBar from "../SideBar/LkSideBar";
 import MessForm from "../MessForm/MessForm";
+import ChatIdPage from "../ChatIdPage/ChatIdPage";
 
-export default function ChatsPage() {
+export default function ChatPage() {
   const dispatch = useDispatch();
   const { chats } = useSelector((state) => state);
   return (
@@ -13,9 +14,7 @@ export default function ChatsPage() {
         <LkSideBar />
       </div>
       <div className="col-8">
-        {chats.map((el) => (
-          <MessForm key={el.id} el={el} />
-        ))}
+        <ChatIdPage />
       </div>
     </Row>
   );

@@ -7,11 +7,11 @@ const FileStore = require('session-file-store')(session);
 const http = require('http');
 
 const {
-  v4: uuidv4,
+  v4: uuidv4
 } = require('uuid');
 
 const {
-  WebSocketServer,
+  WebSocketServer
 } = require('ws');
 
 const map = new Map();
@@ -26,12 +26,17 @@ const taskRouter = require('./routes/tasks.router');
 const catRouter = require('./routes/categories.router');
 const subCatRouter = require('./routes/subCat.router');
 
+// ws Функции
+const {
+  addMesageWS
+} = require('./wsFunctions/messageFunc');
+
 const app = express();
 
 const {
   PORT,
   COOKIE_SECRET,
-  COOKIE_NAME,
+  COOKIE_NAME
 } = process.env;
 console.log(COOKIE_SECRET);
 // SERVER'S SETTINGS
@@ -45,9 +50,11 @@ app.use(
     credentials: true,
   }),
 );
-app.use(express.urlencoded({
-  extended: true,
-}));
+app.use(
+  express.urlencoded({
+    extended: true,
+  }),
+);
 app.use(express.json());
 
 const sessionParser = session({
@@ -115,15 +122,24 @@ wss.on('connection', (ws, request) => {
   ws.on('message', (message) => {
     const {
       type,
-      payload,
+      payload
     } = JSON.parse(message);
-    console.log('message in ws.on --->>', payload);
+    console.log('message in ws.on --->>', type, payload);
+
     switch (type) {
       case 'SET_MESSAGE':
-        for (const [userid, clientWs] of map) {
-          clientWs.send(JSON.stringify(payload.text));
-          console.log('Отправлено всем', payload.text);
+        async function setMessage(payload) {
+          await addMesageWS(payload);
+          console.log('создание сообщения в WS исполнено');
+          for (const [userid, clientWs] of map) {
+            clientWs.send(JSON.stringify({
+              type,
+              payload
+            }));
+            console.log('Отправлено всем lol', payload.text);
+          }
         }
+        setMessage(payload);
         break;
       default:
         console.log('Вышел');

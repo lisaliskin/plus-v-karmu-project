@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import TaskForm from "../TaskForm/TaskForm";
 import LkSideBar from "../SideBar/LkSideBar";
 import { getAllTasksAction } from "../../Redux/Actions/tasksGet";
+import SozdanTaskForm from "../TaskForm/SozdanTaskForm";
+import { getAllUsers } from "../../Redux/Actions/logUserAction";
 // import { getAllTasksAction } from "../../Redux/Actions/tasksAction";
 
 export default function AccountPage() {
@@ -11,12 +13,15 @@ export default function AccountPage() {
     tasks, taskModal, chosenSubCat, userSignIn,
   } = useSelector((state) => state);
   const dispatch = useDispatch();
+
   useEffect(() => {
+    console.log('------------');
     dispatch(getAllTasksAction());
-    // if (!tasks.length) {
-    //   console.log(tasks)
-    // }
   }, [taskModal]);
+
+  useEffect(() => {
+    dispatch(getAllUsers());
+  }, []);
   // const mySubTasks = tasks.filter((el) => el.podpisan_id === userSignIn.id);
   // const myTasks = tasks.filter((el) => el.creator_id === userSignIn.id);
   return (
@@ -32,7 +37,7 @@ export default function AccountPage() {
       <div className="col-8">
         <h4>Мои созданные таски</h4>
         {tasks.length && tasks.filter((el) => el.creator_id === userSignIn.id)
-          .map((el) => <TaskForm key={el.id} el={el} />)}
+          .map((el) => <SozdanTaskForm key={el.id} el={el} />)}
       </div>
     </Row>
   );

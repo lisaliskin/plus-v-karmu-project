@@ -1,10 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import {
   Button, Card, CardBody, CardText, Container, Row,
 } from 'reactstrap';
 
-export default function ChatForm() {
+export default function ChatForm({el}) {
+  // console.log('---->POSL SOOB', el.messages[el.messages.length - 1].text);
   return (
     <Container>
       <Row>
@@ -17,10 +18,9 @@ export default function ChatForm() {
           />
           <CardBody>
             <CardText>
-              Some quick example text to build on the card title and make up the
-              bulk of the cards content.
+            {el.messages[el.messages.length - 1].text}
             </CardText>
-            <Link to="chat/:id">
+            <Link to={`chat/${el.id}`}>
               <Button>open</Button>
             </Link>
           </CardBody>

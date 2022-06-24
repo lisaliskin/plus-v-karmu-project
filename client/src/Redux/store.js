@@ -11,6 +11,7 @@ import tasksReducer from './Reducers/tasksReduser';
 import categoriesReducer from './Reducers/categoriesReduser';
 import subCatReducer from './Reducers/subCatReducer';
 import chosenReducer from './Reducers/chosenReducer';
+import userReducer from './Reducers/userReducer';
 
 export const store = configureStore({
   reducer: {
@@ -26,6 +27,7 @@ export const store = configureStore({
     categories: categoriesReducer,
     subCat: subCatReducer,
     chosenSubCat: chosenReducer,
+    allUsers: userReducer,
   },
 });
 export default store;

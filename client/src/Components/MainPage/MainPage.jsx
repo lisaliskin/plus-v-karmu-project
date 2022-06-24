@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -41,7 +42,8 @@ export default function MainPage() {
             <CardGroup>
               {chosenSubCat.id
                 ? (tasks.filter((el) => el.subcategory_id === chosenSubCat.id).length
-                  ? (tasks.filter((el) => el.subcategory_id === chosenSubCat.id).map((el) => <MainPageCard key={el.id} el={el} />))
+                  ? (tasks.filter((el) => el.subcategory_id === chosenSubCat.id)
+                    .map((el) => <MainPageCard key={el.id} el={el} />))
                   : <div>Пока нет вариантов по данной категории</div>)
                 : (tasks.length && tasks
                   .map((el) => <MainPageCard key={el.id} el={el} />))}

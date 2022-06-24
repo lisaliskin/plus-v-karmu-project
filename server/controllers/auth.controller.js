@@ -63,11 +63,15 @@ const signIn = async (req, res) => {
         req.session.user = {
           id: currentUser.id,
           name: currentUser.name,
+          phone: currentUser.phone,
+          points: currentUser.points,
         };
 
         return res.json({
           id: currentUser.id,
           name: currentUser.name,
+          phone: currentUser.phone,
+          points: currentUser.points,
         });
       }
       console.log('Зашел сюда в сайн ине');

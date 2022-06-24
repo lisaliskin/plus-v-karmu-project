@@ -2,13 +2,13 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {
-  Button, Card, CardBody, CardGroup, CardImg, CardSubtitle, CardText, CardTitle, Row,
+  CardText, Row,
 } from 'reactstrap';
 import { doSubTask } from "../../Redux/Actions/tasksAction";
+import doBtn from '../../icons/unCheck.png';
+import message from '../../icons/envelope.png';
 
 export default function MainPageCard({ el }) {
-  const doBtn = 'icons/checkbox.png';
-  const message = "icons/envelope.png";
   const dispatch = useDispatch();
   const { userSignIn } = useSelector((state) => state);
   const subscribeHandler = () => {
@@ -30,7 +30,7 @@ export default function MainPageCard({ el }) {
           <Row className="d-flex align-items-center justify-content-center">
             <h4>{el.Subcategory.Category.name}</h4>
             {el.Subcategory.name}
-            {el.description}
+            <h3>{el.description}</h3>
             <CardText>{el.name}</CardText>
           </Row>
         </div>
@@ -39,7 +39,7 @@ export default function MainPageCard({ el }) {
             {/* <div className="d-flex align-items-center justify-content-center"> */}
             {/* <Link to="/account/task" style={{ marginRight: 'unset' }}> */}
             <div>
-              <img src={doBtn} alt="done" onClick={subscribeHandler} height={40} className="done" />
+              <img role="presentation" src={doBtn} alt="done" onClick={subscribeHandler} height={40} className="done" />
             </div>
             {/* </Link> */}
             <Link to="/account/chats">
